@@ -1,0 +1,553 @@
+1. A thread is also called ___________
+a) Light Weight Process(LWP) – ✅ 
+This is the right answer. Threads are often referred to as Light Weight Processes because they are smaller execution units within a process and share the same resources (like memory space), unlike traditional processes.
+b) Heavy Weight Process(HWP) – ❌ 
+HWP refers to traditional processes, not threads. Threads are lighter in resource consumption compared to full processes.
+c) Process – ❌ 
+A thread is a component of a process, not synonymous with the entire process.
+d) None of the mentioned – ❌ 
+Since option (a) is correct, this is wrong.
+
+2. A thread shares its resources (like data section, code section, open files, signals) with ___________
+a) other process similar to the one that the thread belongs to – ❌ 
+Threads do not share memory across different processes.
+b) other threads that belong to similar processes – ❌ 
+Again, threads in different processes do not share resources.
+c) other threads that belong to the same process – ✅  
+All threads within the same process share the same code, data, and files.
+d) all of the mentioned – ❌ 
+Only (c) is true, so this is incorrect.
+
+3. A heavy weight process ___________
+a) has multiple threads of execution – ❌  
+This would make it a multi-threaded process, not necessarily a heavyweight process.
+b) has a single thread of execution – ✅  
+A heavyweight process traditionally has a single thread of execution and operates independently with its own memory space.
+c) can have multiple or a single thread for execution – ❌ 
+This is too vague. The term "heavyweight" typically refers to single-threaded, fully isolated processes.
+d) none of the mentioned – ❌ 
+Option (b) is correct, so this is wrong.
+
+4. A process having multiple threads of control implies ___________
+a) it can do more than one task at a time – ✅  
+Multiple threads allow a process to perform multiple operations concurrently (e.g., background loading while UI remains responsive).
+b) it can do only one task at a time, but much faster – ❌ 
+This contradicts the very concept of multithreading.
+c) it has to use only one thread per process – ❌  
+Multithreaded processes can have many threads.
+d) none of the mentioned – ❌ 
+Since (a) is correct, this is incorrect.
+
+5. Multithreading an interactive program will increase responsiveness to the user by ___________
+a) continuing to run even if a part of it is blocked – ✅  
+This is a core advantage of multithreading. For example, the UI thread can remain responsive even if a background thread is waiting for I/O.
+b) waiting for one part to finish before the other begins – ❌ 
+That would be sequential execution, not multithreading.
+c) asking the user to decide the order of multithreading – ❌ 
+Users don’t decide thread scheduling.
+d) none of the mentioned – ❌ 
+Since (a) is correct, this is wrong.
+
+6. Resource sharing helps ___________
+a) share the memory and resources of the process to which the threads belong – ✅ Correct
+Threads of the same process share memory and resources like open files, which allows for efficient communication.
+b) an application have several different threads of activity all within the same address space – ✅ Correct
+This is also a correct statement about how multithreading works.
+c) reduce the address space that a process could potentially use – ❌ Incorrect
+Threads do not reduce the potential address space; they share the same address space.
+d) all of the mentioned – ✅ Correct
+Since both (a) and (b) are correct and (c) is commonly considered correct in terms of sharing, (d) is accepted.
+➡ Extra Note: While (c) could seem debatable, in multithreaded environments, resource usage is optimized, often reducing overall address space usage compared to separate processes.
+
+7. Multithreading on a multi–CPU machine ___________
+a) decreases concurrency – ❌ Incorrect
+It increases concurrency because threads can run in parallel on multiple CPUs.
+b) increases concurrency – ✅ Correct
+True. Multithreading can take advantage of multiple CPUs to execute multiple threads simultaneously.
+c) doesn’t affect the concurrency – ❌ Incorrect
+Multithreading has a significant effect on concurrency.
+d) can increase or decrease the concurrency – ❌ Incorrect
+It always increases or enables concurrency in a multi-CPU system.
+
+8. The kernel is _______ of user threads.
+a) a part of – ❌ Incorrect
+The kernel is not part of user threads; it's part of the OS.
+b) the creator of – ❌ Incorrect
+User threads are created by user-level thread libraries, not by the kernel.
+c) unaware of – ✅ Correct
+In many systems, especially with user-level threads, the kernel is unaware of the existence of these threads.
+d) aware of – ❌ Incorrect
+Only true for kernel-level threads, but the question is about user threads.
+
+9. If the kernel is single-threaded, then any user level thread performing a blocking system call will ___________
+a) cause the entire process to run along with the other threads – ❌ Incorrect
+The whole process can't run while a blocking call is active.
+b) cause the thread to block with the other threads running – ❌ Incorrect
+Not possible in a single-threaded kernel.
+c) cause the entire process to block even if the other threads are available to run – ✅ Correct
+In a single-threaded kernel, if one thread blocks, the whole process blocks.
+d) none of the mentioned – ❌ Incorrect
+Since (c) is correct, this is wrong.
+
+10. Because the kernel thread management is done by the Operating System itself ___________
+a) kernel threads are faster to create than user threads – ❌ Incorrect
+Creating kernel threads is slower due to OS involvement.
+b) kernel threads are slower to create than user threads – ✅ Correct
+True, kernel threads involve more overhead because the OS must allocate and manage kernel resources.
+c) kernel threads are easier to manage as well as create than user threads – ❌ Incorrect
+They are harder to manage compared to user threads.
+d) none of the mentioned – ❌ Incorrect
+Since (b) is correct.
+
+11. If a kernel thread performs a blocking system call, ____________
+a) the kernel can schedule another thread in the application for execution – ✅ Correct
+True. In kernel-level threading, the OS can switch to another thread of the same process.
+b) the kernel cannot schedule another thread in the same application for execution – ❌ Incorrect
+That is the case only in user-level threads.
+c) the kernel must schedule another thread of a different application for execution – ❌ Incorrect
+Not necessarily; it can continue with threads of the same application.
+d) the kernel must schedule another thread of the same application on a different processor – ❌ Incorrect
+This is not required; scheduling depends on the system.
+
+12. Which of the following is FALSE?
+a) Context switch time is longer for kernel level threads than for user level threads – ✅ Correct
+True statement, not false.
+b) User level threads do not need any hardware support – ✅ Correct
+True, user-level threading is independent of hardware.
+c) Related kernel level threads can be scheduled on different processors in a multiprocessor system – ✅ Correct
+True, this is an advantage of kernel threads.
+d) Blocking one kernel level thread blocks all other related threads – ❌ Incorrect (✅ This is False, hence the Correct Answer)
+This is false, and hence the correct answer to this question. Kernel-level threads are independently scheduled; blocking one does not block others.
+
+13. Which of the following works by dividing the processor’s time?
+a) single task operating system – ❌ Incorrect
+Single task OS runs only one task at a time, no division.
+b) multitask operating system – ✅ Correct
+Correct. A multitasking OS uses time-slicing to let multiple tasks run.
+c) kernel – ❌ Incorrect
+The kernel manages resources, but time-slicing is a strategy used by the OS.
+d) applications – ❌ Incorrect
+Applications don’t manage processor time division.
+
+14. Which of the following decides which task can have the next time slot?
+a) single task operating system – ❌ Incorrect
+No scheduling is needed in a single task OS.
+b) applications – ❌ Incorrect
+Applications do not schedule themselves.
+c) kernel – ✅ Correct
+The kernel contains the scheduler, which decides which task gets the next time slot.
+d) software – ❌ Incorrect
+Too vague. The kernel specifically does the scheduling.
+
+15. Which of the following controls the time slicing mechanism in a multitasking operating system?
+a) kernel – ✅ Correct
+The kernel (specifically, the scheduler in the kernel) controls the time-slicing and process switching.
+b) single tasking kernel – ❌ Incorrect
+Such a kernel doesn’t support time slicing because it handles only one task.
+c) multitasking kernel – ✅ Also Correct
+More specific. A multitasking kernel enables this, but option a is still broadly correct.
+d) application manager – ❌ Incorrect
+This manages app-level things, not the OS-level time-slicing.
+➡ Either (a) or (c) is acceptable depending on how options are framed. (c) is more precise.
+
+16. Which of the following provides a time period for the context switch?
+a) timer – ✅ Correct
+The OS uses a hardware timer to interrupt the CPU and perform a context switch after the time slice expires.
+b) counter – ❌ Incorrect
+A counter may count cycles but doesn’t directly initiate context switching.
+c) time slice – ❌ Incorrect
+This is the duration of time allocated, not the mechanism that enforces it.
+d) time machine – ❌ Incorrect
+Not relevant in OS; likely a distractor option.
+
+17. Which of the following can periodically trigger the context switch?
+a) software interrupt – ❌ Incorrect
+Though possible, context switches are commonly triggered by hardware interrupts.
+b) hardware interrupt – ✅ Correct
+A timer interrupt (hardware-based) is used to trigger context switching at regular intervals.
+c) peripheral – ❌ Incorrect
+Peripherals may raise interrupts, but not specifically for time slicing.
+d) memory – ❌ Incorrect
+Memory is not responsible for triggering context switches.
+
+18. The special table in the multitasking operating system is also known as
+a) task control block – ✅ Correct
+The TCB stores information about a process/thread like its state, registers, and priority.
+b) task access block – ❌ Incorrect
+This is not a valid OS term.
+c) task address block – ❌ Incorrect
+Not standard terminology.
+d) task allocating block – ❌ Incorrect
+Not an OS concept.
+
+19. Kernel design is the process of creating the central part of an operating system, known as?
+a) Network – ❌ Incorrect
+Network is a component, not the core of the OS.
+b) Kernal (sic) – ✅ Correct (despite typo)
+Should be "Kernel". It's the core part responsible for resource management, scheduling, etc.
+c) Input Output – ❌ Incorrect
+I/O is part of OS services, not its core.
+d) Memory – ❌ Incorrect
+Memory management is a role of the kernel, not the kernel itself.
+
+20. Kernel is responsible for managing?
+a) memory – ✅ Correct
+b) processes – ✅ Correct
+c) input/output operations – ✅ Correct
+d) All of the above – ✅ Correct Answer
+
+1. How many types of kernels are there?
+A. 1 – ❌ Incorrect
+There is more than one type of kernel.
+B. 2 – ❌ Incorrect
+Still not complete; two is not the total number.
+C. 3 – ❌ Incorrect
+Not accurate. Common kernel types are more than three.
+D. 4 – ✅ Correct
+The four main types of kernels are: Monolithic Kernel, Microkernel, Hybrid Kernel, and Exokernel.
+
+2. A _____________ is a single large program that contains all the system calls and device drivers.
+A. Microkernel kernel – ❌ Incorrect
+Microkernels are minimal and move most components to user space.
+B. Monolithic kernel – ✅ Correct
+A monolithic kernel has all services like file system, drivers, memory management in one large process.
+C. Hybrid kernel – ❌ Incorrect
+Hybrid kernels are a mix of monolithic and microkernel designs.
+D. None of the above – ❌ Incorrect
+(B) is correct.
+
+3. A Microkernel is a small kernel that provides only the essential services required for an operating system to function.
+A. TRUE – ✅ Correct
+This is the definition of a microkernel: it only includes core functions like IPC, scheduling, and memory.
+B. FALSE – ❌ Incorrect
+Incorrect; microkernels are intentionally minimal.
+C. Can be true or false – ❌ Incorrect
+It's definitively true.
+D. Can not say – ❌ Incorrect
+We can say it’s true.
+
+4. One of the first operating systems to feature a kernel was the _______ operating system
+A. Microsoft Windows – ❌ Incorrect
+Windows came later.
+B. Apple Macintosh – ❌ Incorrect
+Also came after UNIX.
+C. UNIX – ✅ Correct
+UNIX, developed in the 1970s, was among the first to use a kernel-based architecture.
+D. None of the above – ❌ Incorrect
+(C) is correct.
+
+5. Which are the algorithms implemented in kernel design?
+A. Memory management – ✅
+B. Process scheduling – ✅
+C. File systems – ✅
+D. All of the above – ✅ Correct
+All of these are part of kernel functions.
+
+6. Which algorithm is responsible for managing the execution of processes and determining which process should be executed next?
+A. Memory management – ❌ Incorrect
+It handles allocation and deallocation of memory.
+B. File systems – ❌ Incorrect
+Handles file storage and access.
+C. Security – ❌ Incorrect
+Manages permissions and authentication.
+D. Process scheduling – ✅ Correct
+This algorithm schedules which process runs next.
+
+7. Which algorithm is responsible for managing the power consumption of the system?
+A. Power management – ✅ Correct
+This is specifically for handling battery, CPU states, and power-saving features.
+B. File systems – ❌ Incorrect
+No relation to power.
+C. Memory management – ❌ Incorrect
+Deals with RAM, not power.
+D. Security – ❌ Incorrect
+Manages access control, not power usage.
+
+8. A Hybrid kernel is a combination of Monolithic and Microkernel.
+A. Yes – ✅ Correct
+A hybrid kernel combines features from both architectures.
+B. No – ❌ Incorrect
+Incorrect statement.
+C. Can be yes or no – ❌ Incorrect
+It's definitively yes.
+D. Can not say – ❌ Incorrect
+This is a well-defined concept.
+
+9. In the blocked state, ____
+(a) The process which is running is found – ❌ Incorrect
+Running processes are in the "Running" state.
+(b) The processes waiting for I/O are found – ✅ Correct
+Blocked state is for processes waiting for I/O or resources.
+(c) The processes waiting for the processor are found – ❌ Incorrect
+These are in the "Ready" state.
+(d) None of the above – ❌ Incorrect
+(b) is correct.
+
+10. In Unix, which system call creates the new process?
+(a) fork – ✅ Correct
+fork() creates a new process by duplicating the calling process.
+(b) create – ❌ Incorrect
+Not a valid Unix system call for process creation.
+(c) new – ❌ Incorrect
+No such system call.
+(d) First – ❌ Incorrect
+Not a system call.
+
+11. Kernel threads
+(a) cannot be supported and managed directly by the operating system – ❌ Incorrect
+The OS does manage kernel threads.
+(b) can be supported and managed directly by the operating system – ✅ Correct
+Kernel threads are managed by the OS scheduler.
+(c) are supported below the kernel and are managed without kernel support – ❌ Incorrect
+User threads are like that, not kernel threads.
+(d) None of the above – ❌ Incorrect
+(b) is correct.
+
+12. Process control block (PCB) contains which of the following:
+(a) List of open files – ✅
+(b) Process state – ✅
+(c) Process id – ✅
+(d) All of the mentioned – ✅ Correct
+The PCB stores all critical process information.
+
+13. Most operating systems (including UNIX, Linux, and Windows) identify processes according to a unique __________
+(a) process counter – ❌ Incorrect
+Not used to identify processes.
+(b) process state – ❌ Incorrect
+It describes the status, not the identity.
+(c) process number – ❌ Incorrect
+Not the standard terminology.
+(d) process identifier – ✅ Correct
+Known as PID (Process ID).
+
+14. Suppose that a process is in “Blocked” state waiting for some I/O service. When the service is completed, it goes to the :
+(a) Running state – ❌ Incorrect
+It cannot go to Running directly.
+(b) Ready state – ✅ Correct
+It moves to Ready, waiting to be scheduled.
+(c) Suspended state – ❌ Incorrect
+Not applicable here.
+(d) Terminated state – ❌ Incorrect
+It doesn’t end just because I/O is done.
+
+15. The entry of all the PCBs of the current processes is in :
+(a) Process Register – ❌ Incorrect
+Not a valid term.
+(b) Program Counter – ❌ Incorrect
+It holds instruction addresses.
+(c) Process Table – ✅ Correct
+The process table contains all active PCBs.
+(d) Process Unit – ❌ Incorrect
+Not a valid component.
+
+16. The list of processes waiting for a particular I/O device is called a________
+(a) device queue – ✅ Correct
+Each I/O device has a queue of processes waiting for it.
+(b) ready queue – ❌ Incorrect
+This is for processes waiting for CPU.
+(c) job queue – ❌ Incorrect
+Holds all submitted processes.
+(d) all of the mentioned – ❌ Incorrect
+Only (a) is correct.
+
+17. The number of processes completed per unit time is known as __________.
+(a) Output – ❌ Incorrect
+Too vague.
+(b) Throughput – ✅ Correct
+Throughput = number of completed processes per unit time.
+(c) Efficiency – ❌ Incorrect
+Refers to resource utilization, not process completion.
+(d) Capacity – ❌ Incorrect
+Not the right term here.
+
+18. The primary distinction between the short term scheduler and the long term scheduler is :
+(a) The length of their queues – ❌ Incorrect
+Not the core difference.
+(b) The type of processes they schedule – ❌ Incorrect
+Both schedule same types of processes at different times.
+(c) The frequency of their execution – ✅ Correct
+Short-term executes very frequently, long-term rarely.
+(d) None of these – ❌ Incorrect
+(c) is correct.
+
+19. The Process Control Block is :
+(a) Process type variable – ❌ Incorrect
+Not a variable.
+(b) Data Structure – ✅ Correct
+PCB is a data structure used by OS to manage processes.
+(c) A secondary storage section – ❌ Incorrect
+It resides in main memory.
+(d) A block in memory – ❌ Incorrect
+Not accurate; it’s a data structure, though stored in memory.
+
+20. The processes that are residing in main memory and are ready and waiting to execute are kept on a list called the ______
+(a) device queue – ❌ Incorrect
+For I/O waiting.
+(b) ready queue – ✅ Correct
+This queue holds all ready-to-run processes.
+(c) job queue – ❌ Incorrect
+Holds all submitted jobs, not just ready ones.
+(d) All of the mentioned – ❌ Incorrect
+Only (b) is correct.
+
+1. The ready queue is generally stored as a______
+(a) Array – ❌ Incorrect
+Arrays are not dynamic and resizing is expensive.
+(b) Stack – ❌ Incorrect
+Stack is LIFO; not suitable for process scheduling.
+(c) Linked List – ✅ Correct
+A linked list allows dynamic memory and easy insert/delete from any position.
+(d) None of above – ❌ Incorrect
+(c) is the correct structure.
+
+2. The state of a process is defined by :
+(a) The final activity of the process – ❌ Incorrect
+The final activity isn’t what defines a state.
+(b) The activity just executed by the process – ❌ Incorrect
+Past activity doesn't define current state.
+(c) The activity to next be executed by the process – ❌ Incorrect
+That's related to scheduling, not state.
+(d) The current activity of the process – ✅ Correct
+A process’s state reflects what it is currently doing (e.g., running, waiting, etc.)
+
+3. The systems which allow only one process execution at a time, are called __________
+(a) uniprogramming systems – ✅ Correct
+These allow only one process in main memory, executing at a time.
+(b) uniprocessing systems – ❌ Incorrect
+Uniprocessing refers to one CPU, not about process concurrency.
+(c) unitasking systems – ❌ Incorrect
+Not a standard OS term.
+(d) None of the mentioned – ❌ Incorrect
+(a) is correct.
+
+4. Thread shares with other threads belonging to the same process its
+(a) thread id – ❌ Incorrect
+Each thread has its own ID.
+(b) program Counter – ❌ Incorrect
+Each thread has its own PC.
+(c) register set and stack – ❌ Incorrect
+Each thread maintains its own registers and stack.
+(d) code section and data section – ✅ Correct
+Threads of the same process share code, data, and open files.
+
+5. User threads _____
+(a) are supported above the kernel and are managed without kernel support – ✅ Correct
+User threads are handled entirely in user space; kernel isn’t aware of them.
+(b) are supported below the kernel and are managed without kernel support – ❌ Incorrect
+No such concept exists; threads can't be "below" kernel.
+(c) are supported above the kernel and are managed with kernel support – ❌ Incorrect
+If kernel is managing, they’re kernel threads.
+(d) are supported below the kernel and are managed with kernel support – ❌ Incorrect
+
+6. What is a long-term scheduler?
+(a) It selects which process has to be brought into the ready queue – ✅ Correct
+Long-term scheduler (job scheduler) controls the degree of multiprogramming.
+(b) It selects which process has to be executed next and allocates CPU – ❌ Incorrect
+That’s short-term scheduler.
+(c) It selects which process to remove from memory by swapping – ❌ Incorrect
+That’s medium-term scheduler.
+(d) None of these – ❌ Incorrect
+
+7. What is a medium-term scheduler?
+(a) It selects which process has to be brought into the ready queue – ❌ Incorrect
+That’s long-term scheduler.
+(b) It selects which process has to be executed next and allocates CPU – ❌ Incorrect
+That’s short-term scheduler.
+(c) It selects which process to remove from memory by swapping – ✅ Correct
+Medium-term scheduler handles swapping (suspending/resuming).
+(d) None of these – ❌ Incorrect
+
+8. What is a short-term scheduler?
+(a) It selects which process has to be brought into the ready queue – ❌ Incorrect
+That’s the role of the long-term scheduler.
+(b) It selects which process has to be executed next and allocates CPU – ✅ Correct
+The short-term (CPU) scheduler runs frequently and picks the next process to execute.
+(c) It selects which process to remove from memory by swapping – ❌ Incorrect
+That’s medium-term.
+(d) None of these – ❌ Incorrect
+
+9. What is the ready state of a process?
+(a) When process is scheduled to run after some execution – ❌ Incorrect
+(b) When process is unable to run until some task has been completed – ❌ Incorrect
+That’s the blocked state.
+(c) When process is using the CPU – ❌ Incorrect
+That’s the running state.
+(d) None of the mentioned – ✅ Correct
+The correct description is missing. Ready state means the process is in main memory and ready to execute, but not currently running.
+
+10. When the process issues an I/O request:
+(a) It is placed in an I/O queue – ✅ Correct
+Waiting for I/O places process in a device-specific queue.
+(b) It is placed in a waiting queue – ❌ Incorrect
+This is generic; I/O queue is more precise.
+(c) It is placed in the ready queue – ❌ Incorrect
+Ready queue is for processes waiting for CPU.
+(d) It is placed in the Job queue – ❌ Incorrect
+Job queue contains all submitted jobs.
+
+11. Which of the following is not the state of a process?
+(a) Blocked – ✅
+(b) Old – ✅ ❌ Incorrect
+Correct Answer: (b) Old – ❌ Not a valid state.
+(c) Ready – ✅
+(d) Running – ✅
+
+12. Which multithreading model has the drawback that creating a user thread requires creating the corresponding kernel thread?
+(a) One to One – ✅ Correct
+Each user thread maps to one kernel thread; this increases overhead.
+(b) One to Many – ❌ Incorrect
+One kernel thread manages multiple user threads.
+(c) Many to One – ❌ Incorrect
+Many user threads mapped to one kernel thread.
+(d) Many to Many – ❌ Incorrect
+Many user threads are multiplexed onto many kernel threads.
+
+13. Which multithreading model maps many user-level threads to one kernel thread?
+(a) One to One – ❌ Incorrect
+Maps one user thread to one kernel thread.
+(b) One to Many – ❌ Incorrect
+Invalid model name.
+(c) Many to One – ✅ Correct
+All user threads mapped to a single kernel thread. No true concurrency.
+(d) Many to Many – ❌ Incorrect
+
+14. Which multithreading model multiplexes many user-level threads to a smaller or equal number of kernel threads?
+(a) One to One – ❌ Incorrect
+(b) One to Many – ❌ Incorrect
+(c) Many to One – ❌ Incorrect
+(d) Many to Many – ✅ Correct
+This model supports high concurrency and is efficient.
+
+15. Which of the following state transitions is not possible?
+(a) Blocked to running – ✅ Correct
+A process must go from Blocked → Ready → Running; direct Blocked → Running is not allowed.
+(b) Ready to running – ❌ Incorrect
+This transition happens when CPU is allocated.
+(c) Blocked to ready – ❌ Incorrect
+Happens when I/O completes.
+(d) Running to blocked – ❌ Incorrect
+Happens when process requests I/O.
+
+16. Which state of a process defines "Instructions are being executed"?
+(a) New – ❌ Incorrect
+Process is just created.
+(b) Ready – ❌ Incorrect
+Ready to run, not executing.
+(c) Running – ✅ Correct
+The CPU is executing the process.
+(d) Blocked – ❌ Incorrect
+Waiting for some event (I/O, etc.)
+
+17. Which state of a process defines "The process has finished execution"?
+(a) Exit – ✅ Correct
+Also called terminated state.
+(b) Ready – ❌ Incorrect
+(c) Running – ❌ Incorrect
+(d) Blocked – ❌ Incorrect
+
+18. Which state of a process defines "The process is being created"?
+(a) New – ✅ Correct
+This is the initial state before entering ready queue.
+(b) Ready – ❌ Incorrect
+(c) Running – ❌ Incorrect
+(d) Blocked – ❌ Incorrect
