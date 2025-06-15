@@ -1,0 +1,511 @@
+1. Which of the following is a batch operating system?
+a) Time-sharing operating system ❌
+This allows multiple users to interact with the system simultaneously (interactive use), not batch processing.
+b) Real-time operating system ❌
+Used for systems with strict timing constraints, not batch jobs.
+c) Embedded operating system ❌
+Designed for dedicated devices, not batch processing.
+d) Network operating system ❌
+Manages network resources; again, not batch-focused.
+👉 Explanation: Batch OS is designed to execute batches of jobs without manual intervention. Early systems like IBM's early mainframes used this. Since it's not listed, none is correct from the list.
+
+2. What is a real-time operating system (RTOS)?
+a) ❌ Multi-user systems describe time-sharing OS, not RTOS.
+b) ❌ Execution in order based on user requests applies more to batch or interactive systems.
+c) ✅ Correct — RTOS has to respond within defined time limits (used in embedded, safety-critical systems).
+d) ❌ Embedded systems may run RTOS, but not all embedded OS are real-time.
+
+3. Which of the following is an example of a time-sharing operating system?
+a) Windows 10 ✅
+Supports multiple users and tasks concurrently (time-sharing).
+b) Linux ✅
+A classic multi-user, multitasking system.
+c) Android ✅
+Though used on mobiles, it schedules multiple tasks and users in a time-sharing manner.
+d) All of the above ✅
+Correct, as all support time-sharing.
+
+4. What is the primary purpose of a distributed operating system?
+a) ❌ Describes traditional OS.
+b) ✅ Correct — Distributed OS manages multiple machines and appears as a single system to users.
+c) ❌ This is a function of any OS, not unique to distributed systems.
+d) ❌ Speed isn’t the primary goal; resource distribution and transparency are.
+
+5. Which of the following is NOT a type of operating system?
+a) ✅ Batch OS is valid.
+b) ✅ Real-time OS is valid.
+c) ✅ Network OS is valid.
+d) ❌ Correct — Database is a type of application/software, not an OS type.
+
+6. What is an embedded operating system?
+a) ❌ Describes general-purpose OS like Windows/Linux.
+b) ✅ Correct — Embedded OS are lightweight, purpose-specific (e.g., in microwave ovens, routers).
+c) ❌ Network environment OS is for managing servers and clients.
+d) ❌ Mobile OS are a separate category (though embedded-like).
+
+7. Which of the following is an example of a mobile operating system?
+a) ❌ Windows (refers to PC OS unless specified as Windows Phone).
+b) ❌ Linux is base for Android but not a mobile OS itself.
+c) ✅ Correct — Android is specifically for mobile devices.
+d) ❌ macOS is desktop/laptop OS.
+
+8. What is the main advantage of a network operating system?
+a) ❌ Not specific to network OS.
+b) ❌ Describes standalone OS.
+c) ✅ Correct — Network OS allows sharing printers, files, etc.
+d) ❌ Speed isn't the main benefit.
+
+9. What is a kernel?
+a) ❌ User interface (UI) is different (GUI, CLI).
+b) ✅ Correct — Kernel controls CPU, memory, devices.
+c) ❌ Kernel is not an application but part of system software.
+d) ❌ It's not hardware.
+
+10. Which of the following is NOT a function of an operating system?
+a) ✅ Resource management is a core OS job.
+b) ✅ Memory management is crucial (allocating RAM).
+c) ✅ File management is a key OS task.
+d) ❌ Correct — Installing hardware is generally done via BIOS/firmware or manually, not a core OS responsibility.
+
+1. What is an operating system?
+An operating system (OS) is responsible for managing hardware and software resources and acts as an intermediary between users and the computer hardware.
+a) interface between the hardware and application programs
+✔ Correct but partial. The OS does provide an interface between hardware and applications.
+b) collection of programs that manages hardware resources
+✔ Correct – the OS handles CPU, memory, I/O devices, etc.
+c) system service provider to the application programs
+✔ Correct – OS offers APIs and system calls for apps to request services.
+d) all of the mentioned
+✔ Most comprehensive – includes all the roles above.
+
+2. What is the main function of the command interpreter?
+The command interpreter (e.g., shell in Unix) reads user commands and executes them.
+a) to provide the interface between the API and application program
+❌ This is the role of system libraries, not the shell.
+b) to handle the files in the operating system
+❌ File handling is done by file system utilities or OS services, not the shell itself.
+c) to get and execute the next user-specified command
+✔ Correct – this is exactly the shell’s job.
+d) none of the mentioned
+❌ Incorrect – option (c) is valid.
+
+3. Which one of the following is not true?
+Modern kernels like Linux support loadable kernel modules.
+a) kernel remains in the memory during the entire computer session
+✔ True – it must stay resident to manage core functions.
+b) kernel is made of various modules which cannot be loaded in running OS
+❌ False – kernels can dynamically load modules (e.g., device drivers).
+c) kernel is the first part of the operating system to load into memory during booting
+✔ True – it’s required to initialize everything else.
+d) kernel is the program that constitutes the central core of the operating system
+✔ True – this is a definition of the kernel.
+
+4. Which one of the following errors will be handled by the operating system?
+The OS includes error handling mechanisms for various hardware and software failures.
+a) lack of paper in printer
+✔ The OS communicates such hardware status to the user or app.
+b) connection failure in the network
+✔ OS manages network interfaces and detects failures.
+c) power failure
+✔ The OS may log a power failure and initiate safe shutdown if supported by hardware.
+d) all of the mentioned
+✔ Correct – OS handles all these.
+
+5. Where is the operating system placed in the memory?
+Placement depends on system architecture.
+a) either low or high memory (depending on the location of interrupt vector)
+✔ Correct – modern systems often reserve high memory for the kernel; embedded systems may use low memory.
+b) in the low memory
+❌ Not always – true only for certain architectures.
+c) in the high memory
+❌ Also not always – both high and low memory are possible.
+d) none of the mentioned
+❌ Incorrect – (a) is valid.
+
+6. Which one of the following is not a real-time operating system?
+a) RTLinux
+✔ It’s a real-time extension of Linux.
+b) Palm OS
+❌ Not a real-time OS – it’s designed for PDA/mobile devices with general scheduling.
+c) QNX
+✔ Real-time, used in embedded systems.
+d) VxWorks
+✔ Real-time OS widely used in aerospace and robotics.
+
+7. In operating system, each process has its own __________
+a) open files
+✔ Each process has its own file descriptor table.
+b) pending alarms, signals, and signal handlers
+✔ These are process-specific.
+c) address space and global variables
+✔ Every process has its private memory and global variables.
+d) all of the mentioned
+✔ Correct – all the options are part of the process context.
+
+8. In a time-sharing OS, when the time slot assigned to a process is completed, the process switches to?
+a) Suspended state
+❌ This occurs when the process is paused manually or swapped.
+b) Terminated state
+❌ Process only terminates after completion or error.
+c) Ready state
+✔ Correct – the process goes back to ready queue for future CPU allocation.
+d) Blocked state
+❌ Only if the process is waiting for I/O, not time expiry.
+
+9. The operating system is responsible for?
+a) bad-block recovery
+✔ OS tracks bad sectors and avoids them.
+b) booting from disk
+✔ Boot process is controlled by the OS loader.
+c) disk initialization
+✔ OS tools can format or initialize disks.
+d) all of the mentioned
+✔ All are valid OS functions.
+
+10. In real-time operating systems ____________
+a) process scheduling can be done only once
+❌ Processes are scheduled repeatedly based on deadlines.
+b) all processes have the same priority
+❌ Priorities are crucial and vary in RTOS.
+c) kernel is not required
+❌ Kernel is essential to manage tasks and timing.
+d) a task must be serviced by its deadline period
+✔ This defines a real-time system.
+
+11. Hard real-time operating system has ______________ jitter than a soft real-time operating system.
+Jitter refers to the variability in response time.
+Hard real-time systems are designed to meet strict timing constraints consistently with minimal variation.
+a) equal
+❌ Incorrect – hard real-time systems aim for tighter timing, so jitter is not equal.
+b) more
+❌ Incorrect – soft RTOS can tolerate more jitter; hard RTOS must have less.
+c) less
+✔ Correct – this defines the difference between hard and soft RTOS.
+d) none of the mentioned
+❌ Incorrect – (c) is the valid explanation.
+
+12. For real-time operating systems, interrupt latency should be ____________
+Interrupt latency is the time between an interrupt request and the start of the corresponding service routine.
+In real-time systems, minimal latency is crucial to ensure responsiveness.
+a) zero
+❌ Unrealistic – zero latency isn't possible due to physical and software limitations.
+b) minimal
+✔ Correct – latency must be as low as possible.
+c) maximum
+❌ Opposite of the real-time requirement.
+d) dependent on the scheduling
+❌ While scheduling affects latency, the goal is always minimal latency.
+
+13. Which one of the following is a real-time operating system?
+Windows CE – lightweight RTOS used in embedded systems.
+RTLinux – real-time extension of Linux.
+VxWorks – widely used hard real-time OS.
+Option analysis:
+a), b), c) – each is a valid RTOS.
+d) All of the mentioned
+✔ Correct – includes all listed RTOS types.
+
+14. On systems where there are multiple operating systems, the decision to load a particular one is done by _____________
+Boot loader (e.g., GRUB) allows selection of which OS to load at startup.
+a) process control block (PCB)
+❌ PCB stores process info after OS has loaded.
+b) file control block
+❌ Used in file systems, not for OS selection.
+c) boot loader
+✔ Correct – decides which OS to load.
+d) bootstrap
+❌ Bootstrap loads the bootloader, not the OS itself.
+
+15. The _______ program initializes all aspects of the system, from CPU registers to device controllers and the contents of main memory, and then starts the operating system.
+Bootstrap (firmware code) is responsible for starting the system, initializing hardware, and loading the OS.
+a) bootstrap
+✔ Correct – part of the firmware startup routine.
+b) main
+❌ Generic term – not a system initializer.
+c) bootloader
+❌ The bootloader is invoked by the bootstrap.
+d) rom
+❌ ROM stores the bootstrap, but isn’t the program itself.
+
+16. Network operating system runs on ___________
+Network OS allows resource sharing over a network.
+Both client and server systems run components of the OS.
+a) every system in the network
+❌ Clients alone can’t manage resources.
+b) server
+❌ Servers provide services, but clients need client-side OS features.
+c) both server and every system in the network
+✔ Correct – both ends participate.
+d) none of the mentioned
+❌ Incorrect – (c) is valid.
+
+17. What are the types of distributed operating systems?
+While “distributed OS” is a broader term, network OS is a practical type of it.
+Other options (zone/level based) aren't recognized OS classifications.
+a) Zone based OS
+❌ No such standard category.
+b) Level based OS
+❌ Not a real classification.
+c) Network Operating System
+✔ Correct – real and relevant example.
+d) All of the mentioned
+❌ Invalid – (a) and (b) aren’t real types.
+
+18. In Unix, which system call creates the new process?
+fork() creates a new process by duplicating the calling process.
+a) create
+❌ No such system call in Unix.
+b) fork
+✔ Correct – creates child processes.
+c) new
+❌ Not a Unix system call.
+d) none of the mentioned
+❌ Incorrect – (b) is valid.
+
+19. What was the first operating system?
+GM-NAA I/O developed by General Motors in the 1950s is considered the first OS.
+1) Linux
+❌ Introduced in 1991.
+2) Windows
+❌ Introduced in the 1980s.
+3) GM NAA I/O
+✔ Correct – earliest recognized OS.
+4) Android
+❌ Introduced in 2008.
+
+20. When was the first operating system built?
+GM-NAA I/O was created in 1956, marking the birth of modern OS.
+1) 1956
+✔ Correct – matches historical records.
+2) 1950
+❌ Too early for OS with job scheduling.
+3) 1952
+❌ Some automation existed, but not full OS.
+4) 1960
+❌ Later than the actual date.
+
+21. What is the first Windows version?
+Windows 1.01 was the first version of Microsoft Windows, released in 1985.
+1) Windows NT
+❌ Released in 1993 — much later.
+2) Windows 3.0
+❌ Released in 1990 — not the first.
+3) Windows 1.01
+✔ Correct – launched in 1985.
+4) Windows XP
+❌ Released in 2001.
+
+22. What type of extension name do notepads use?
+Notepad is a text editor that creates and opens plain text files with .txt extension.
+1) .png
+❌ Image file format.
+2) .txt
+✔ Correct – default format for Notepad files.
+3) .jpeg
+❌ Image format.
+4) .xip
+❌ Not a standard Notepad format.
+
+23. What is the full form of BIOS?
+BIOS is firmware used to perform hardware initialization and start the OS.
+1) Between input-output system
+❌ Made-up term.
+2) Binary input-output system
+❌ Not the accepted name.
+3) Basic input/output system
+✔ Correct – widely known definition.
+4) All of the above
+❌ Only option 3 is correct.
+
+24. What does FAT mean?
+FAT is a file system architecture used in DOS and Windows systems to manage files.
+1) File format attribute
+❌ Not a real file system term.
+2) Font allocation tree
+❌ Nonsensical.
+3) File allocation table
+✔ Correct – used in FAT12, FAT16, FAT32.
+4) Font attribute table
+❌ Not related to file systems.
+
+25. Who needs a BIOS to function properly?
+The BIOS initializes hardware and loads the OS. Without BIOS, the OS won’t start.
+1) A mobile device
+❌ Typically uses UEFI firmware or other bootloaders, not BIOS.
+2) An operating system
+✔ Correct – OS depends on BIOS to load from storage.
+3) Hardware devices
+❌ BIOS initializes hardware, but doesn’t depend on it.
+4) All of the above
+❌ Only the OS depends on BIOS to boot.
+
+26. What does restarting an operating system do?
+Restarting shuts down all current processes, clears memory, and reloads the OS, thereby:
+Restarting all processes
+Shutting down OS
+Terminating all running programs
+1) Restarts all the processes
+✅ True.
+2) Shuts down the OS completely
+✅ True – then reboots it.
+3) Terminates all running programs completely
+✅ True.
+4) All of the above
+✔ Correct.
+
+27. What operations mentioned are done by an operating system?
+OS is responsible for:
+Managing file systems (e.g., Recycle Bin)
+Handling file transfers
+Opening and running applications
+1) Maintaining recycle bin
+✅ Done by OS file management.
+2) Transfer files
+✅ Handled by OS IO services.
+3) Opens a program
+✅ OS loads program into memory and assigns resources.
+4) All of the above
+✔ Correct.
+
+28. Where are the errors and bugs recorded?
+Log files store system events, crash data, and errors – essential for debugging.
+1) Notepad
+❌ Not automatic logging.
+2) New program
+❌ Not relevant.
+3) Running process
+❌ A process may encounter an error, but logs are written elsewhere.
+4) Logfile
+✔ Correct.
+
+29. What are the properties of processes in an operating system?
+Each process in an OS has:
+Its own address space
+Global variables, open files, process ID, etc.
+Option analysis:
+1) Global variables, personal address
+✔ Correct – part of process control block.
+2) Shutdown
+❌ Not a property of a process.
+3) Restarting services
+❌ An OS function, not process property.
+4) All of the above
+❌ Only 1 is correct.
+
+30. What is a batch operating system?
+In batch OS, tasks with similar requirements are grouped and executed without user interaction.
+1) Multiple individual tasks
+❌ Too generic; not unique to batch OS.
+2) Similar types of tasks are grouped together
+✔ Correct – defines batch processing.
+3) Tasks operating at different systems
+❌ Sounds more like distributed OS.
+4) All of the above
+❌ Only option 2 is accurate.
+
+1. What is a time sharing operating system?
+A time-sharing OS allows multiple users to share system resources simultaneously. It:
+Uses log files to manage or record activity.
+Appears as if one shell is shared among users.
+Allows multiple terminals/users to work with the system at the same time.
+1) Makes use of log files to do basic task ✅
+True – for auditing and process management.
+2) One shell seems to be shared ✅
+Users share a command-line environment, giving that impression.
+3) Allows users to use one system with two different terminals ✅
+True – a key feature of time-sharing.
+4) All of the above ✅
+✔ Correct – combines all valid characteristics.
+
+2. What of the following isn’t directly related to the operating system?
+Software programs (like MS Word, Chrome) run on top of the OS but aren’t part of it.
+1) BIOS ❌
+Closely tied to OS startup — provides low-level interface for OS.
+2) Software programs ✔
+Not directly part of OS functionality.
+3) Hardware devices ❌
+OS manages and interacts with hardware devices.
+4) All of the above ❌
+Incorrect — BIOS and hardware are closely related to OS.
+
+3. What makes an operating system whole?
+An OS becomes functional through its:
+Log files (for monitoring and debugging)
+Input devices (for user interaction)
+Output devices (to deliver results)
+1) Log files ✅
+Help monitor system activity.
+2) Input devices ✅
+Required to accept user commands.
+3) Output devices ✅
+Deliver processed data.
+4) All of the above ✔
+All are integral components.
+
+4. With ……………. only one process can execute at a time; meanwhile all other process are waiting for the processor. With ………….. more than one process can be running simultaneously each on a different processor.
+Multiprogramming: Only one CPU; processes wait their turn.
+Multiprocessing: Multiple CPUs; processes execute truly in parallel.
+A) Multiprocessing, Multi-programming ❌
+Order reversed.
+B) Multi-programming, Uni-processing ❌
+“Uni-processing” isn't standard; and doesn’t mean parallel execution.
+C) Multi-programming, Multiprocessing ✔
+Correct.
+D) Uni-programming, Multiprocessing ❌
+"Uni-programming" implies only one program loaded — incorrect in this context.
+
+5. The two central themes of modern operating system are ……………
+Multiprogramming: Efficient CPU use by switching between processes.
+Distributed processing: OS controls multiple systems working together.
+A) Multi-programming and Distributed processing ✔
+Correct.
+B) Multi-programming and Central Processing ❌
+“Central Processing” is vague; not a core OS theme.
+C) Single Programming and Distributed processing ❌
+"Single programming" is outdated and inefficient.
+D) None of above ❌
+Incorrect – option A is valid.
+
+6. Which OS is used for GUI?
+Windows is a GUI-based OS (Graphical User Interface).
+a) DOS ❌
+Command-line based (no GUI).
+b) UNIX ❌
+CLI by default; GUIs like GNOME can be added but not native.
+c) Windows ✔
+GUI by design.
+d) All ❌
+DOS and UNIX aren’t GUI-focused by default.
+
+7. Which of the following works by dividing the processor’s time?
+A multitasking OS shares CPU time between processes, giving the illusion they run in parallel.
+a) single task operating system ❌
+Only one process at a time.
+b) multitask operating system ✔
+True – divides CPU time.
+c) kernel ❌
+Kernel implements scheduling, but the OS type defines the behavior.
+d) application ❌
+Applications are scheduled by the OS.
+
+8. Which of the following decides which task can have the next time slot?
+The kernel is the core component that performs process scheduling.
+a) single task operating system ❌
+Doesn’t schedule multiple tasks.
+b) applications ❌
+Don’t manage CPU time.
+c) kernel ✔
+Manages task switching and CPU time.
+d) software ❌
+Too generic – OS software includes many components, but kernel is specific.
+
+9. Which of the following controls the time slicing mechanism in a multitasking operating system?
+In a multitasking OS, the multitasking kernel uses time slicing to assign CPU time to processes.
+a) kernel ❌
+Generic – not all kernels support multitasking.
+b) single tasking kernel ❌
+Can’t perform time slicing.
+c) multitasking kernel ✔
+Correct – enables time slicing.
+d) application manager ❌
+Deals with launching/managing apps, not CPU scheduling.
