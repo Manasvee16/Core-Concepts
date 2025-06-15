@@ -1,0 +1,401 @@
+1. Which module gives control of the CPU to the process selected by the short-term scheduler?
+(a) dispatcher – ✅ Correct
+The dispatcher is responsible for context switching and giving CPU control to the selected process.
+(b) interrupt – ❌ Incorrect
+Interrupts handle asynchronous events, not CPU control transfer.
+(c) scheduler – ❌ Incorrect
+The scheduler selects the process, but the dispatcher performs the actual switch.
+(d) none of the mentioned – ❌ Incorrect
+
+2. The processes that are residing in main memory and are ready and waiting to execute are kept on a list called _____________
+(a) job queue – ❌ Incorrect
+Contains all submitted jobs, not necessarily in memory.
+(b) ready queue – ✅ Correct
+Holds processes that are in memory and ready for CPU.
+(c) execution queue – ❌ Incorrect
+Not a standard OS term.
+(d) process queue – ❌ Incorrect
+Generic term; not specific to the ready state.
+
+3. The interval from the time of submission of a process to the time of completion is termed as ____________
+(a) waiting time – ❌ Incorrect
+Waiting time is the total time spent in ready queue.
+(b) turnaround time – ✅ Correct
+Turnaround time = Completion Time – Arrival Time.
+(c) response time – ❌ Incorrect
+Response time is time until first output is produced.
+(d) throughput – ❌ Incorrect
+Throughput is the number of processes completed per time unit.
+
+4. Which scheduling algorithm allocates the CPU first to the process that requests the CPU first?
+(a) first-come, first-served scheduling – ✅ Correct
+Processes are scheduled in the order they arrive.
+(b) shortest job scheduling – ❌ Incorrect
+Selects process with smallest CPU burst time.
+(c) priority scheduling – ❌ Incorrect
+Uses priority levels, not arrival order.
+(d) none of the mentioned – ❌ Incorrect
+
+5. In priority scheduling algorithm ____________
+(a) CPU is allocated to the process with highest priority – ✅ Correct
+Higher-priority processes are scheduled first.
+(b) CPU is allocated to the process with lowest priority – ❌ Incorrect
+Opposite of correct behavior.
+(c) Equal priority processes cannot be scheduled – ❌ Incorrect
+Equal priority processes are scheduled using other criteria (e.g., FCFS).
+(d) None of the mentioned – ❌ Incorrect
+
+6. In priority scheduling algorithm, when a process arrives at the ready queue, its priority is compared with the priority of ____________
+(a) all process – ❌ Incorrect
+Not compared with all processes, just the one currently running (for preemption).
+(b) currently running process – ✅ Correct
+If new process has higher priority, it may preempt the running process.
+(c) parent process – ❌ Incorrect
+Irrelevant to scheduling decision.
+(d) init process – ❌ Incorrect
+init is unrelated here.
+
+7. Which algorithm is defined in Time quantum?
+(a) shortest job scheduling algorithm – ❌ Incorrect
+Not time-slice based.
+(b) round robin scheduling algorithm – ✅ Correct
+Round Robin uses a fixed time quantum to rotate among processes.
+(c) priority scheduling algorithm – ❌ Incorrect
+(d) multilevel queue scheduling algorithm – ❌ Incorrect
+Not defined by a single time quantum; more complex.
+
+8. Processes are classified into different groups in ____________
+(a) shortest job scheduling algorithm – ❌ Incorrect
+Jobs are chosen based on burst time, not classification.
+(b) round robin scheduling algorithm – ❌ Incorrect
+Processes are treated equally.
+(c) priority scheduling algorithm – ❌ Incorrect
+Priority-based, not group-based.
+(d) multilevel queue scheduling algorithm – ✅ Correct
+Processes are divided into queues based on priority/type (e.g., foreground/background).
+
+9. CPU scheduling is the basis of ___________
+(a) multiprocessor systems – ❌ Incorrect
+These require advanced load-balancing, not just CPU scheduling.
+(b) multiprogramming operating systems – ✅ Correct
+Multiprogramming requires CPU scheduling to handle multiple processes in memory.
+(c) larger memory sized systems – ❌ Incorrect
+(d) none of the mentioned – ❌ Incorrect
+
+10. With multiprogramming ______ is used productively.
+(a) time – ✅ Correct
+CPU time is efficiently used by switching to other processes during I/O.
+(b) space – ❌ Incorrect
+(c) money – ❌ Incorrect
+(d) all of the mentioned – ❌ Incorrect
+Only time is the intended answer in the context of CPU utilization.
+
+11. What are the two steps of a process execution?
+(a) I/O & OS Burst – ❌ Incorrect
+(b) CPU & I/O Burst – ✅ Correct
+Execution alternates between CPU bursts and I/O bursts.
+(c) Memory & I/O Burst – ❌ Incorrect
+(d) OS & Memory Burst – ❌ Incorrect
+
+12. An I/O bound program will typically have ____________
+(a) a few very short CPU bursts – ✅ Correct
+Most time spent on I/O, so CPU usage is minimal and short.
+(b) many very short I/O bursts – ❌ Incorrect
+It will have long I/O bursts, not necessarily many short ones.
+(c) many very short CPU bursts – ❌ Incorrect
+(d) a few very short I/O bursts – ❌ Incorrect
+
+1. A process is selected from the ______ queue by the ________ scheduler, to be executed.
+(a) blocked, short term – ❌ Incorrect
+Blocked processes are not eligible for CPU until I/O is done.
+(b) wait, long term – ❌ Incorrect
+“Wait” queue is not a standard term; long-term scheduler selects from job pool, not ready queue.
+(c) ready, short term – ✅ Correct
+Short-term scheduler picks from ready queue to give the CPU.
+(d) ready, long term – ❌ Incorrect
+Long-term scheduler brings jobs into memory, not from ready queue.
+
+2. In the following cases non-preemptive scheduling occurs?
+(a) When a process switches from the running state to the ready state – ❌ Incorrect
+That requires preemptive scheduling.
+(b) When a process goes from the running state to the waiting state – ✅ Correct
+The CPU is released voluntarily (e.g., I/O), hence non-preemptive.
+(c) When a process switches from the waiting state to the ready state – ❌ Incorrect
+Involves entering ready queue, not execution.
+(d) All of the mentioned – ❌ Incorrect
+
+3. The switching of the CPU from one process or thread to another is called ____________
+(a) process switch – ❌ Incorrect
+Generic term, not exact.
+(b) task switch – ❌ Incorrect
+Can be used in some contexts, but not most precise.
+(c) context switch – ✅ Correct
+The correct OS term for switching between processes or threads.
+(d) all of the mentioned – ❌ Incorrect
+
+4. What is Dispatch latency?
+(a) the speed of dispatching a process from running to the ready state – ❌ Incorrect
+That's not dispatch latency.
+(b) the time of dispatching a process from running to ready state and keeping the CPU idle – ❌ Incorrect
+Also incorrect definition.
+(c) the time to stop one process and start running another one – ✅ Correct
+Dispatch latency = time to switch context + resume new process.
+(d) none of the mentioned – ❌ Incorrect
+
+5. Scheduling is done so as to ____________
+(a) increase CPU utilization – ✅ Correct
+Aim is to keep CPU busy and efficient.
+(b) decrease CPU utilization – ❌ Incorrect
+(c) keep the CPU more idle – ❌ Incorrect
+(d) none of the mentioned – ❌ Incorrect
+
+6. Scheduling is done so as to ____________
+(a) increase the throughput – ✅ Correct
+More jobs completed per unit time is the goal.
+(b) decrease the throughput – ❌ Incorrect
+(c) increase the duration of a specific amount of work – ❌ Incorrect
+(d) none of the mentioned – ❌ Incorrect
+
+7. What is Turnaround time?
+(a) the total waiting time for a process to finish execution – ❌ Incorrect
+(b) the total time spent in the ready queue – ❌ Incorrect
+(c) the total time spent in the running queue – ❌ Incorrect
+(d) the total time from the completion till the submission of a process – ✅ Correct
+Turnaround Time = Completion Time – Arrival Time
+
+8. Scheduling is done so as to ____________
+(a) increase the turnaround time – ❌ Incorrect
+(b) decrease the turnaround time – ✅ Correct
+Lesser turnaround time = faster job completion.
+(c) keep the turnaround time same – ❌ Incorrect
+(d) there is no relation between scheduling and turnaround time – ❌ Incorrect
+
+9. What is Waiting time?
+(a) the total time in the blocked and waiting queues – ❌ Incorrect
+(b) the total time spent in the ready queue – ✅ Correct
+Waiting time is only the time spent waiting for CPU.
+(c) the total time spent in the running queue – ❌ Incorrect
+(d) the total time from the completion till the submission of a process – ❌ Incorrect
+
+10. Scheduling is done so as to ____________
+(a) increase the waiting time – ❌ Incorrect
+(b) keep the waiting time the same – ❌ Incorrect
+(c) decrease the waiting time – ✅ Correct
+One of the main goals of scheduling.
+(d) none of the mentioned – ❌ Incorrect
+
+11. What is Response time?
+(a) the total time taken from the submission time till the completion time – ❌ Incorrect
+That's turnaround time.
+(b) the total time taken from the submission time till the first response is produced – ✅ Correct
+Response time is when the process first starts execution (not finishes).
+(c) the total time taken from submission time till the response is output – ❌ Incorrect
+Confused with turnaround.
+(d) none of the mentioned – ❌ Incorrect
+
+12. Round robin scheduling falls under the category of ____________
+(a) Non-preemptive scheduling – ❌ Incorrect
+Round Robin preempts after a time quantum.
+(b) Preemptive scheduling – ✅ Correct
+(c) All of the mentioned – ❌ Incorrect
+(d) None of the mentioned – ❌ Incorrect
+
+13. With round robin scheduling algorithm in a time-shared system ____________
+(a) using very large time slices converts it into First come First served scheduling algorithm – ✅ Correct
+(b) using very small time slices converts it into First come First served scheduling algorithm – ❌ Incorrect
+(c) using extremely small time slices increases performance – ❌ Incorrect
+Too small quantum increases context switching overhead.
+(d) using very small time slices converts it into Shortest Job First algorithm – ❌ Incorrect
+
+14. The portion of the process scheduler in an operating system that dispatches processes is concerned with ____________
+(a) assigning ready processes to CPU – ✅ Correct
+(b) assigning ready processes to waiting queue – ❌ Incorrect
+(c) assigning running processes to blocked queue – ❌ Incorrect
+(d) all of the mentioned – ❌ Incorrect
+
+15. Complex scheduling algorithms ____________
+(a) are very appropriate for very large computers – ✅ Correct
+(b) use minimal resources – ❌ Incorrect
+They use more resources.
+(c) use many resources – ✅ (but question says select one best)
+(d) all of the mentioned – ❌ Incorrect
+Best answer: (a)
+
+16. What is FIFO algorithm?
+(a) first executes the job that came in last in the queue – ❌ Incorrect
+(b) first executes the job that came in first in the queue – ✅ Correct
+(c) first executes the job that needs minimal processor – ❌ Incorrect
+(d) first executes the job that has maximum processor needs – ❌ Incorrect
+
+17. The strategy of making processes that are logically runnable to be temporarily suspended is called ____________
+(a) Non-preemptive scheduling – ❌ Incorrect
+(b) Preemptive scheduling – ✅ Correct
+CPU is taken from process, even if not completed.
+(c) Shortest job first – ❌ Incorrect
+(d) First come First served – ❌ Incorrect
+
+18. What is Scheduling?
+(a) allowing a job to use the processor – ✅ Correct
+(b) making proper use of processor – ✅ Correct
+(c) all of the mentioned – ✅ Correct
+(d) none of the mentioned – ❌ Incorrect
+
+19. Orders are processed in the sequence they arrive if _______ rule sequences the jobs.
+(a) earliest due date – ❌ Incorrect
+Based on deadlines.
+(b) slack time remaining – ❌ Incorrect
+(c) first come, first served – ✅ Correct
+(d) critical ratio – ❌ Incorrect
+
+20. Which of the following algorithms tends to minimize the process flow time?
+(a) First come First served – ❌ Incorrect
+May cause long wait for short jobs.
+(b) Shortest Job First – ✅ Correct
+SJF minimizes average turnaround time.
+(c) Earliest Deadline First – ❌ Incorrect
+Used in real-time systems, not for average flow time.
+(d) Longest Job First – ❌ Incorrect
+
+21. Which of the following statements are true? (GATE 2010)
+I. Shortest remaining time first scheduling may cause starvation
+II. Preemptive scheduling may cause starvation
+III. Round robin is better than FCFS in terms of response time
+(a) I only – ❌
+(b) I and III only – ❌
+(c) II and III only – ❌
+(d) I, II and III – ✅ Correct
+
+22. Which is the most optimal scheduling algorithm?
+(a) FCFS – First come First served – ❌
+Simple, but may lead to poor performance.
+(b) SJF – Shortest Job First – ✅ Correct
+Provably optimal in minimizing average waiting time.
+(c) RR – Round Robin – ❌
+Good for fairness and response time, not optimal for all metrics.
+(d) None of the mentioned – ❌
+
+1. The real difficulty with SJF in short-term scheduling is ____________
+(a) it is too good an algorithm – ❌ Incorrect
+While SJF is optimal in theory, this answer is not practical.
+(b) knowing the length of the next CPU request – ✅ Correct
+Shortest Job First (SJF) requires knowledge of future CPU burst times, which is impossible to predict exactly in general-purpose systems. This makes SJF hard to implement accurately.
+(c) it is too complex to understand – ❌ Incorrect
+It's conceptually simple.
+(d) none of the mentioned – ❌ Incorrect
+
+2. The FCFS algorithm is particularly troublesome for ____________
+(a) time-sharing systems – ✅ Correct
+First-Come First-Served (FCFS) is not suitable for time-sharing systems, as it can cause long waiting times and poor responsiveness, especially if a long job is at the front.
+(b) multiprogramming systems – ❌ Incorrect
+FCFS is usable, though not ideal.
+(c) multiprocessor systems – ❌ Incorrect
+The challenge here is more about load balancing, not FCFS specifically.
+(d) operating systems – ❌ Incorrect
+Too vague to be correct.
+
+3. What is ‘Aging’?
+(a) keeping track of cache contents – ❌ Incorrect
+(b) keeping track of what pages are currently residing in memory – ❌ Incorrect
+That’s page table functionality.
+(c) keeping track of how many times a given page is referenced – ❌ Incorrect
+That describes page replacement policies, like LRU or LFU.
+(d) increasing the priority of jobs to ensure termination in a finite time – ✅ Correct
+Aging is used in priority scheduling to avoid starvation by gradually increasing the priority of waiting processes over time.
+
+4. Which of the following scheduling algorithms gives minimum average waiting time?
+(a) FCFS – ❌ Incorrect
+May cause high waiting time for short processes stuck behind long ones.
+(b) SJF – ✅ Correct
+Shortest Job First minimizes average waiting time, assuming accurate knowledge of job lengths.
+(c) Round-robin – ❌ Incorrect
+Improves response time but not average waiting time.
+(d) Priority – ❌ Incorrect
+Can lead to starvation; performance depends on implementation.
+
+1. Which of the following is false about SJF?
+S1: It causes minimum average waiting time
+S2: It can cause starvation
+(A) Only S1 – ❌ Incorrect
+S1 is true. SJF does minimize average waiting time when all job lengths are known.
+(B) Only S2 – ❌ Incorrect
+S2 is also true. SJF can lead to starvation, especially for longer processes.
+(C) Both S1 and S2 – ❌ Incorrect
+Both statements are correct.
+(D) Neither S1 nor S2 – ✅ Correct Answer
+Since both S1 and S2 are true, the statement “Which is false?” leads us to this being the correct answer.
+
+2. Which scheduling algorithm is non-preemptive scheduling algorithm?
+(a) First come First served – ✅ Correct
+FCFS is a classic non-preemptive scheduling algorithm.
+(b) Round Robin – ❌ Incorrect
+Preemptive by design with time slicing.
+(c) Shortest Remaining Time Next – ❌ Incorrect
+It’s the preemptive version of SJF.
+(d) Preemptive Priority – ❌ Incorrect
+As the name suggests, it is preemptive.
+
+3. In preemptive priority scheduling algorithm, when a process arrives at the ready queue, its priority is compared with the priority of ______
+(a) all process – ❌ Incorrect
+Comparison with all is unnecessary and inefficient.
+(b) currently running process – ✅ Correct
+If the new process has higher priority than the currently running one, preemption occurs.
+(c) parent process – ❌ Incorrect
+Irrelevant to scheduling.
+(d) init process – ❌ Incorrect
+Also irrelevant in this context.
+
+4. A process is selected from the ______ queue by the ________ scheduler, to be executed.
+(a) blocked, short term – ❌ Incorrect
+Blocked processes are waiting for I/O, not ready for CPU.
+(b) wait, long term – ❌ Incorrect
+No such standard "wait" queue; and long-term scheduler doesn’t pick for CPU execution directly.
+(c) ready, short term – ✅ Correct
+Short-term scheduler selects from the ready queue for CPU execution.
+(d) ready, long term – ❌ Incorrect
+Long-term scheduler admits jobs into the system, not CPU.
+
+5. ___________ is a technique of improving the priority of process waiting in Queue for CPU allocation.
+(a) Starvation – ❌ Incorrect
+Starvation is the problem, not the solution.
+(b) Ageing – ✅ Correct
+Aging increases the priority of waiting processes over time to prevent starvation.
+(c) Revocation – ❌ Incorrect
+Not a scheduling concept here.
+(d) Relocation – ❌ Incorrect
+Related to memory management, not scheduling.
+
+6. Which of the following are the states of a five state process model?
+i) Running
+ii) Ready
+iii) New
+iv) Exit
+v) Destroy
+(a) i, ii, iii and v only – ❌ Incorrect
+“Destroy” is not a standard OS process state.
+(b) i, ii, iv and v only – ❌ Incorrect
+Again includes invalid state "Destroy", misses "New".
+(c) i, ii, iii, and iv only – ✅ Correct
+Standard 5 states: New, Ready, Running, Waiting (sometimes excluded in 5-state), Exit
+In this MCQ, they accept “Exit” instead of “Terminated”.
+(d) All i, ii, iii, iv and v – ❌ Incorrect
+Includes “Destroy”, which is not standard.
+
+7. State which statement is true for Suspended process?
+i) The process is not immediately available for execution.
+ii) The process may be removed from suspended state automatically without removal order.
+(a) i only – ✅ Correct
+Suspended processes are not available for immediate execution.
+(b) ii only – ❌ Incorrect
+Suspended processes require external intervention to resume.
+(c) i and ii both – ❌ Incorrect
+ii is false.
+(d) None of the above – ❌ Incorrect
+
+8. Following is/are the reasons for process suspension.
+(a) Swapping parent process – ✅ Valid
+If parent is suspended, child may also be suspended.
+(b) Interrupt request – ✅ Valid
+Interrupt can lead to suspension if it needs handling.
+(c) Timing – ✅ Valid
+If process is waiting for a specific time, it may be suspended.
+(d) All of the above – ✅ Correct
