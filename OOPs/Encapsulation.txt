@@ -1,0 +1,368 @@
+1. What does encapsulation in C++ mean?
+a) Wrapping data and functions together ✅
+b) Inheriting properties ❌
+c) Hiding derived class features ❌
+d) None of the above ❌
+Encapsulation means combining data (variables) and methods (functions) into a single unit—typically a class—so data is not directly accessed outside the class.
+b) Refers to inheritance.
+c) Misrepresents encapsulation; encapsulation hides data, not derived class features.
+d) Incorrect by definition.
+
+2. Which of the following best represents an object in C++?
+a) A method ❌
+b) A variable ❌
+c) An instance of a class ✅
+d) A header file ❌
+An object is an instance of a class in C++.
+a) A method is part of a class, not an object itself.
+b) Variables are not objects unless they are of class type.
+d) Header files contain declarations, not objects.
+
+3. Which keyword is used to define a class?
+a) object ❌
+b) struct ❌
+c) class ✅
+d) define ❌
+class is the correct keyword for class definition in C++.
+a) Not a valid keyword.
+b) struct can define classes, but with default public access—it’s not the main keyword for classes.
+d) define is a preprocessor directive, unrelated to classes.
+
+4. Encapsulation helps achieve:
+a) Abstraction ✅
+b) Polymorphism ❌
+c) Inheritance ❌
+d) Modularity ❌
+Encapsulation is the foundation of abstraction—it hides internal details from users.
+b) Refers to runtime behavior; not achieved directly via encapsulation.
+c) Inheritance is separate; it's about reusing code.
+d) While encapsulation can aid modularity, it directly supports abstraction.
+
+5. What is not true about classes in C++?
+a) Class is a user-defined data type ✅
+b) A class defines only variables ❌
+c) Classes support data hiding ✅
+d) Functions can be declared inside a class ✅
+A class can define both variables and functions, not just variables.
+The other options are true characteristics of a class.
+
+6. Which access specifier allows members to be accessible only within the same class?
+a) public ❌
+b) private ✅
+c) protected ❌
+d) static ❌
+private members are accessible only within the same class.
+a) Public allows access everywhere.
+c) Protected allows access in derived classes.
+d) Static is not an access specifier.
+
+7. Which access modifier allows access to derived classes but not outside the class?
+a) public ❌
+b) private ❌
+c) protected ✅
+d) friend ❌
+protected allows member access in derived classes, but not from outside.
+a) Public allows external access.
+b) Private restricts access even from derived classes.
+d) friend isn’t an access modifier; it grants external functions/class access.
+
+8. What is the default access modifier for class members in C++?
+✅ a) private
+In C++, when you define a class and do not specify an access modifier (like public, private, or protected), the members are private by default.
+❌ b) public
+This is the default only for struct, not for class. In C++, struct defaults to public access, whereas class defaults to private.
+❌ c) protected
+protected is never the default in either class or struct. It must always be explicitly specified.
+❌ d) None
+There is a default, so saying "None" is incorrect. For class, it's private.
+
+9. Which of the following is accessible outside the class?
+✅ c) public
+Only members declared as public are accessible from outside the class directly (e.g., obj.member).
+❌ a) private
+private members are not accessible outside the class. They're only accessible by:
+Member functions
+Friend functions/classes
+❌ b) protected
+protected members are accessible only by:
+The class itself
+Derived classes
+Not accessible by outside code.
+❌ d) static
+The static keyword indicates shared class-level data or functions, but it does not affect access level. A static member can still be private or protected.
+Only public static members are accessible from outside the class.
+
+10. Which keyword allows private access across classes?
+✅ b) friend
+A function or class declared as friend can access private and protected members of another class. It's a way of granting controlled access across class boundaries.
+❌ a) static
+static is used to define:
+Class-wide variables (shared among all objects)
+Functions that don’t depend on this
+It does not allow access to private members across classes.
+❌ c) virtual
+virtual is used for runtime polymorphism (to allow overriding in derived classes). It has nothing to do with access control.
+❌ d) extern
+extern is used for external linkage, i.e., accessing global variables or functions declared in another file. It does not allow access to private class members.
+
+11. Which statement is true for static data members?
+a) Shared by all objects ✅
+b) Unique to each object ❌
+c) Must be initialized in the class ❌
+d) Cannot be accessed without an object ❌
+Static data members are shared among all instances of a class. Only one copy exists regardless of how many objects are created.
+b) This applies to non-static members.
+c) Static data members must be defined outside the class, not initialized inside it (except for const integral types).
+d) They can be accessed using class name directly (ClassName::member).
+
+12. How many copies of a static data member are created?
+✅ c) Only one copy of a static data member exists per class, regardless of how many objects are created. All objects share the same static member.
+❌ a) One per object is true for non-static data members. Static members are not duplicated per object.
+❌ b) One per method makes no sense in this context; static members belong to the class, not to methods.
+❌ d) Scope does not affect the number of static member instances. The memory for a static member is allocated once for the entire class.
+
+13. Can static member functions access non-static members?
+✅ b) Static member functions cannot access non-static members because they do not receive a this pointer, which is required to refer to object-specific data.
+❌ a) Incorrect because access to non-static members requires an object’s context (this), which static functions lack.
+❌ c) Friend class access is unrelated here. Even within a friend class, a static member function still cannot access non-static data unless an object is provided.
+❌ d) “Only in static context” is vague and misleading. Static context doesn’t suddenly allow access to non-static members without an object.
+
+14. Which of the following is true about static member functions?
+a) Must be defined inside class ❌
+b) Cannot access this pointer ✅
+c) Access only private data ❌
+d) Must return static data ❌
+Static member functions don’t have a this pointer and hence can’t access non-static (object-level) data.
+a) False; they can be defined outside the class.
+c) They access static data only, not just private data.
+d) Return type can be anything; it’s not tied to static.
+
+15. Which keyword defines a static data member?
+✅ c) The static keyword is used to declare a static data member. This means the member is shared by all objects of the class.
+❌ a) public is an access modifier, not a type or storage class specifier. It doesn't define a static member.
+❌ b) class is a keyword used to define a class, not to declare variables as static.
+❌ d) friend is used to grant access rights, not to define storage duration or linkage like static.
+
+16. What does the friend keyword do?
+a) Enables inheritance ❌
+b) Provides external access to private data ✅
+c) Makes constructor private ❌
+d) None of the above ❌
+A friend class or function can access private and protected data of the target class.
+a) Inheritance is handled with : operator, not friend.
+c) Making constructor private is done by defining it as private.
+
+17. Friend functions are defined:
+✅ b) A friend function is declared inside the class (using friend keyword) but it is defined outside, like a normal function.
+❌ a) Friend functions are not class members, so they cannot be fully defined inside the class like member functions.
+❌ c) You can only declare them inside, not define. So "both" is incorrect.
+❌ d) static is unrelated. friend functions are not declared with static; they’re unrelated to class-level storage.
+
+18. Which function can access private data of a class?
+a) Only member functions ❌
+b) Friend functions ✅
+c) Constructor only ❌
+d) Destructor ❌
+Friend functions can access private data even though they are not member functions.
+a) Not the only ones; friend functions also can.
+c) and d) These are member functions but not exclusively allowed.
+
+19. Friendship is:
+a) One-way ✅
+b) Two-way ❌
+c) Transitive ❌
+d) Inherited ❌
+✅ a) Friendship in C++ is one-directional: If class A declares class B as a friend, only B can access A’s private/protected members, not the other way around.
+❌ b) It is not two-way unless explicitly stated in both classes.
+❌ c) It is not transitive—if A is a friend of B, and B is a friend of C, A is not automatically a friend of C.
+❌ d) Friendship is not inherited. If base class declares class X as a friend, derived class does not automatically gain that access
+
+20. Can a friend function be a member of another class?
+a) No ❌
+b) Yes ✅
+c) Only if inherited ❌
+d) Only if virtual ❌
+✅ b) Yes, a member function of one class can be made a friend of another class. For example, void B::foo() can be a friend of class A.
+❌ a) Incorrect. There’s no restriction preventing a member of one class from being a friend of another.
+❌ c) Inheritance has nothing to do with whether a function can be a friend. Friendship must be explicitly granted.
+❌ d) virtual relates to polymorphism, not friendship. Friend functions do not need to be virtual.
+
+21. Constructor is executed when:
+a) Program ends ❌ – Destructors run when program ends, not constructors.
+b) Object is deleted ❌ – This triggers the destructor, not the constructor.
+c) Object is created ✅ – ✅ A constructor is automatically called when an object is instantiated.
+d) None of the above ❌ – Option (c) is correct.
+
+22. Constructor name must be same as:
+a) Class name ✅ – ✅ In C++, a constructor must have exactly the same name as the class.
+b) Function name ❌ – Misleading, as constructor is a function, but must match class name, not just any function name.
+c) File name ❌ – File name has nothing to do with constructor naming.
+d) Variable name ❌ – Variable name is unrelated to constructor definition.
+
+23. Which constructor takes arguments?
+a) Copy constructor ❌ – It takes a specific kind of argument, not general ones.
+b) Parameterized constructor ✅ – ✅ This constructor takes user-defined parameters to initialize objects.
+c) Default constructor ❌ – It takes no parameters.
+d) Destructor ❌ – Not a constructor, and it does not take any arguments.
+
+24. Which constructor is called when an object is copied?
+a) Default ❌ – Used when no arguments are passed, not during copy.
+b) Move ❌ – Used when an object is moved using rvalue reference.
+c) Copy ✅ – ✅ A copy constructor is invoked when an object is initialized from another object of the same type.
+d) Virtual ❌ – virtual applies to functions, not constructors.
+
+25. Which constructor transfers ownership of resources?
+a) Copy ❌ – Copying duplicates resources; doesn't transfer.
+b) Move ✅ – ✅ A move constructor transfers ownership (e.g., of heap memory) from one object to another.
+c) Virtual ❌ – Not a constructor type; virtual relates to polymorphism.
+d) Shallow ❌ – "Shallow" is a copy type, not a constructor.
+
+26. Which constructor is compiler-provided if none defined?
+a) Copy ❌ – Compiler provides a copy constructor only if needed, but not always.
+b) Move ❌ – Provided only if certain conditions are met (like no user-defined copy/move/destructor).
+c) Default ✅ – ✅ The compiler automatically provides a default constructor if you don’t define any.
+d) Destructor ❌ – Destructor is provided by default too, but the question asks about constructors.
+
+27. A constructor that doesn’t take parameters is called:
+a) Null constructor ❌ – "Null constructor" is not standard terminology in C++.
+b) Default constructor ✅ – ✅ A constructor that takes no arguments (or has all default arguments) is a default constructor.
+c) Empty constructor ❌ – Not a formal term in C++, often confused with default constructor.
+d) Static constructor ❌ – C++ has no static constructors (unlike C#).
+
+28. Which constructor is invoked with this syntax: ClassName obj2 = obj1;?
+a) Default ❌ – Used with no arguments, not for copying.
+b) Copy ✅ – ✅ This invokes the copy constructor, as it initializes obj2 using obj1.
+c) Move ❌ – Only used with rvalue references, not in this syntax.
+d) Friend ❌ – Not related to construction at all.
+
+29. Which keyword is used to define a move constructor?
+a) move ❌ – Not a C++ keyword. std::move is a function, not a declaration.
+b) std::move ❌ – Used to call a move constructor, not define it.
+c) && (rvalue reference) ✅ – ✅ Move constructors take an argument of rvalue reference type, denoted by &&.
+*d) this ❌ – Refers to the current object, not used to define a constructor.
+
+30. When is a move constructor used over a copy constructor?
+a) In pass-by-value ❌ – Pass-by-value may use copy or move, but move is used when dealing with temporaries.
+b) When object is temporary ✅ – ✅ Move constructors are used when an object is a temporary (rvalue) to avoid unnecessary deep copies.
+c) When accessing static members ❌ – Static members aren’t object-specific; irrelevant to move/copy.
+d) During destruction ❌ – Destructors are used during destruction, not move constructors.
+
+31. Destructor is used to:
+a) Initialize an object ❌ – That's the job of a constructor.
+b) Create a class ❌ – Class creation is done in code, not via destructors.
+c) Release resources ✅ – ✅ Destructors are designed to free memory, close files, release handles, etc.
+d) Copy objects ❌ – Copy constructor is responsible for that.
+
+32. How many destructors can a class have?
+a) 1 ✅ – ✅ A class can only have one destructor, which may be virtual or not.
+b) 2 ❌ – C++ doesn't support multiple destructors.
+c) Multiple ❌ – Invalid; only one destructor allowed per class.
+d) Depends on constructor ❌ – Destructor count is independent of constructors.
+
+33. Destructor is prefixed with:
+a) ~ ✅ – ✅ Destructor is always named with a tilde ~ before the class name.
+b) ! ❌ – Not valid C++ syntax for destructors.
+c) @ ❌ – Invalid in C++ identifiers.
+d) # ❌ – Used in preprocessor directives, not destructors.
+
+34. Destructors cannot:
+a) Be overloaded ✅ – ✅ You cannot have multiple destructors with different parameters.
+b) Be virtual ❌ – You can declare a destructor as virtual (especially for base classes).
+c) Be public ❌ – Destructors can and usually are public.
+d) Be called ❌ – While not recommended, destructors can be explicitly called, e.g., obj.~ClassName();.
+
+35. Destructor is automatically invoked when:
+a) Object is copied ❌ – Constructor is used for copying, not destruction.
+b) Program starts ❌ – Nothing is destroyed at start.
+c) Object goes out of scope ✅ – ✅ When an object leaves scope (e.g., at function end), its destructor is automatically called.
+d) File ends ❌ – Not always true; destructors are called at scope exit, which may be before or after file ends.
+
+36. Which copy shares the same memory address?
+a) Deep ❌ – Deep copy creates new memory for copied values.
+b) Shallow ✅ – ✅ A shallow copy copies pointers, so both objects share the same memory address.
+c) Copy constructor ❌ – Can be shallow or deep depending on how it's implemented.
+d) Move constructor ❌ – Transfers ownership, doesn’t share memory.
+
+37. Which copy creates separate memory for dynamic members?
+a) Shallow ❌ – Shares pointers, no new memory for dynamic content.
+b) Deep ✅ – ✅ Deep copy duplicates all dynamically allocated memory, ensuring independence.
+c) Static ❌ – Irrelevant here; refers to memory duration, not copy mechanism.
+d) Temporary ❌ – Not a type of copy; refers to rvalue objects.
+
+38. Shallow copy leads to:
+a) Memory leak ❌ – That’s more likely with improper deletion, not just shallow copy.
+b) Dangling pointer ❌ – Possible, but more a risk with manual delete.
+c) Double deletion ✅ – ✅ If two objects share a pointer and both try to delete it, double deletion occurs.
+d) Correct memory use ❌ – Not always; shallow copy can cause issues.
+
+39. Which of the following uses a deep copy internally?
+a) Default assignment ❌ – Often shallow unless overloaded.
+b) Copy constructor (user-defined) ✅ – ✅ If you write your own, you can implement deep copy inside it.
+c) Static object creation ❌ – Irrelevant; "static" refers to storage class, not copying.
+d) Destructor ❌ – Cleans up memory, not copy anything.
+
+40. Which copy is automatically created by the compiler?
+a) Deep ❌ – Not created by compiler unless you define it.
+b) Shallow ✅ – ✅ If no custom copy constructor is provided, compiler generates a shallow copy.
+c) Explicit ❌ – Opposite of implicit (compiler-generated).
+d) Move ❌ – Only auto-created under specific conditions.
+
+41. Which pointer points to the current object?
+a) super ❌ – super exists in Java, not in C++.
+b) class ❌ – class is a keyword, not a pointer.
+c) this ✅ – ✅ this is an implicit pointer that points to the current object.
+d) object ❌ – Not a keyword or pointer in C++.
+
+42. The this pointer is available in:
+a) Static functions only ❌ – Static functions do not have a this pointer.
+b) Member functions ✅ – ✅ this is available only in non-static member functions.
+c) Global functions ❌ – These are not tied to any object, so this is not available.
+d) Friend functions ❌ – Not members of the class, so they don’t have access to this.
+
+43. this pointer is used to:
+a) Call friend functions ❌ – Friend functions are not called via this.
+b) Refer calling object ✅ – ✅ this refers to the object that invoked the current member function.
+c) Access static data ❌ – Static members are class-level, accessed without this.
+d) Return memory address ❌ – It can return the object (*this), but that’s not its main purpose.
+
+44. Which is invalid about this pointer?
+a) It is implicit ❌ – Correct: this is automatically available in non-static members.
+b) Can be returned ❌ – Valid: this or *this can be returned from a function.
+c) Is used in static context ✅ – ✅ Invalid: this is not available in static functions.
+d) It is a constant pointer ❌ – True: this is a const pointer to the current object.
+
+45. What does the scope resolution operator :: do?
+a) Resolves function overloads ❌ – Overload resolution is automatic and not done via ::.
+b) Specifies global scope ✅ – ✅ ::varName accesses a global variable, bypassing local scope.
+c) Hides data ❌ – It doesn’t hide, it clarifies scope.
+d) Used in destructors only ❌ – It's used for many things, not just destructors.
+
+46. Which operator is used to define a function outside a class?
+a) :: ✅ – ✅ :: is used to define a member function outside the class body.
+b) -> ❌ – Used for pointer-to-object member access.
+c) . ❌ – Dot is used to access members, not define them.
+d) & ❌ – Refers to address-of or reference, not related to function definition.
+
+47. What is the result of using ::varName?
+a) Access global varName ✅ – ✅ ::varName bypasses local scope and accesses the global variable.
+b) Access local varName ❌ – Local variable doesn’t require ::; this bypasses it.
+c) Access static varName ❌ – Static variables are scoped differently.
+d) Error ❌ – It’s a valid and common operation.
+
+48. Which of these uses scope resolution operator outside class?
+a) friend function ❌ – Friend functions are not defined using :: unless they are also member functions.
+b) static data initialization ✅ – ✅ Static data members must be defined outside class using ClassName::member.
+c) constructor body ❌ – Constructor body doesn't need ::; only its definition might.
+d) function template ❌ – Function templates don't inherently need :: for definition.
+
+49. In the context of classes, the :: operator allows:
+a) Global variable use ❌ – That’s more general scope resolution, not class-specific.
+b) Member function definition outside class ✅ – ✅ ClassName::FunctionName() defines member functions outside the class body.
+c) Function overloading ❌ – :: doesn’t overload; it’s about scope, not signature.
+d) None ❌ – The correct use exists, so not "none."
+
+50. Which of the following is correct usage of scope resolution operator?
+a) int::x = 10; ❌ – Invalid syntax; int is not a class.
+b) ClassName::FunctionName(); ✅ – ✅ This is the correct way to call or define a static or regular member function outside the class.
+c) ::privateVar; ❌ – Even if privateVar is global, private scope is not accessible like this.
+d) FunctionName::ClassName(); ❌ – Wrong order and syntax.
