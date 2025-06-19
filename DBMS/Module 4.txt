@@ -1,0 +1,289 @@
+Q1. What is a Super Key?
+a) A key that uniquely identifies a record ✅ – ✔️ Correct, but not minimal.
+b) A key with no redundant attributes ❌ – That's a candidate key.
+c) Any combination of attributes that uniquely identifies a row ✅ – ✔️ This is the best definition.
+d) A foreign key ❌ – Foreign key doesn't necessarily uniquely identify a row.
+
+Q2. Which of the following is always a super key?
+a) Primary key ✅ – ✔️ It always uniquely identifies a row.
+b) Candidate key ✅ – ✔️ All candidate keys are super keys.
+c) Foreign key ❌ – Can have duplicates and NULLs.
+d) Both A and B ✅ – ✔️ Correct.
+
+Q3. What is a Candidate Key?
+a) A primary key alternative ❌ – That’s more of an alternate key.
+b) A key with NULL values ❌ – Candidate keys must be NOT NULL.
+c) Minimal super key ✅ – ✔️ Correct definition.
+d) A foreign key ❌ – Foreign keys are different.
+
+Q4. How many primary keys can a table have?
+a) 0 ❌ – You can have 0, but typically 1 is required.
+b) 1 ✅ – ✔️ Only one primary key allowed per table.
+c) 2 ❌ – Not allowed.
+d) Unlimited ❌ – Not supported.
+
+Q5. Which of the following is a valid candidate key?
+a) Can have NULLs ❌ – Candidate keys cannot have NULLs.
+b) Uniquely identifies records ✅ – ✔️ That's the key requirement.
+c) Must be foreign key ❌ – No such restriction.
+d) Cannot be used in joins ❌ – Candidate keys are often used in joins.
+
+Q6. What is an alternate key?
+a) A key that replaces primary key ❌ – It doesn't replace but is an option.
+b) A foreign key ❌ – Different concept.
+c) Candidate key not chosen as primary ✅ – ✔️ Exact definition.
+d) Composite key ❌ – Composite key refers to multiple columns.
+
+Q7. If a table has two candidate keys, and one is chosen as primary, the other is called:
+a) Foreign key ❌ – Incorrect, that's a different relationship.
+b) Unique key ❌ – May or may not be unique constraint.
+c) Composite key ❌ – Only if made of multiple columns.
+d) Alternate key ✅ – ✔️ The correct term.
+
+Q8. What is a unique key?
+a) Can have duplicate values ❌ – Must be unique.
+b) Must be a foreign key ❌ – Can be independent.
+c) Must be NULL ❌ – Can contain NULLs, but not mandatory.
+d) Ensures all values in a column are distinct ✅ – ✔️ Correct definition.
+
+Q9. Can a table have multiple unique keys?
+a) No ❌ – False.
+b) Yes ✅ – ✔️ A table can have multiple unique constraints.
+
+Q10. Which key combination allows NULL values?
+a) Primary key ❌ – Not allowed.
+b) Unique key ✅ – ✔️ Allows one NULL (or more depending on DBMS).
+c) Foreign key ✅ – ✔️ Foreign keys can be NULL.
+d) Composite primary key ❌ – All parts must be NOT NULL.
+
+Q11. What is the main difference between primary key and unique key?
+a) Primary key allows NULLs ❌ – False, it does not allow NULLs.
+b) Unique key is not indexed ❌ – Unique keys are indexed.
+c) Primary key doesn't allow NULLs ✅ – ✔️ Correct.
+d) Unique key can't be foreign ❌ – Unique keys can be referenced.
+
+Q12. What is a composite key?
+a) Key made up of multiple columns ✅ – ✔️ True definition.
+b) A candidate key ❌ – A composite key can be a candidate key, but not always.
+c) An alternate key ❌ – Not necessarily.
+d) A primary key from another table ❌ – That would be a foreign key.
+
+Q13. Which of the following can be a composite primary key?
+a) One column ❌ – That's a simple key, not composite.
+b) Multiple columns ✅ – ✔️ Composite key = multiple columns.
+c) Only numeric columns ❌ – Can be any datatype.
+d) Not allowed in MySQL ❌ – MySQL does support composite keys.
+
+Q14. What is a foreign key?
+a) A key that references a column in the same table ❌ – That would be a self-referencing foreign key.
+b) A duplicate key ❌ – Not necessarily.
+c) A key that links two tables ✅ – ✔️ True.
+d) A candidate key ❌ – Not the definition.
+
+Q15. Which constraint is used to create a foreign key?
+a) PRIMARY KEY ❌ – Not for foreign key.
+b) CHECK ❌ – For conditional checks.
+c) REFERENCES ✅ – ✔️ Used in foreign key definitions.
+d) DEFAULT ❌ – Assigns default values, unrelated.
+
+Q16. Can a foreign key refer to a unique key?
+a) No ❌ – It can.
+b) Only if not NULL ❌ – Not true.
+c) Yes ✅ – ✔️ Foreign key can refer to primary or unique key.
+d) Only in PostgreSQL ❌ – All RDBMS support this.
+
+Q17. What must exist in the parent table for a foreign key to work?
+a) NULL values ❌ – Not related.
+b) A referenced key ✅ – ✔️ The foreign key must reference a unique or primary key.
+c) No constraints ❌ – Constraints are necessary.
+d) Index ❌ – Not mandatory but recommended.
+
+Q18. Which key enforces referential integrity?
+a) Primary key ❌ – Ensures uniqueness, not relationships.
+b) Foreign key ✅ – ✔️ Ensures valid references.
+c) Candidate key ❌ – Not involved in referential integrity.
+d) Super key ❌ – No such enforcement.
+
+Q19. Can a table have multiple foreign keys?
+a) No ❌ – False.
+b) Yes ✅ – ✔️ One table can reference multiple parent tables.
+
+Q20. Which of these keys may contain NULL values?
+a) Primary key ❌ – Not allowed.
+b) Foreign key ✅ – ✔️ Foreign keys can be NULL (optional relationship).
+c) Composite key ❌ – If used as a primary key, all parts must be NOT NULL.
+d) Unique key ✅ – ✔️ Can contain NULLs depending on DBMS.
+
+Q21. A primary key must be:
+a) NOT NULL and UNIQUE ✅ – ✔️ That’s the definition of a primary key.
+b) NULL and UNIQUE ❌ – Primary keys can’t be NULL.
+c) Optional ❌ – You usually define a primary key for data integrity.
+d) Foreign key ❌ – A foreign key refers to a primary/unique key.
+
+Q22. What happens if you try to insert a duplicate in a primary key column?
+a) Allowed ❌ – Duplicates are not allowed.
+b) Error ✅ – ✔️ Will cause a constraint violation.
+c) Insert NULL ❌ – NULL is also not allowed.
+d) Replaced automatically ❌ – No automatic replacement.
+
+Q23. Which constraint ensures no duplicate entries?
+a) NOT NULL ❌ – Ensures values exist, but not uniqueness.
+b) DEFAULT ❌ – Provides a default value.
+c) UNIQUE ✅ – ✔️ Ensures all values are distinct.
+d) CHECK ❌ – Validates data based on condition, not uniqueness.
+
+Q24. In SQL, a table can have:
+a) Multiple primary keys ❌ – Only one primary key per table.
+b) One primary key ✅ – ✔️ Correct.
+c) No candidate key ❌ – All tables should have at least one candidate key.
+d) Two alternate keys ❌ – You can have alternate keys, but question asked about primary keys.
+
+Q25. Which key cannot have NULL values?
+a) Unique key ❌ – Can have NULLs.
+b) Foreign key ❌ – Can also be NULL.
+c) Composite key ❌ – Depends on use; if composite primary key, then NOT NULL.
+d) Primary key ✅ – ✔️ Must be NOT NULL.
+
+Q26. What is a constraint in SQL?
+a) A database column ❌ – Constraint is not a column.
+b) A rule applied to data ✅ – ✔️ It’s a restriction or rule.
+c) A data type ❌ – Data types are different.
+d) A relationship ❌ – Constraints can define relationships but aren’t relationships themselves.
+
+Q27. Which constraint prevents NULL values?
+a) UNIQUE ❌ – Allows NULLs.
+b) FOREIGN ❌ – Allows NULLs.
+c) NOT NULL ✅ – ✔️ Ensures values are present.
+d) CHECK ❌ – Can check for NULLs but not primarily used for it.
+
+Q28. Which constraint is used to check a condition for a column value?
+a) UNIQUE ❌ – Ensures uniqueness, not condition.
+b) PRIMARY ❌ – Enforces identity.
+c) FOREIGN ❌ – Enforces referential link.
+d) CHECK ✅ – ✔️ Ensures values meet specific condition.
+
+Q29. What does the CHECK constraint do?
+a) Checks query syntax ❌ – Syntax checking is done by the parser.
+b) Validates data against a condition ✅ – ✔️ Used to enforce custom rules on values.
+c) Assigns default value ❌ – That’s the job of DEFAULT.
+d) Creates index ❌ – Not related.
+
+Q30. Which constraint ensures values fall within a specific range?
+a) DEFAULT ❌ – Assigns value if none is given.
+b) FOREIGN KEY ❌ – Links tables.
+c) CHECK ✅ – ✔️ Enforces value within range or logical condition.
+d) NOT NULL ❌ – Just ensures value is present.
+
+Q31. Which constraint ensures that a column cannot be left empty?
+a) CHECK ❌ – Checks value conditions, not presence.
+b) PRIMARY ❌ – Enforces uniqueness and NOT NULL, but that's not its sole purpose.
+c) UNIQUE ❌ – Ensures distinct values, allows NULL.
+d) NOT NULL ✅ – ✔️ Prevents column from having NULL values.
+
+Q32. What is the default behavior when a foreign key constraint is violated?
+a) Skip row ❌ – SQL doesn’t silently skip rows.
+b) Delete row ❌ – Violation doesn't auto-delete.
+c) Error ✅ – ✔️ Foreign key violations throw an error.
+d) Replace with NULL ❌ – Not allowed unless explicitly defined.
+
+Q33. What does "ON DELETE CASCADE" do in a foreign key?
+a) Deletes parent row ❌ – Deletes child rows, not parent.
+b) Deletes child rows automatically ✅ – ✔️ Automatically removes dependent rows.
+c) Replaces child with NULL ❌ – That’s ON DELETE SET NULL.
+d) Prevents deletion ❌ – That’s ON DELETE RESTRICT.
+
+Q34. What is the correct syntax for a foreign key constraint?
+a) FOREIGN KEY (col) REFERENCES table(col); ✅ – ✔️ Correct SQL syntax.
+b) PRIMARY KEY (col) REFERENCES table; ❌ – PRIMARY KEY isn't used for references.
+c) UNIQUE KEY REFERENCES table(col); ❌ – UNIQUE is not used this way.
+d) CHECK FOREIGN KEY; ❌ – Invalid syntax.
+
+Q35. What does the UNIQUE constraint allow that PRIMARY doesn’t?
+a) NULL values ✅ – ✔️ UNIQUE allows multiple NULLs; PRIMARY doesn’t.
+b) Duplicates ❌ – UNIQUE ensures uniqueness.
+c) Default values ❌ – Irrelevant to UNIQUE vs PRIMARY.
+d) Foreign keys ❌ – Both can be referenced.
+
+Q36. What is the default value for NOT NULL constraint?
+a) 0 ❌ – Only if explicitly set.
+b) NULL ❌ – NOT NULL forbids it.
+c) Empty string ❌ – Depends on datatype.
+d) No default; must be provided ✅ – ✔️ Value must be explicitly given.
+
+Q37. A CHECK constraint on age column age > 0 will:
+a) Allow negative ages ❌ – Obviously not.
+b) Allow only 0 ❌ – Condition is > 0, not >=.
+c) Allow only positive values ✅ – ✔️ Enforces age to be greater than 0.
+d) Remove NULL values ❌ – Doesn’t affect NULL unless explicitly checked.
+
+Q38. Can CHECK constraints be used with strings?
+a) Yes ✅ – ✔️ You can use CHECK on strings, e.g., CHECK (gender IN ('M', 'F')).
+b) No ❌ – False.
+
+Q39. Which constraint automatically adds value if none is provided?
+a) PRIMARY KEY ❌ – Enforces uniqueness and not null, doesn't auto-add values.
+b) CHECK ❌ – Enforces conditions, doesn't assign values.
+c) DEFAULT ✅ – ✔️ Assigns a preset value when no input is given.
+d) FOREIGN KEY ❌ – Establishes reference, doesn’t assign value.
+
+Q40. What does a DEFAULT constraint do?
+a) Prevents null ❌ – NOT NULL does that.
+b) Assigns a value if none given ✅ – ✔️ That's the purpose of DEFAULT.
+c) Sets minimum value ❌ – CHECK can do that.
+d) Enforces relationship ❌ – That’s FOREIGN KEY.
+
+Q41. What happens if no value is given for a column with a DEFAULT?
+a) NULL is stored ❌ – Only if no DEFAULT and column allows NULL.
+b) 0 is stored ❌ – Only if 0 is the defined default.
+c) DEFAULT value is stored ✅ – ✔️ SQL inserts the predefined DEFAULT value.
+d) Error ❌ – Only occurs if no DEFAULT and column is NOT NULL.
+
+Q42. Which constraint ensures data uniqueness across records?
+a) FOREIGN KEY ❌ – Ensures referential integrity, not uniqueness.
+b) UNIQUE ✅ – ✔️ Enforces distinct values in a column or group of columns.
+c) DEFAULT ❌ – Assigns value, doesn’t check uniqueness.
+d) NOT NULL ❌ – Prevents NULLs but doesn't ensure uniqueness.
+
+Q43. Can you apply multiple constraints on one column?
+a) No ❌ – Multiple constraints can be combined.
+b) Yes ✅ – ✔️ You can apply NOT NULL, UNIQUE, CHECK, DEFAULT, etc. on the same column.
+
+Q44. Which constraint must be unique and not null?
+a) Unique ❌ – Allows NULLs.
+b) Primary key ✅ – ✔️ Must be both NOT NULL and UNIQUE.
+c) Foreign key ❌ – Can have duplicates and NULLs.
+d) Alternate key ❌ – May allow NULLs if not enforced as NOT NULL.
+
+Q45. What does a constraint do in DBMS?
+a) Deletes data ❌ – Not its role.
+b) Adds columns ❌ – DDL commands do that.
+c) Enforces rules ✅ – ✔️ Maintains integrity and consistency of data.
+d) Runs triggers ❌ – Triggers are separate from constraints.
+
+Q46. Which constraint creates a relationship between tables?
+a) CHECK ❌ – Validates data conditions.
+b) FOREIGN KEY ✅ – ✔️ Establishes referential relationships.
+c) NOT NULL ❌ – A column-level constraint.
+d) DEFAULT ❌ – Assigns values, doesn’t link tables.
+
+Q47. Can constraints be applied at the table level?
+a) No ❌ – False.
+b) Only for primary keys ❌ – Other constraints (e.g., FOREIGN KEY, CHECK) can also be applied.
+c) Yes ✅ – ✔️ Both column-level and table-level constraints are allowed.
+d) Only in MySQL ❌ – Supported in most RDBMS.
+
+Q48. Which constraint is useful for enforcing business rules?
+a) DEFAULT ❌ – Only sets default values.
+b) CHECK ✅ – ✔️ Enforces custom rules like age > 18.
+c) PRIMARY KEY ❌ – Ensures uniqueness, not business rules.
+d) UNIQUE ❌ – Only handles duplication, not complex logic.
+
+Q49. Can a primary key consist of two columns?
+a) Yes ✅ – ✔️ This is called a composite primary key.
+b) No ❌ – False.
+
+Q50. What happens when a primary key is defined?
+a) Table becomes read-only ❌ – No effect on table mutability.
+b) Table auto indexes the column ✅ – ✔️ Most DBMS auto-create indexes on primary keys.
+c) Column accepts duplicate values ❌ – Violates PK rule.
+d) NULL values are inserted ❌ – Not allowed in PK columns.
