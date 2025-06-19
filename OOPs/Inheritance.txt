@@ -1,0 +1,300 @@
+Q1. Which of the following members are not inherited by derived classes?
+a) Static members ❌ – Static members are inherited, but they are not tied to specific object instances.
+b) Constructors ✅ – Correct. Constructors are never inherited in C++ as they are specific to class construction.
+c) Destructor ❌ – Destructors are not inherited but are called automatically in destruction chain.
+d) All of the above ❌ – Only constructors are truly not inherited. Static members and destructors are inherited or involved indirectly.
+
+Q2. In C++, what is the default visibility mode when a class inherits another?
+a) private ✅ – Correct. If no access specifier is given, C++ uses private inheritance by default.
+b) protected ❌ – You must explicitly specify protected inheritance; it’s not the default.
+c) public ❌ – Public is default only for structs, not for classes.
+d) None ❌ – Invalid, there is a default and it's private for class.
+
+Q3. In single inheritance, what happens if both base and derived classes have a function with the same signature?
+a) Base class function is called ❌ – Only if qualified explicitly. Otherwise, derived version hides it.
+b) Compiler error ❌ – No error occurs; derived class function simply hides the base one.
+c) Derived class function overrides base ✅ – Correct. Function hiding or overriding happens based on virtual keyword.
+d) Undefined behavior ❌ – It is defined; derived function hides the base one.
+
+Q4. Which of the following keywords is used to prevent inheritance?
+a) const ❌ – This restricts modification, not inheritance.
+b) final (C++11) ✅ – Correct. final prevents further inheritance of a class or overriding of a virtual function.
+c) virtual ❌ – Enables dynamic dispatch; not related to blocking inheritance.
+d) restrict ❌ – Not a C++ keyword; exists in C99 for pointer aliasing.
+
+Q5. How can a base class constructor be called in a derived class?
+a) Automatically ❌ – Only the default constructor is called automatically.
+b) Using base::constructor() ❌ – This syntax is invalid in C++.
+c) In the initializer list ✅ – Correct. Parameterized base constructors must be invoked using initializer list.
+d) It can’t be called ❌ – It can be called with proper syntax.
+
+Q6. If a base class destructor is not virtual, what issue may occur?
+a) Object slicing ❌ – Slicing is unrelated to destructors; it happens during assignment/copy.
+b) Memory leak ❌ – Not directly, unless improper deletion of derived object occurs.
+c) Undefined behavior during destruction ✅ – Correct. Without a virtual destructor, deleting a derived object through a base pointer leads to undefined behavior.
+d) Compilation error ❌ – Code compiles fine; issue arises only at runtime.
+
+Q7. If class B inherits from class A, and both have default constructors, what is the constructor call order?
+a) B → A ❌ – Reverse order; base first, then derived.
+b) A → B ✅ – Correct. Constructors are called from base to derived during object creation.
+c) Random ❌ – Well-defined order.
+d) Depends on compiler ❌ – It is defined in the language, not implementation-specific.
+
+Q8. Can private members of the base class be accessed directly in the derived class?
+a) Yes ❌ – They cannot be accessed directly.
+b) No ✅ – Correct. Private members are not directly accessible in derived classes.
+c) Only through friend functions ❌ – Friends can access them, but the derived class itself can't unless it's a friend.
+d) Only if made protected ❌ – If declared protected, then derived can access them directly, but not if they're private.
+
+Q9. What is "object slicing" in inheritance?
+a) Deleting base class pointer ❌ – This leads to potential undefined behavior, not slicing.
+b) Copying derived object into base object ✅ – Correct. Slicing happens when only the base part is copied, losing derived-specific data.
+c) Inheriting private members ❌ – Unrelated to slicing.
+d) None ❌ – There is a defined behavior called object slicing.
+
+Q10. Which type of inheritance can cause ambiguity without virtual inheritance?
+a) Single ❌ – No ambiguity with a single base class.
+b) Multiple ✅ – Correct. Multiple inheritance can lead to ambiguity (e.g., diamond problem).
+c) Multilevel ❌ – Each level inherits from only one class, so no conflict.
+d) Hybrid ❌ – Though hybrid can include multiple, virtual inheritance typically solves it.
+
+  Q11. In hierarchical inheritance, which of the following is true?
+a) One class inherits many classes ❌ – That describes multiple inheritance.
+b) Many classes inherit one class ✅ – Correct. In hierarchical inheritance, several derived classes share the same base class.
+c) It’s not allowed in C++ ❌ – Hierarchical inheritance is allowed.
+d) None ❌ – Option b is correct, so this is false.
+
+Q12. What problem does virtual inheritance solve?
+a) Inheritance loop ❌ – C++ does not support cyclic inheritance.
+b) Ambiguous constructor ❌ – Virtual inheritance doesn’t resolve constructor ambiguity.
+c) Diamond problem ✅ – Correct. Virtual inheritance ensures only one shared instance of the base class exists in the diamond pattern.
+d) Destructor chaining ❌ – Destructor chaining is managed via virtual destructors.
+
+Q13. In C++, which inheritance type can create the Diamond Problem?
+a) Multiple ✅ – Correct. Diamond problem happens when multiple paths inherit from the same base.
+b) Multilevel ❌ – In multilevel, each class inherits from one base, no ambiguity.
+c) Hybrid ✅ – Also correct. Hybrid can include multiple inheritance and thus diamond issues.
+d) Both a and c ✅ – Correct answer should be d since both can lead to the diamond problem.
+
+Q14. Which is true about constructors in multilevel inheritance?
+a) Only the most derived constructor is called ❌ – All constructors are involved.
+b) All constructors are called from base to derived ✅ – Correct. Constructor calls propagate from base → intermediate → derived.
+c) Only base class constructors are called ❌ – All levels are initialized.
+d) Only virtual constructors are called ❌ – C++ doesn’t support virtual constructors.
+
+Q15. When using virtual base classes, which constructor is responsible for initializing the virtual base?
+a) Intermediate class ❌ – Not responsible for initializing virtual base.
+b) Most derived class ✅ – Correct. In virtual inheritance, only the most derived class initializes the virtual base class.
+c) Base class ❌ – Virtual base is not initialized here directly.
+d) None ❌ – There is an initializer, so this is incorrect.
+
+Q16. In multiple inheritance, how do you resolve method ambiguity?
+a) Scope resolution operator ✅ – Correct. BaseClass::function() can disambiguate calls.
+b) Casting ❌ – Not the standard way to resolve function ambiguity.
+c) Virtual base classes ❌ – These resolve data duplication, not method ambiguity directly.
+d) Function overloading ❌ – Overloading is based on signature, not inheritance.
+
+Q17. What access mode restricts access of base class members to only within the derived class?
+a) private ✅ – Correct. Private inheritance means public and protected members of the base become private in the derived class.
+b) protected ❌ – Allows access in further derived classes.
+c) public ❌ – Base members retain their access in derived class.
+d) friend ❌ – Friendship is not an access specifier for inheritance.
+
+Q18. In C++, what keyword is used to indicate virtual inheritance?
+a) virtual ✅ – Correct. You declare virtual base classes using the virtual keyword.
+b) friend ❌ – Used for friendship, not inheritance.
+c) override ❌ – Used to mark overridden virtual functions.
+d) inherit ❌ – Not a keyword in C++.
+
+Q19. In multilevel inheritance, how many base constructors are called during derived object creation?
+a) One ❌ – Only true in single-level inheritance.
+b) Two ❌ – Not always; depends on the number of inheritance levels.
+c) All in the inheritance chain ✅ – Correct. Constructors are called top-down through all levels.
+d) None ❌ – Constructors are always called during object creation.
+
+Q20. Hybrid inheritance is a combination of which types?
+a) Single and multilevel ❌ – Only part of it.
+b) Multiple and hierarchical ❌ – Also partially true.
+c) Multilevel and virtual ❌ – Again partial.
+d) All types ✅ – Correct. Hybrid inheritance combines single, multiple, multilevel, and hierarchical forms.
+
+Q21. When a derived class object is destroyed, in what order are destructors called?
+a) Derived → Base ❌ – That would cause issues; base must clean up last.
+b) Base → Derived ❌ – This is the constructor call order, not destructor.
+c) Random ❌ – Destruction order is well-defined, not random.
+d) Not guaranteed ❌ – It is guaranteed:
+✅ Correct Answer: a) Destructors are called in reverse order of construction, i.e., Derived → Base.
+
+Q22. If a derived class has no constructor, will the base class constructor still be called?
+a) No ❌ – Base class constructor is always called.
+b) Yes ✅ – Correct. If no derived constructor is defined, the base class's default constructor is still automatically invoked.
+c) Only if virtual ❌ – Constructor behavior is not based on virtual.
+d) Only in protected mode ❌ – Access specifier doesn’t affect this behavior.
+
+Q23. What happens if base class constructor takes parameters and derived class does not call it explicitly?
+a) Compiler error ✅ – Correct. If base has no default constructor, and the derived doesn’t explicitly call it, it’s a compile-time error.
+b) Base default constructor is called ❌ – Only possible if such a constructor exists.
+c) Constructor overloading ❌ – This is not related to overloading.
+d) Undefined behavior ❌ – It's a compile-time error, not undefined behavior.
+
+Q24. Can destructors be overloaded in C++?
+a) Yes ❌ – Destructor cannot be overloaded; only one per class is allowed.
+b) No ✅ – Correct. C++ allows only a single destructor per class.
+c) Only if virtual ❌ – Being virtual doesn’t allow overloading.
+d) Only for template classes ❌ – Still not allowed, even in templates.
+
+Q25. Which constructor is invoked first in multiple inheritance?
+a) Right-most base ❌ – Order is left-to-right, not right-to-left.
+b) Left-most base ✅ – Correct. Constructors are called in the order base classes are listed in the derived class definition (left to right).
+c) Random ❌ – It is defined by the order of declaration.
+d) Virtual base ❌ – Virtual base constructors are handled differently and called by the most derived class.
+
+Q26. What ensures proper destruction of derived class objects through base class pointers?
+a) Public inheritance ❌ – This affects access, not destruction.
+b) Virtual destructors ✅ – Correct. Only virtual destructors ensure the derived class destructor is called when deleting via a base class pointer.
+c) Static methods ❌ – Not related to object destruction.
+d) Protected members ❌ – They don’t affect destructor behavior.
+
+Q27. If both base and derived class have destructors, and base destructor is not virtual, what happens?
+a) Both called correctly ❌ – Only base destructor will be called.
+b) Only base destructor called ✅ – Correct. Without a virtual destructor, derived destructor is skipped if object is deleted via base pointer.
+c) Only derived destructor called ❌ – This never happens.
+d) Compiler error ❌ – It compiles, but behaves incorrectly at runtime.
+
+Q28. How to call a specific base class constructor from derived?
+a) Use base::base() ❌ – Invalid syntax in C++.
+b) Use base::constructor() ❌ – Also invalid.
+c) Use initializer list ✅ – Correct. Base constructors are invoked using the initializer list of the derived class constructor.
+d) It’s automatic ❌ – Only the default constructor is called automatically; others must be explicitly invoked.
+
+Q29. In virtual inheritance, when is virtual base class constructor called?
+a) Automatically ❌ – Requires explicit call.
+b) By most derived class ✅ – Correct. Only the most derived class is responsible for initializing virtual base classes.
+c) Never ❌ – It is called, just from a specific point.
+d) By intermediate class ❌ – Intermediate classes do not handle this in virtual inheritance.
+
+Q30. Can destructors be inherited?
+a) Yes, always ✅ – Correct. Destructors are always inherited, and can be overridden if declared virtual.
+b) No, never ❌ – They are inherited, even if not overridden.
+c) Only if not virtual ❌ – Irrelevant to inheritance.
+d) They’re always inherited and can be overridden ✅ – Same as a).
+
+Q31. Can a friend function of base class access private members of derived class?
+a) Yes ❌ – A base class friend has no special access to derived class private members.
+b) No ✅ – Correct. Friendship is not inherited downward; a base's friend cannot access derived private members.
+c) Only if virtual ❌ – Virtuality applies to member functions, not access control.
+d) Only if declared in derived too ❌ – That would make it a separate declaration, not inheritance of friendship.
+
+Q32. If a base class declares a function as friend, what is its accessibility in derived?
+a) Inherited ❌ – Friendship is not inherited.
+b) Not inherited ✅ – Correct. The friend function must be explicitly re-declared in derived if access is needed.
+c) Must be re-declared ❌ – While correct, the best answer is (b) because friendship is simply not inherited.
+d) Accessible via pointer ❌ – Friendship has nothing to do with pointers.
+
+Q33. Can a derived class be a friend of base class?
+a) Yes ✅ – Correct. Any class (even derived) can be declared a friend of any other, including base classes.
+b) No ❌ – This is legal and commonly done.
+c) Only with private inheritance ❌ – Inheritance mode is unrelated.
+d) Only if base is virtual ❌ – Virtual base has no impact on friendship.
+
+Q34. Is friendship transitive in C++?
+a) Yes ❌ – Friendship is not transitive.
+b) No ✅ – Correct. Just because A is a friend of B, and B is a friend of C, doesn’t mean A is a friend of C.
+c) Only in inheritance ❌ – Even in inheritance, friendship is not passed on.
+d) For constructors only ❌ – This has no special rule for constructors.
+
+Q35. A base class friend function can access:
+a) Only base ❌ – Not necessarily.
+b) Base and derived ❌ – Not the derived, unless also declared friend there.
+c) Derived if declared friend again ✅ – Correct. A function must be declared friend in each class separately for access.
+d) Private only ❌ – Friend can access private and protected, but again, only where declared.
+
+Q36. Can friend functions be virtual?
+a) Yes ❌ – Friend functions cannot be virtual because they’re not class members.
+b) No ✅ – Correct. Only member functions can be virtual.
+c) Only in abstract class ❌ – Still not allowed.
+d) Only in multilevel inheritance ❌ – Inheritance structure doesn’t change this.
+
+Q37. Can a friend class access private/protected data of its friend class?
+a) Yes ✅ – Correct. Declaring one class as a friend of another gives it access to all private/protected members.
+b) No ❌ – This is the purpose of friend classes.
+c) Only if inherited ❌ – Inheritance isn’t required for friendship.
+d) Only if public ❌ – Friendship bypasses access specifiers.
+
+Q38. Can friend functions be inherited in C++?
+a) Yes ❌ – Friendship is not inherited.
+b) No ✅ – Correct. A friend function must be declared again in the derived class to access it.
+c) Depends on inheritance type ❌ – Inheritance type does not affect friend function access.
+d) Only in hybrid inheritance ❌ – No such special rule.
+
+Q39. What happens if a derived class re-declares a friend function of base?
+a) It becomes unrelated ✅ – Correct. The re-declared friend is a new declaration, with no relation to the base’s friend.
+b) Both become friends ❌ – C++ doesn’t automatically carry friendship like this.
+c) Overloading ❌ – Re-declaring doesn’t overload the friend function in the class context.
+d) Inherited friendship ❌ – Friendship isn’t inherited.
+
+Q40. Friendship grants access to:
+a) Only private ❌ – Not just private.
+b) Protected and private ✅ – Correct. A friend has full access to all non-public members.
+c) Only public ❌ – Public members are always accessible anyway.
+d) None ❌ – Friendship specifically exists to grant access.
+
+Q41. Given a diamond problem without virtual inheritance, which base class version is accessed?
+a) Ambiguity error ✅ – Correct. Without virtual inheritance, the compiler cannot resolve which base class subobject to use → ambiguity.
+b) First declared ❌ – Not selected automatically; it's ambiguous.
+c) Last declared ❌ – Same issue as above.
+d) Random ❌ – C++ doesn’t resolve ambiguities randomly.
+
+Q42. What is the size of an empty derived class inheriting from empty base?
+a) 0 ❌ – In C++, empty classes still occupy memory for uniqueness.
+b) 1 ✅ – Correct. The size is 1 byte to ensure each object has a unique address.
+c) Compiler error ❌ – Legal in C++.
+d) Depends on padding ❌ – Padding may affect larger structures, but empty class size is defined.
+
+Q43. In multiple inheritance, if two base classes have a function with same signature, what happens?
+a) Ambiguity error ✅ – Correct. The compiler throws an error unless resolved using scope resolution.
+b) Automatically resolved ❌ – You must resolve it manually.
+c) Derived overrides both ❌ – It doesn’t override unless explicitly defined.
+d) No error ❌ – Only true if ambiguity is explicitly resolved.
+
+Q44. What feature helps resolve multiple base function ambiguity?
+a) Function hiding ❌ – It causes ambiguity, doesn’t solve it.
+b) Scope resolution ✅ – Correct. Base1::func() resolves ambiguity between similarly named methods.
+c) Polymorphism ❌ – Helps at runtime, not compile-time ambiguity.
+d) Overloading ❌ – That’s based on differing signatures, not identical ones.
+
+Q45. Which class gets constructed first in hybrid inheritance?
+a) Intermediate ❌ – Intermediate classes are constructed after base.
+b) Virtual base ✅ – Correct. Virtual base classes are always constructed first, even in hybrid inheritance.
+c) Direct base ❌ – Only if not virtual.
+d) Derived ❌ – Constructed last.
+
+Q46. What if both base and derived class have constructors with same signature?
+a) Ambiguity ❌ – There’s no ambiguity during construction.
+b) Overriding ❌ – Constructors are not inherited or overridden.
+c) No issue ✅ – Correct. Constructors are tied to their class and don’t conflict.
+d) Derived hides base ❌ – Not applicable for constructors.
+
+Q47. Can a base class constructor be private and still be inherited?
+a) No ❌ – You can inherit, but can't instantiate derived objects if constructor is inaccessible.
+b) Yes, but not constructible ✅ – Correct. Inheritable, but derived class must have access (friend or public) to construct.
+c) Only by friend classes ❌ – Friends can call it, but inheritance isn’t restricted to that.
+d) Only with virtual base ❌ – Irrelevant to constructor visibility.
+
+Q48. What design principle is violated by using public inheritance to model “has-a” relationship?
+a) Composition ❌ – Composition is the correct way to model “has-a,” not the one being violated.
+b) Inheritance hierarchy ❌ – That’s a structure, not a principle.
+c) LSP ✅ – Correct. The Liskov Substitution Principle is violated when using inheritance improperly to model “has-a” rather than “is-a.”
+d) Encapsulation ❌ – This isn’t directly about hiding internals.
+
+Q49. Why is destructor in base class often made virtual?
+a) Support overloading ❌ – Destructor overloading is not allowed.
+b) Polymorphic cleanup ✅ – Correct. A virtual destructor ensures the derived class destructor is called when deleting via base pointer.
+c) Avoid function hiding ❌ – Not related to destructor behavior.
+d) Prevent slicing ❌ – Destructor has no role in object slicing.
+
+Q50. Which of the following allows run-time resolution of inherited functions?
+a) Templates ❌ – Resolved at compile-time.
+b) Virtual functions ✅ – Correct. Virtual functions enable dynamic dispatch, i.e., runtime resolution.
+c) Friend functions ❌ – Not part of the vtable mechanism.
+d) Function overloading ❌ – Resolved during compilation.
