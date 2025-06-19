@@ -1,0 +1,336 @@
+1. Which call will result in ambiguity if both are defined
+void func(int, int = 10);
+void func(int);
+func(5);
+a) Valid ❌ — Ambiguous as both match func(5).
+b) Compile-time error due to ambiguity ✅ — ✔️ Compiler gets confused between two matches.
+c) Runtime error ❌ — Not a runtime issue.
+d) Depends on compiler ❌ — All standard compilers will throw an error.
+
+2. Which overload pair is valid?
+void compute(int&);
+void compute(const int&);
+a) Invalid - same signature ❌ — Signatures differ in const.
+b) Valid - due to const ✅ — ✔️ Overload resolution treats them differently.
+c) Only valid in templates ❌ — Not limited to templates.
+d) Depends on overload resolution rules ❌ — Standard rules allow it.
+
+3. What is the effect of overloading a function with const and non-const object references?
+a) Always the non-const version is chosen ❌ — Not always.
+b) Const object calls const version ✅ — ✔️ Non-const objects can call both, but const objects only call const version.
+c) Results in ambiguity ❌ — Only if types are same without const distinction.
+d) Undefined behavior ❌ — Deterministic behavior.
+
+4. Which pair is a valid overload in C++?
+a) int get(); and void get(); ❌ — Invalid: only return type differs.
+b) int get(int); and int get(double); ✅ — ✔️ Valid overload.
+c) void get(int); and void get(int x = 0); ❌ — Ambiguous when called with one int.
+d) void get(); and get(); ❌ — Second is syntactically invalid.
+
+5. Given two functions: void f(float); and void f(int);, which call resolves to float version?
+a) f(5.6); ✅ — ✔️ 5.6 is double; converts better to float.
+b) f(5); ❌ — Matches int version.
+c) f(5.0f); ❌ — Explicit float, but not a double.
+d) f('A'); ❌ — Matches int (ASCII).
+
+6. What determines constructor overloading resolution?
+a) Return type ❌ — Constructors don’t have return types.
+b) Parameter list ✅ — ✔️ Overload is based on parameter types/count.
+c) Constructor name ❌ — All constructors have the same name.
+d) Destructor presence ❌ — Unrelated.
+
+7. Which of the following constructor overloads is invalid?
+MyClass(int);
+MyClass(float);
+MyClass(double = 0.0);
+a) All are valid ❌ — Ambiguity arises.
+b) Ambiguity arises with default value ✅ — ✔️ Default in double conflicts with float/int overloads.
+c) Constructors can't have default arguments ❌ — They can.
+d) Constructors must differ in return type ❌ — Constructors don’t return.
+
+8. What is the output?
+class A {
+public:
+    A(int x = 10) { cout << x; }
+    A() { cout << "Default"; }
+};
+A a;
+a) Default ❌ — A() is not called.
+b) 10 ✅ — ✔️ A(int = 10) is a better match.
+c) Error due to ambiguity ❌ — No ambiguity.
+d) Both Default and 10 ❌ — Only one constructor called.
+
+9. Which situation leads to constructor overload ambiguity?
+a) Overloading with default parameters ✅ — ✔️ Default params can cause matching issues.
+b) Overloading with reference and const reference ❌ — Differentiable.
+c) Having both copy and move constructors ❌ — Valid with clear call context.
+d) Overloading with templates ❌ — Compiler usually resolves via SFINAE.
+
+10. Can constructor overloading be combined with initializer lists?
+a) No ❌ — Allowed.
+b) Yes ✅ — ✔️ Common practice.
+c) Only in base classes ❌ — Not restricted.
+d) Only with explicit constructors ❌ — Irrelevant to initializer lists.
+
+11. Function overriding occurs in:
+a) Same class ❌ — That’s overloading.
+b) Derived class with same signature ✅ — ✔️ Classic overriding.
+c) Derived class with different return type ❌ — Return must be identical or covariant.
+d) Overloaded constructors ❌ — Not overriding.
+
+12. Which of the following can override a base class method?
+class B { virtual int fun(); };
+class D : public B { float fun(); };
+a) Valid override ❌ — Return types incompatible.
+b) Invalid due to return type mismatch ✅ — ✔️ Must be same or covariant.
+c) Depends on access specifier ❌ — Irrelevant.
+d) Always overridden if virtual ❌ — Not if signature mismatches.
+
+13. Which rule applies to overriding?
+a) Parameters may differ ❌ — Must be same.
+b) Return type must be identical or covariant ✅ — ✔️ Required for valid override.
+c) Function name must differ ❌ — Must be same.
+d) Constructors can override ❌ — Constructors can't be overridden.
+
+14. Which statement is true?
+a) Function overloading uses dynamic dispatch ❌ — It’s compile-time.
+b) Function overriding uses static binding ❌ — It's runtime.
+c) Function overriding supports runtime polymorphism ✅ — ✔️ via virtual functions.
+d) Return type determines overload resolution ❌ — Parameter types matter.
+
+15. Which causes ambiguity?
+void f(int);
+void f(long);
+f(10);
+a) Always calls int ❌ — Depends.
+b) Always calls long ❌ — Depends.
+c) Causes ambiguity if both match equally ✅ — ✔️ Especially with literals.
+d) Depends on function body ❌ — Body not considered at overload resolution.
+
+16. What must be true for operator overloading?
+a) Must use friend functions ❌ — Optional.
+b) At least one operand must be user-defined ✅ — ✔️ Required rule.
+c) Only class members can be overloaded ❌ — Not necessary.
+d) Only arithmetic operators are allowed ❌ — Many operators allowed.
+
+17. Overloading assignment = should typically return:
+a) void ❌ — No chaining.
+b) bool ❌ — Not convention.
+*c) this ✅ — ✔️ Enables chaining.
+d) new object ❌ — Inefficient.
+
+18. What is true about overloading unary operators?
+a) Always need two parameters ❌ — Unary needs none or one.
+b) Must be friend function ❌ — Optional.
+c) Can be overloaded without parameters ✅ — ✔️ As member.
+d) Cannot be overloaded ❌ — They can.
+
+19. What is the correct signature to overload prefix ++ as a member function?
+a) void operator++(); ❌ — Return type should be class or reference.
+b) int operator++(int); ❌ — Postfix version.
+c) int operator++(); ✅ — ✔️ Prefix version.
+d) void operator++(int); ❌ — Incorrect postfix.
+
+20. Which of the following must be overloaded as a member function?
+a) = ✅ — ✔️ Assignment must be member.
+b) + ❌ — Can be global or member.
+c) == ❌ — Can be global.
+d) << ❌ — Often global.
+
+21. Which of these operators cannot be overloaded?
+a) new ❌ – Can be overloaded.
+b) [] ❌ – Can be overloaded.
+c) -> ❌ – Can be overloaded.
+d) :: ✅ – ✔️ Scope resolution (::) operator cannot be overloaded.
+
+22. Which of the following is overloadable?
+a) sizeof ❌ – Cannot be overloaded.
+b) . ❌ – Member access can't be overloaded.
+c) typeid ❌ – A compile-time operator, not overloadable.
+d) () ✅ – ✔️ Function call operator can be overloaded.
+
+23. Which one is a typical use of operator-> overloading?
+a) Pointer arithmetic ❌ – Not the purpose.
+b) Smart pointers ✅ – ✔️ Used to simulate pointer-like access.
+c) String operations ❌ – Not applicable.
+d) Friend access ❌ – Not related.
+
+24. What is the type of result from overloaded operator<< for a stream class?
+a) void ❌ – Would prevent chaining.
+b) ostream& ✅ – ✔️ Enables chaining of output.
+c) int ❌ – Not used for chaining.
+d) const string& ❌ – Not the return type.
+
+25. Which of the following overloadings helps in STL sorting?
+a) operator<< ❌ – Used for output.
+b) operator> ❌ – Not the default for sort.
+c) operator< ✅ – ✔️ STL sort uses < by default.
+d) operator!= ❌ – Used for inequality.
+
+26. Function overloading combined with templates can lead to:
+a) Compile-time ambiguity ✅ – ✔️ Both template and non-template overloads might match.
+b) Runtime exception ❌ – Not related.
+c) Inheritance loop ❌ – Not connected.
+d) None of the above ❌ – a) is correct.
+
+27. Which version is preferred when both overloaded and templated functions match?
+a) Template ❌ – Not preferred if exact non-template match exists.
+b) Overloaded non-template ✅ – ✔️ Always preferred if exact match.
+c) First defined ❌ – Not a rule.
+d) Compiler error ❌ – Not necessarily.
+
+28. Template-based operator overloading is useful when:
+a) Types are fixed ❌ – Templates are for flexibility.
+b) Generic behavior is needed ✅ – ✔️ That's the main purpose.
+c) No inheritance ❌ – Templates unrelated to inheritance.
+d) No return types required ❌ – Return types are still required.
+
+29. Which is a valid use of overloaded template operator?
+a) Defining polymorphic base class ❌ – Not applicable.
+b) Overloading I/O ❌ – Usually not templated.
+c) Implementing generic arithmetic ✅ – ✔️ Common use case.
+d) Defining destructors ❌ – Destructors can't be overloaded.
+
+30. In template-based operator overloading, return types are usually:
+a) void ❌ – Rarely used.
+b) Built-in types ❌ – Often return user-defined.
+c) Reference to current type ✅ – ✔️ For chaining.
+d) Virtual types ❌ – Templates don’t use virtual.
+
+31. Output?
+class A {
+public:
+    void show(int x) { cout << "int"; }
+    void show(double x) { cout << "double"; }
+};
+A obj;
+obj.show(5.0f);
+a) int ❌ – 5.0f is float, but no exact match.
+b) double ✅ – ✔️ float gets promoted to double, best match.
+c) float ❌ – No show(float) defined.
+d) Error ❌ – All overloads resolvable.
+
+32. Overloaded function resolution happens at:
+a) Runtime ❌ – That’s for virtual functions.
+b) Compile-time ✅ – ✔️ Resolved based on parameters at compile time.
+c) Link-time ❌ – Not function resolution.
+d) Load-time ❌ – Related to loading binary, not functions.
+
+33. Overloaded functions cannot differ by:
+a) Number of parameters ❌ – That’s allowed.
+b) Type of parameters ❌ – Also allowed.
+c) Return type ✅ – ✔️ Return type alone is not enough.
+d) Order of parameters ❌ – That creates unique signatures.
+
+34. Which leads to ambiguity?
+void foo(int, double = 3.5);
+void foo(int, int);
+foo(5);
+a) Calls first ❌ – Would work if second didn’t exist.
+b) Calls second ❌ – Same as above.
+c) Ambiguity error ✅ – ✔️ foo(5) matches both via default and int.
+d) Runtime exception ❌ – It’s a compile-time issue.
+
+35. Overloading operator+ with friend function requires:
+a) Static return type ❌ – Return types are usually class types.
+b) At least one parameter to be user-defined type ✅ – ✔️ Rule for operator overloads.
+c) Both parameters to be primitive ❌ – That’s not allowed.
+d) Only one parameter allowed ❌ – Binary operator needs two.
+
+36. Which operator can be overloaded globally, not in class?
+a) [] ❌ – Must be member.
+b) + ✅ – ✔️ Can be overloaded as a global function.
+c) -> ❌ – Must be member.
+d) () ❌ – Also must be member.
+
+37. Which call will invoke a non-const version of overloaded method?
+class A {
+public:
+    void display();
+    void display() const;
+};
+const A a;
+a.display();
+a) Non-const version ❌ – Const object can't call it.
+b) Const version ✅ – ✔️ Const object can only call const method.
+c) Error ❌ – Overload resolution handles this.
+d) Both ❌ – Only one will be picked.
+
+38. Which operator must return a reference to allow chaining?
+a) * ❌ – Usually returns value.
+b) [] ❌ – Often returns reference but not for chaining.
+c) << ✅ – ✔️ Used in chaining cout << a << b.
+d) == ❌ – Returns bool, chaining irrelevant.
+
+39. Which of the following can be used to simulate overloading based on return type?
+a) Function pointer ✅ – ✔️ You can explicitly pick based on return type.
+b) Templates with SFINAE ✅ – ✔️ Advanced technique to select based on type.
+c) Macros ✅ – ✔️ Hacky, but possible.
+d) All of the above ✅ – ✔️ All valid techniques.
+
+40. Which of these cannot be used with overloading?
+a) Lambda functions ❌ – Can be overloaded (via wrappers).
+b) Default constructors ❌ – You can overload constructors.
+c) Destructor ✅ – ✔️ Can’t be overloaded, only one per class.
+d) Conversion constructors ❌ – They can be overloaded too.
+
+41. Operator overloading helps achieve which OOP concept most directly?
+a) Abstraction ❌ – Not the main benefit.
+b) Polymorphism ✅ – ✔️ Overloading allows multiple behaviors (compile-time polymorphism).
+c) Inheritance ❌ – Unrelated to operator overloading.
+d) Encapsulation ❌ – Not specific to this.
+
+42. Overloading operator() enables an object to behave like:
+a) Stream ❌ – That’s operator<<.
+b) Array ❌ – That’s operator[].
+c) Function ✅ – ✔️ operator() lets objects act like callable functions.
+d) Class template ❌ – Not directly related.
+
+43. Overloading operator[] enables:
+a) Function call chaining ❌ – That’s operator().
+b) Array-like indexing ✅ – ✔️ This is the main use of operator[].
+c) Function pointers ❌ – Not related.
+d) Variadic templates ❌ – Unrelated to operator overloading.
+
+44. Chaining is possible when overloaded operator returns:
+a) Value ❌ – May break chaining.
+b) Reference ✅ – ✔️ Enables expressions like a = b = c.
+c) Constant ❌ – Const reference can limit chaining.
+d) Void ❌ – Prevents chaining.
+
+45. Overloading new and delete allows:
+a) Stack memory allocation ❌ – Stack is managed by compiler, not overloading.
+b) Custom memory management ✅ – ✔️ You can track or optimize allocation.
+c) Automatic casting ❌ – Not related.
+d) Polymorphic creation ❌ – Virtual constructors don’t exist in C++.
+
+46. What is the correct way to overload == operator?
+a) Member only ❌ – Not required.
+b) Friend function ❌ – Allowed, but not mandatory.
+c) Either member or friend ✅ – ✔️ Both are legal choices.
+d) Only globally ❌ – Member is often better for ==.
+
+47. What does this signify?
+MyClass operator++(int);
+a) Prefix increment ❌ – No parameter means prefix.
+b) Postfix increment ✅ – ✔️ The dummy int signals postfix form.
+c) Ambiguous operator ❌ – Clearly defined.
+d) Runtime operator ❌ – Compile-time construct.
+
+48. Overloading binary * operator usually involves:
+a) Memory management ❌ – That’s for new/delete.
+b) Arithmetic operation ✅ – ✔️ For multiplying objects or values.
+c) Pointer dereferencing ❌ – Unary operator* is used for that.
+d) Destructor handling ❌ – Not relevant.
+
+49. Overloading with default parameters requires caution because:
+a) Changes signature ❌ – Doesn’t change actual function signature.
+b) Affects overload resolution ✅ – ✔️ Default values can cause ambiguity.
+c) Is deprecated ❌ – Still allowed and common.
+d) Not allowed with friend functions ❌ – It is allowed.
+
+50. Which of the following is true regarding polymorphism and overloading?
+a) Both resolved at runtime ❌ – Overloading is compile-time.
+b) Overloading enables multiple forms at compile time ✅ – ✔️ That’s static polymorphism.
+c) Overloading is a form of inheritance ❌ – Inheritance is unrelated.
+d) Overloading requires base class ❌ – Not required.
