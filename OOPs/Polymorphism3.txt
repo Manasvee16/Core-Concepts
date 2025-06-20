@@ -1,0 +1,404 @@
+Q1. What is the output of the following code?
+void func(int x) { cout << "Int"; }
+void func(double x) { cout << "Double"; }
+func(3.0f);
+a) Int ❌ – float to int is valid but less preferred.
+b) Double ✅ – ✔️ float promotes better to double than to int.
+c) Compilation Error ❌ – Valid overloads exist.
+d) Ambiguity Error ❌ – No ambiguity, double wins.
+
+Q2. Which function will be called?
+void display(int x);
+void display(char x);
+display('a');
+a) int ❌ – char is a better match than converting to int.
+b) char ✅ – ✔️ Exact match for character literal 'a'.
+c) Error ❌ – Valid overloads.
+d) Undefined Behavior ❌ – Defined behavior.
+
+Q3. Which of the following is true about function overloading in C++?
+a) Only return type needs to differ ❌ – Not allowed.
+b) Only parameter names need to differ ❌ – Names don’t matter.
+c) Only parameter count or type should differ ✅ – ✔️ Signature = function name + param types.
+d) Functions with same parameters but different bodies ❌ – Signature must differ.
+
+Q4. Predict output
+void fun(int x);
+void fun(int x, int y = 10);
+fun(5);
+a) Int ❌ – Valid overload exists, but not chosen.
+b) Int, Int ❌ – Also matches.
+c) Compilation Error ❌ – No syntax issue.
+d) Ambiguous Call ✅ – ✔️ Both match fun(5) due to default param.
+
+Q5. Identify the error
+void test(float f);
+void test(double d);
+test(10);
+a) Calls test(float) ❌ – 10 is int, needs promotion.
+b) Calls test(double) ❌ – Both require promotion.
+c) Compilation Error due to ambiguity ✅ – ✔️ int can go to both float or double equally.
+d) Undefined behavior ❌ – Compile-time ambiguity.
+
+Q6. Which of the following cannot be overloaded?
+a) Constructor ❌ – Can be overloaded.
+b) Destructor ✅ – ✔️ Only one destructor allowed per class.
+c) Operator() ❌ – Can be overloaded.
+d) Operator+ ❌ – Can be overloaded.
+
+Q7. What will be printed?
+class Demo {
+  void show(int a);
+  void show(int a, int b = 0);
+};
+obj.show(5);
+a) int ❌ – Not clearly chosen.
+b) int, int ❌ – Also valid.
+c) Error ❌ – No syntax issue.
+d) Ambiguous ✅ – ✔️ Both match show(5) due to default argument.
+
+Q8. Function signature clash example
+void func(int a);
+void func(const int a);
+a) Overloading works ❌ – Const on value parameter doesn’t change signature.
+b) Error: Duplicate function ✅ – ✔️ Same signature to compiler.
+c) It calls the const version ❌ – Compilation fails.
+d) Ambiguity ❌ – Invalid overload.
+
+Q9. What will be printed?
+void func(int x);
+void func(float x);
+func('A');
+a) int ✅ – ✔️ 'A' promotes to int (ASCII = 65).
+b) float ❌ – int is better match.
+c) char ❌ – No such function.
+d) Error ❌ – Valid.
+
+Q10. Overloading and float
+void print(double d);
+void print(float f);
+print(5.5f);
+a) float ✅ – ✔️ 5.5f is float literal — exact match.
+b) double ❌ – Not chosen.
+c) Error ❌ – Valid overloads.
+d) Depends on compiler ❌ – Deterministic overload.
+
+Q11. What is printed?
+class Demo {
+public:
+    Demo(int x) { cout << "int"; }
+    Demo(double x) { cout << "double"; }
+};
+Demo d(10.5f);
+a) int ❌ – float doesn't convert better to int than double.
+b) double ✅ – ✔️ float promotes better to double.
+c) Error ❌ – No syntax error.
+d) float ❌ – No matching float constructor.
+
+Q12. Which constructor is called?
+A obj(65);
+With:
+A(int)
+A(char)
+a) int ✅ – ✔️ 65 is an int literal.
+b) char ❌ – Would require narrowing.
+c) Error ❌ – No issue.
+d) Depends on architecture ❌ – Deterministic overload.
+
+Q13. Can this be overloaded?
+Test(); 
+Test(int a = 5);
+a) Yes ❌ – Technically ambiguous.
+b) No ✅ – ✔️ Ambiguity: calling Test() matches both.
+c) Error due to default parameter ❌ – Right reason, wrong label.
+d) Compiles but constructor 1 is ignored ❌ – May not compile.
+
+Q14. Identify the error
+Demo(int);
+Demo(int, int = 0);
+Demo(5);  // call
+a) Valid ❌ – Ambiguous.
+b) Ambiguity if Demo(5) is called ✅ – ✔️ Both match.
+c) Error ❌ – Compiles, but ambiguous call.
+d) Will call 2nd constructor always ❌ – Can’t assume.
+
+Q15. Constructor overloading works when:
+a) Return type changes ❌ – Constructors don't have return types.
+b) Default arguments are different ❌ – Can cause ambiguity.
+c) Parameter list differs ✅ – ✔️ Core rule for overloading.
+d) Both B and C ❌ – B is incorrect.
+
+Q16. Which operator cannot be overloaded?
+a) + ❌ – Overloadable.
+b) = ❌ – Overloadable.
+c) :: ✅ – ✔️ Scope resolution operator is not overloadable.
+d) [] ❌ – Overloadable.
+
+Q17. Predict output
+void operator+(A obj) { cout << "Plus"; }
+a1 + a2;
+a) Error ❌ – Valid.
+b) Plus ✅ – ✔️ Overloaded + outputs “Plus”.
+c) Runtime Error ❌ – No issue at runtime.
+d) Compiler warning ❌ – Not if used correctly.
+
+Q18. Operator overloading must return:
+a) Void always ❌ – Often returns reference/value.
+b) Reference for chaining ✅ – ✔️ Especially for =, [], etc.
+c) Value only ❌ – Depends on context.
+d) None of the above ❌ – B is correct.
+
+Q19. Can we overload assignment operator?
+a) Yes ✅ – ✔️ Common in user-defined classes.
+b) No ❌ – Incorrect.
+c) Only in derived classes ❌ – Not limited.
+d) Only for primitive types ❌ – Not needed for them.
+
+Q20. What is the result?
+void operator[](int index) {
+  cout << "Index " << index;
+}
+d[5];
+a) Index 5 ✅ – ✔️ Index operator overloads correctly.
+b) Compilation Error ❌ – Valid syntax.
+c) Runtime Error ❌ – No issue.
+d) Undefined Behavior ❌ – Behavior is defined.
+
+Q21. What does the arrow operator overload return?
+a) Object ❌ – Arrow (->) operator should return a pointer.
+b) Pointer to object ✅ – ✔️ Must return pointer to mimic pointer access.
+c) Reference to object ❌ – Not valid for ->.
+d) Pointer to member ❌ – Not relevant here.
+
+Q22. Choose valid overloaded operator function signature:
+a) operator+() ❌ – Missing return type and parameters.
+b) void operator+(Demo, Demo) ❌ – Must be a global/friend, not a member.
+c) Demo operator+(const Demo&) ✅ – ✔️ Valid member overload.
+d) static operator+(Demo) ❌ – Operator functions can’t be static this way.
+
+Q23. Can the following be overloaded?
+A& operator=(A a);
+a) Yes ✅ – ✔️ Valid overload of assignment operator.
+b) No ❌ – Definitely allowed.
+c) Error ❌ – No error.
+d) Only for const objects ❌ – No such restriction.
+
+Q24. Output?
+void operator()() { cout << "Function call"; }
+obj();
+a) Error ❌ – Valid operator overloading.
+b) Function call ✅ – ✔️ () makes the object callable.
+c) Compile-time exception ❌ – No such thing.
+d) None ❌ – Output is shown.
+
+Q25. What does overloading operator-> require?
+a) Returning a reference ❌ – Reference isn’t enough.
+b) Returning a pointer ✅ – ✔️ -> operator must return a pointer.
+c) Virtual function ❌ – Not necessary.
+d) Copy constructor ❌ – Not involved.
+
+Q26. Which pair is allowed?
+void f() const;
+void f();
+a) Allowed ✅ – ✔️ const qualifies member functions separately.
+b) Allowed ✅ – ✔️ Both are unique signatures.
+c) Both ✅ – ✔️ Both (a) and (b) allowed.
+d) Neither ❌ – Incorrect.
+
+Q27. Can return type cause function overloading?
+int test();
+float test();
+a) Yes ❌ – Return type alone cannot distinguish overload.
+b) No ✅ – ✔️ Must differ in parameter list.
+c) Only with const ❌ – const doesn’t help here.
+d) Depends on arguments ❌ – No argument difference.
+
+Q28. What is the error?
+void func();
+int func();
+a) No error ❌ – Causes redeclaration error.
+b) Error: Return type only differs ✅ – ✔️ Return type alone isn't enough to overload.
+c) Valid overload ❌ – Not valid.
+d) Runtime Error ❌ – Compile-time issue.
+
+Q29. Can we overload based on const object?
+a) Yes ✅ – ✔️ const qualifies the function signature.
+b) No ❌ – It can.
+c) Depends on return type ❌ – Irrelevant here.
+d) Only in base class ❌ – Not restricted to inheritance.
+
+Q30. Predict output:
+const A a;
+a.show();
+With:
+void show() const;
+void show();
+a) Const ✅ – ✔️ const object can only call const function.
+b) Non-const ❌ – Not accessible.
+c) Error ❌ – Valid code.
+d) Ambiguous ❌ – No ambiguity.
+
+Q31. Is the code valid?
+class A {
+    int val;
+public:
+    A operator+(const A& obj);
+};
+a) Yes ✅ — ✔️ This is a valid way to overload the + operator.
+b) No ❌ — Nothing invalid here.
+c) Only in friend function ❌ — Member function works fine.
+d) Only if val is public ❌ — Private access is fine within class.
+
+Q32. Which operator must return reference for chaining?
+a) [] ❌ — Not necessary to return reference.
+b) + ❌ — Typically returns a value, not reference.
+c) = ✅ — ✔️ Assignment operator must return reference for chaining.
+d) () ❌ — Can return anything; no chaining requirement.
+
+Q33. What is the output?
+Demo d1(5), d2(10);
+Demo d3 = d1 + d2;
+cout << d3.x;
+a) 15 ✅ — ✔️ 5 + 10 returns new object with x = 15.
+b) 10 ❌ — Wrong addition.
+c) Error ❌ — No error present.
+d) Garbage ❌ — Well-defined value.
+
+Q34. Overloading << requires:
+a) Member function ❌ — Not appropriate, needs access to ostream.
+b) Friend function ✅ — ✔️ Commonly done as a friend to access private members.
+c) Static function ❌ — Not a requirement.
+d) Private member ❌ — Not necessarily.
+
+Q35. Which statement is true?
+a) Overloading changes function signature ✅ — ✔️ Overloading must differ by parameter list.
+b) Overriding changes return type ❌ — Must be same or covariant.
+c) Operator overloading affects base class ❌ — Only applies to defined class.
+d) :: can be overloaded ❌ — It cannot be overloaded.
+
+Q36. Error in this code?
+void display(int a = 0);
+void display();
+Calling display();
+a) Ambiguity error ✅ — ✔️ display() and display(int=0) both match.
+b) Calls display() ❌ — Ambiguous match.
+c) Calls display(int) ❌ — Same ambiguity.
+d) None ❌ — There is ambiguity.
+
+Q37. Can destructors be overloaded?
+a) Yes ❌ — Only one destructor allowed.
+b) No ✅ — ✔️ Destructor cannot be overloaded.
+c) Only virtual ones ❌ — Still not allowed.
+d) With default args ❌ — Not allowed.
+
+Q38. What is true?
+a) main() can be overloaded ❌ — Not allowed by standard.
+b) main() cannot be overloaded ✅ — ✔️ Only one main() allowed.
+c) main() can have default args ❌ — Not allowed.
+d) main() can return void ❌ — Should return int.
+
+Q39. Is this valid?
+A& operator++();       // pre-increment
+A operator++(int);     // post-increment
+a) Valid ✅ — ✔️ Both versions correctly overloaded.
+b) Invalid ❌ — Standard-compliant.
+c) Only post-increment valid ❌ — Both are valid.
+d) Ambiguous ❌ — Clear distinction.
+
+Q40. Predict output:
+void print() const {
+    // val++; // error
+    cout << val;
+}
+a) Error on val++ ✅ — ✔️ Can’t modify member in a const function.
+b) Prints val ❌ — Line with error is active.
+c) Compiles ❌ — Won’t compile with val++.
+d) Needs mutable ❌ — Not relevant here.
+
+Q41. What will be the result?
+class A {
+public:
+    A() {}
+    A operator-(const A& obj) {
+        cout << "Minus";
+        return *this;
+    }
+};
+int main() {
+    A a1, a2;
+    a1 - a2;
+}
+a) Minus ✅ — ✔️ Overloaded - operator prints "Minus".
+b) Error ❌ — No syntax or logic error.
+c) Compiles, no output ❌ — Output is printed.
+d) Undefined ❌ — Well-defined behavior.
+
+Q42. Choose the valid overload signature:
+a) void f(); ✅ — ✔️ Valid.
+b) int f(); ✅ — ✔️ Valid alone.
+c) Both A and B together ❌ — ❌ Return type alone cannot differentiate overloads.
+d) Neither ❌ — At least one is valid.
+
+Q43. Overloading based on int vs long:
+void f(int);
+void f(long);
+f(5);
+a) int ✅ — ✔️ Literal 5 is int, exact match preferred.
+b) long ❌ — Chosen only if int wasn't available.
+c) Error ❌ — No ambiguity.
+d) Depends ❌ — Standard behavior.
+
+Q44. Identify the correct one:
+void fun(int&);
+void fun(const int&);
+fun(5);
+a) First ❌ — Cannot bind non-const rvalue to non-const reference.
+b) Second ✅ — ✔️ 5 is rvalue; only binds to const reference.
+c) Error ❌ — No error.
+d) Depends ❌ — Deterministic.
+
+Q45. Overloading new requires:
+a) Static method ❌ — Not necessary.
+b) Global function ❌ — Can be global or class-based.
+c) Member function ✅ — ✔️ Can be overloaded in class as static member.
+d) Special syntax ❌ — Normal function overloading syntax.
+
+Q46. Operator new returns:
+a) void pointer ✅ — ✔️ Always returns void* by default.
+b) object ❌ — Not directly.
+c) int pointer ❌ — Incorrect.
+d) reference ❌ — Never.
+
+Q47. Can we overload comma operator?
+a) Yes ✅ — ✔️ Comma operator can be overloaded.
+b) No ❌ — It's allowed.
+c) Only in base class ❌ — No such restriction.
+d) Only in global scope ❌ — Not mandatory.
+
+Q48. Predict output:
+class A {
+public:
+    void operator,(A) {
+        cout << "Comma";
+    }
+};
+int main() {
+    A a1, a2;
+    a1, a2;
+}
+a) Comma ✅ — ✔️ Custom , operator is invoked.
+b) Error ❌ — Valid syntax.
+c) No output ❌ — Output occurs.
+d) Undefined ❌ — Defined behavior.
+
+Q49. Function hiding happens when:
+a) Overloading occurs ❌ — Not hiding, just multiple overloads.
+b) Derived class redefines base class function ✅ — ✔️ Hides all overloads in base class.
+c) Same return type ❌ — Irrelevant.
+d) Same function name in namespace ❌ — Still visible with scope resolution.
+
+Q50. Choose false:
+a) Constructors can be overloaded ✅ — ✔️ True.
+b) Functions can be overloaded by return type ❌ — ❌ False. Only parameters matter.
+c) Operators like ->* can be overloaded ✅ — ✔️ True.
+d) sizeof cannot be overloaded ✅ — ✔️ True; it's a compile-time operator.
