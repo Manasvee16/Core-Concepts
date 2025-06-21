@@ -1,0 +1,775 @@
+Q1. What is the output of the following code?
+#include<iostream> 
+using namespace std; 
+class A { 
+public: 
+A() { cout << "A "; } 
+}; 
+class B : public A { 
+public: 
+B() { cout << "B "; } 
+}; 
+int main() { 
+B obj; 
+return 0; 
+}
+A) B A ❌
+Incorrect: Constructor of base class is called before derived class.
+B) A B ✅
+Correct: First, class A's constructor is called, then class B's.
+C) Compilation error ❌
+Incorrect: There’s no syntax or semantic issue.
+D) Runtime error ❌
+Incorrect: Program runs without any error.
+
+Q2. What is the output?
+class Base { 
+public: 
+Base(int x) { cout << "Base " << x << " "; } 
+}; 
+class Derived : public Base { 
+public: 
+Derived() : Base(5) { cout << "Derived"; } 
+}; 
+int main() { 
+    Derived d; 
+    return 0; 
+}
+A) Base 5 Derived ✅
+Correct: Base constructor with value 5 is called first, then derived constructor.
+B) Derived Base 5 ❌
+Incorrect: Constructors are called base → derived.
+C) Compilation Error ❌
+Incorrect: Constructor initialization list is valid.
+D) Base Derived 5 ❌
+Incorrect: "5" is part of base constructor's output.
+
+Q3. What is the result of the following?
+class A { 
+public: 
+    A() { cout << "A "; } 
+    ~A() { cout << "~A "; } 
+}; 
+class B : public A { 
+public: 
+    B() { cout << "B "; } 
+    ~B() { cout << "~B "; } 
+}; 
+int main() { 
+    A* obj = new B(); 
+    delete obj; 
+    return 0; 
+}
+A) A B ~A ✅
+Correct: Only base destructor is called because it’s not virtual.
+B) A B ~B ~A ❌
+Incorrect: Would happen if base destructor was virtual.
+C) A B ❌
+Incorrect: Destructor of A is also called after delete.
+D) ~B ~A ❌
+Incorrect: Constructors are not skipped.
+
+Q4. Identify the type of inheritance:
+class A {};
+class B : public A {};
+class C : public A {};
+class D : public B, public C {};
+A) Multilevel ❌
+Incorrect: This is more than one level but with multiple paths.
+B) Hybrid ❌
+Incorrect: Hybrid includes combination types like hierarchical + multiple.
+C) Hierarchical ❌
+Incorrect: That’s when multiple classes inherit from the same base.
+D) Multiple ✅
+Correct: Class D inherits from both B and C, so it is multiple inheritance.
+
+Q5. Output of the following program:
+class A { public: void show() { cout << "A::show "; } }; 
+class B : public A { public: void show() { cout << "B::show "; } }; 
+int main() { A* a = new B(); a->show(); return 0; }
+A) A::show ✅
+Correct: show() is not virtual, so A version is called even if object is B.
+B) B::show ❌
+Incorrect: Would be true if show() was virtual.
+C) Compilation error ❌
+Incorrect: No syntax or semantic error.
+D) Runtime error ❌
+Incorrect: Runs fine.
+
+Q6. What is the output?
+class A { public: A() { cout << "A "; } }; 
+class B : virtual public A { public: B() { cout << "B "; } }; 
+class C : virtual public A { public: C() { cout << "C "; } }; 
+class D : public B, public C { public: D() { cout << "D "; } }; 
+int main() { D obj; }
+A) A B C D ✅
+Correct: Virtual inheritance ensures only one A is created.
+B) B C A D ❌
+Incorrect: Base class A is always initialized first.
+C) A A B C D ❌
+Incorrect: Only one A due to virtual inheritance.
+D) A C B D ❌
+Incorrect: Order of base class construction is B → C.
+
+Q7. What does this code print?
+class A { public: int x; A() : x(10) {} }; 
+class B : public A { public: B() { x = 20; } }; 
+int main() { B obj; cout << obj.x; }
+A) 10 ❌
+Incorrect: x is overwritten in B constructor.
+B) 20 ✅
+Correct: x was changed in the derived class constructor.
+C) Compilation error ❌
+Incorrect: Code is valid.
+D) Garbage value ❌
+Incorrect: Variable x is initialized and printed.
+
+Q8. Choose the correct statement about destructors in inheritance.
+A) Only base class destructor is called. ❌
+Incorrect: True only if base destructor is not virtual.
+B) Derived class destructor is automatically virtual. ❌
+Incorrect: Must be explicitly declared virtual.
+C) If base class destructor is not virtual, derived destructor is not called through base pointer. ✅
+Correct: Leads to resource leak in polymorphic deletion.
+D) Destructors must always be public. ❌
+Incorrect: Can be private (e.g., singleton), though less common.
+
+Q9. In which type of inheritance does the "Diamond Problem" occur?
+A) Single ❌
+Incorrect: Only one inheritance path.
+B) Multiple ✅
+Correct: Diamond problem is caused when a class inherits from two classes which have a common base.
+C) Multilevel ❌
+Incorrect: Only one base class, though multi-step.
+D) Hybrid ❌
+Incorrect: Diamond may exist in hybrid, but problem stems from multiple inheritance.
+
+Q10. What will be the output of this code?
+class A { public: A() { cout << "A "; } }; 
+class B { public: B() { cout << "B "; } }; 
+class C : public A, public B { public: C() { cout << "C "; } }; 
+int main() { C obj; }
+A) A B C ✅
+Correct: Constructors are called in the order of inheritance.
+B) B A C ❌
+Incorrect: A is constructed first, then B.
+C) C B A ❌
+Incorrect: Derived class constructor is called last.
+D) Compilation error ❌
+Incorrect: Code is correct.
+
+Q11. Output of the following?
+class A {
+public:
+    A(int x) { cout << "A: " << x << " "; }
+};
+class B : public A {
+public:
+    B() : A(10) {}
+};
+int main() {
+    B b;
+    return 0;
+}
+A) A: 10 ✅
+Correct: Only A's constructor prints output; B’s constructor does nothing.
+B) B A: 10 ❌
+Incorrect: There is no output from B's constructor.
+C) A: 10 B ❌
+Incorrect: Again, B constructor doesn't print anything.
+D) Compilation Error ❌
+Incorrect: Code compiles fine.
+
+Q12. What type of inheritance is this?
+class A {};
+class B : public A {};
+class C : public B {};
+A) Multilevel ✅
+Correct: A → B → C forms a chain of inheritance.
+B) Multiple ❌
+Incorrect: Only one base class at each level.
+C) Hierarchical ❌
+Incorrect: That’s when multiple classes inherit from one base
+D) Hybrid ❌
+Incorrect: Hybrid would combine multiple forms (e.g., multiple + multilevel).
+
+Q13. Which access specifier allows derived class to access base class members but hides them from outside world?
+A) public ❌
+Incorrect: Base members remain accessible to the world.
+B) private ❌
+Incorrect: Hides base class members from both outside and derived class.
+C) protected ✅
+Correct: Derived class can access them; not accessible outside.
+D) friend ❌
+Incorrect: friend is not an access specifier; it's a relationship.
+
+Q14. Can friend functions be inherited?
+A) Yes ❌
+Incorrect: They are not inherited like class members.
+B) No ✅
+Correct: Friend functions are not inherited.
+C) Only if explicitly declared in derived class ❌
+Incorrect: That just makes it a new friend declaration, not inheritance.
+D) Only for public friends ❌
+Incorrect: friend access is not governed by public/private classification.
+
+Q15. Output of this code?
+class Base {
+public:
+    virtual void func() { cout << "Base"; }
+};
+class Derived : public Base {
+public:
+    void func() override { cout << "Derived"; }
+};
+int main() {
+    Base* b = new Derived();
+    b->func();
+}
+A) Base ❌
+Incorrect: Function is virtual, so runtime binding occurs.
+B) Derived ✅
+Correct: Derived class’s func() is called via base pointer.
+C) Compilation error ❌
+Incorrect: All code is syntactically valid.
+D) Undefined behavior ❌
+Incorrect: Behavior is well-defined.
+
+Q16. What will this print?
+class A { public: A() { cout << "A "; } };
+class B : public A { public: B() { cout << "B "; } };
+class C : public B { public: C() { cout << "C "; } };
+int main() { C c; }
+A) C B A ❌
+Incorrect: Constructors are called base to derived.
+B) A B C ✅
+Correct: Base → B → Derived is the correct order.
+C) B A C ❌
+Incorrect: Not the order of construction.
+D) A C B ❌
+Incorrect: Not a valid construction sequence.
+
+Q17. Which type of inheritance allows multiple base classes?
+A) Multilevel ❌
+Incorrect: Involves one chain of inheritance.
+B) Multiple ✅
+Correct: A class inherits from more than one base.
+C) Hierarchical ❌
+Incorrect: One base class with many derived.
+D) Hybrid ❌
+Incorrect: Hybrid may include multiple, but the question asks specifically.
+
+Q18. Which is true about constructor invocation in inheritance?
+A) Base class constructor is never called. ❌
+Incorrect: Always called first.
+B) Derived constructor always calls the base constructor first. ✅
+Correct: C++ mandates base → derived order.
+C) Constructors are not inherited. ✅
+Correct: Constructors are not inherited.
+D) Both B and C ✅
+Correct: Hence this is the best answer.
+
+Q19. Can a class friend function access private members of base class in derived class?
+A) Yes ❌
+Incorrect: Friend functions only access private members of class they are friend of.
+B) No ✅
+Correct: Unless declared a friend of derived class as well, it cannot access derived private members.
+C) Only if inherited ❌
+Incorrect: Friendship is not inherited.
+D) Depends on compiler ❌
+Incorrect: Defined by C++ standard.
+
+Q20. Output of the following code?
+class Base {
+public:
+    virtual ~Base() { cout << "Base destructor "; }
+};
+class Derived : public Base {
+public:
+    ~Derived() { cout << "Derived destructor "; }
+};
+int main() {
+    Base* obj = new Derived();
+    delete obj;
+}
+A) Base destructor ❌
+Incorrect: Virtual destructor ensures proper chain calling.
+B) Derived destructor Base destructor ✅
+Correct: Both destructors called, derived first.
+C) Base destructor Derived destructor ❌
+Incorrect: Wrong order; derived destructor is called before base.
+D) Compilation error ❌
+Incorrect: Code is valid.
+
+Q21. What is the output?
+class A 
+{ public: A() 
+{ cout << "A "; 
+} };
+class B : virtual public A 
+{ public: B() 
+{ cout << "B ";
+} };
+class C : virtual public A 
+{ public: C() 
+{ cout << "C "; 
+} };
+class D : public B, public C 
+{ public: D() 
+{ cout << "D "; 
+} };
+int main() 
+{ D obj; }
+A) A B C D ✅
+Correct: With virtual inheritance, only one A constructor is called. Then B, C, D.
+B) B C A D ❌
+Incorrect: A is always initialized before B/C/D.
+C) A A B C D ❌
+Incorrect: Virtual inheritance ensures only one A constructor call.
+D) A C B D ❌
+Incorrect: Order of construction is A → B → C → D.
+
+Q22. Which line causes error in the below code?
+class A { private: int x; };
+class B : public A {
+public:
+    void show() {
+        cout << x; // Line X
+    }
+};
+A) No error ❌
+Incorrect: There is an access violation.
+B) Line X ✅
+Correct: x is private in A, so not accessible in derived class.
+C) Access specifier issue ✅
+Correct as well: Root cause is that x is private.
+D) Needs virtual inheritance ❌
+Incorrect: Virtual inheritance doesn't change access levels.
+
+Q23. What does this output?
+class A 
+{ public: A() 
+{ cout << "A "; }
+~A() 
+{ cout << "~A "; 
+} };
+class B : public A 
+{ public: B() 
+{ cout << "B "; } 
+~B() 
+{ cout << "~B "; 
+} };
+int main() 
+{ B b; }
+A) A B ~B ~A ✅
+Correct: Destruction is in reverse order of construction.
+B) B A ~A ~B ❌
+Incorrect: Constructors run A → B, destructors B → A.
+C) A B ~A ~B ❌
+Incorrect: Destructor order is wrong.
+D) A B ❌
+Incorrect: Destructors do print unless omitted explicitly.
+
+Q24. Which inheritance is illustrated?
+class A {};
+class B : public A {};
+class C : public A {};
+A) Multiple ❌
+Incorrect: B and C inherit separately, not one class from multiple.
+B) Multilevel ❌
+Incorrect: No chaining of inheritance.
+C) Hierarchical ✅
+Correct: One base class → multiple derived classes.
+D) Hybrid ❌
+Incorrect: No combination of types here.
+
+Q25. Can friend functions access protected members of a base class in a derived object?
+A) Yes ❌
+Incorrect: Only members of the class they're friend of.
+B) No ✅
+Correct: Friend of base does not have access to derived unless explicitly made friend there too.
+C) Only in hybrid inheritance ❌
+Incorrect: Access isn't governed by type of inheritance.
+D) Only via virtual inheritance ❌
+Incorrect: Virtual inheritance doesn't affect friend access.
+
+Q26. Which constructor is called first in multilevel inheritance?
+A) Derived ❌
+Incorrect: Always last.
+B) Intermediate ❌
+Incorrect: Second in the chain.
+C) Base ✅
+Correct: Always called first in inheritance chain.
+D) It’s random ❌
+Incorrect: Defined behavior, not random.
+
+Q27. Output of the following?
+class A 
+{ public: A(int x) 
+{ cout << "A " << x << " "; 
+} };
+class B : public A 
+{ public: B() : A(10) 
+{ cout << "B "; 
+} };
+int main() 
+{ B b; }
+A) A 10 B ✅
+Correct: Base constructor runs first with 10, then B constructor.
+B) B A 10 ❌
+Incorrect: B is constructed after A.
+C) A B 10 ❌
+Incorrect: The output is not matching the order.
+D) Compilation error ❌
+Incorrect: Syntax is valid.
+
+Q28. What is printed here?
+class A 
+{ public: A() 
+{ cout << "A "; 
+} };
+class B : A 
+{ public: B() 
+{ cout << "B "; 
+} };
+int main() 
+{ B b; }
+A) A B ✅
+Correct: B privately inherits A by default. Both constructors execute.
+B) Compilation error ❌
+Incorrect: Valid syntax even with private inheritance.
+C) B ❌
+Incorrect: A is base, so its constructor is called first.
+D) Nothing ❌
+Incorrect: Output is produced.
+
+Q29. Can we inherit from multiple classes having same function names?
+A) No ❌
+Incorrect: C++ allows it.
+B) Yes, without ambiguity ❌
+Incorrect: Leads to ambiguity.
+C) Yes, but ambiguity must be resolved ✅
+Correct: You must specify scope using ::.
+D) Only in virtual inheritance ❌
+Incorrect: Not limited to virtual inheritance.
+
+Q30. What happens here?
+class A 
+{ public: void print() 
+{ cout << "A"; 
+} };
+class B 
+{ public: void print() 
+{ cout << "B"; 
+} };
+class C : public A, public B {};
+int main() 
+{ C c; c.print(); }
+A) Prints A ❌
+Incorrect: Compiler won't know which print().
+B) Prints B ❌
+Incorrect: Same reason.
+C) Compilation error ✅
+Correct: Ambiguity due to multiple base classes with same method name.
+D) Undefined behavior ❌
+Incorrect: Compiler error, not runtime issue.
+
+Q31. Output?
+class A 
+{ public: A() 
+{ cout << "A "; 
+} };
+class B : public A 
+{ public: B() 
+{ cout << "B "; 
+} };
+class C : public B 
+{ public: C() 
+{ cout << "C "; 
+} };
+int main() 
+{ C c; }
+A) A B C ✅
+Correct: Constructor chaining in inheritance order — A → B → C.
+B) B A C ❌
+Incorrect: A is base of B, so it gets constructed before B.
+C) A C B ❌
+Incorrect: B must come before C, and A first.
+D) C B A ❌
+Incorrect: Construction order is always base to derived.
+
+Q32. Which statement is false?
+A) Constructors are inherited ✅
+Correct answer: Constructors are not inherited in C++.
+B) Destructors can be virtual ❌
+Correct statement: Helps in proper polymorphic cleanup.
+C) Virtual inheritance avoids ambiguity ❌
+Correct statement: Used in Diamond Problem.
+D) Multiple inheritance can lead to Diamond Problem ❌
+Correct statement: This is a classic issue with multiple inheritance.
+
+Q33. Output of:
+class Base 
+{ protected: int val; public: Base() 
+{ val = 100; 
+} };
+class Derived : public Base 
+{ public: void show() 
+{ cout << val; 
+} };
+int main() 
+{ Derived d; d.show(); }
+A) 0 ❌
+Incorrect: val is initialized to 100.
+B) 100 ✅
+Correct: val is protected → accessible in derived class → shows 100.
+C) Compilation error ❌
+Incorrect: No access violation here.
+D) Garbage ❌
+Incorrect: Properly initialized variable.
+
+Q34. Which inheritance causes ambiguity without virtual inheritance?
+A) Single ❌
+Incorrect: No ambiguity with one base class.
+B) Hierarchical ❌
+Incorrect: Each child inherits from same base independently.
+C) Hybrid ✅
+Correct: Especially when it includes multiple inheritance with shared base.
+D) Multilevel ❌
+Incorrect: Clear path from base to derived.
+
+Q35. In C++, if a base class constructor takes parameters, what must derived class do?
+A) Nothing ❌
+Incorrect: It won't compile unless base constructor is called.
+B) Call base class constructor manually ❌
+Incorrect wording: It must use initializer list.
+C) Use initialization list ✅
+Correct: Only way to pass args to base constructor.
+D) Redefine the constructor ❌
+Incorrect: No need to redefine base constructor.
+
+Q36. Output?
+class A 
+{ public: A() 
+{ cout << "A "; 
+} };
+class B : virtual public A 
+{ public: B() 
+{ cout << "B "; 
+} };
+class C : virtual public A 
+{ public: C() 
+{ cout << "C "; 
+} };
+class D : public B, public C 
+{ public: D() 
+{ cout << "D ";
+} };
+int main() 
+{ D d; }
+A) A A B C D ❌
+Incorrect: Only one A is constructed due to virtual inheritance.
+B) A B C D ✅
+Correct: A (once), then B, C, D.
+C) B C A D ❌
+Incorrect: A is constructed before any derived class.
+D) Compilation error ❌
+Incorrect: Code is valid.
+
+Q37. Can a friend function of base class access derived class members?
+A) Yes ❌
+Incorrect: Friend of base has no special access to derived class.
+B) No ✅
+Correct: Access is not inherited downward.
+C) Only virtual functions ❌
+Incorrect: Friend functions are not related to virtual functions.
+D) Only public members ❌
+Incorrect: Any code can access public members; not specific to friend.
+
+Q38. Output of this code?
+class A 
+{ public: virtual void display() 
+{ cout << "A "; 
+} };
+class B : public A 
+{ public: void display() override 
+{ cout << "B "; 
+} };
+void show(A* a) 
+{ a->display(); }
+int main() 
+{ B b; show(&b); }
+A) A ❌
+Incorrect: display() is overridden and virtual → B’s version is called.
+B) B ✅
+Correct: show(&b) calls B::display() due to virtual mechanism.
+C) Compilation error ❌
+Incorrect: Fully valid code.
+D) Undefined ❌
+Incorrect: Behavior is clearly defined via virtual mechanism.
+
+Q39. What is printed?
+class A 
+{ public: A(int x) 
+{ cout << x; 
+} };
+class B : public A 
+{ public: B() : A(20) {} };
+int main() 
+{ B b; }
+A) 0 ❌
+Incorrect: x is 20.
+B) 20 ✅
+Correct: Constructor prints value passed.
+C) Compilation error ❌
+Incorrect: Valid syntax.
+D) Garbage ❌
+Incorrect: x is defined, value passed is 20.
+
+Q40. Can we call base class function explicitly if overridden in derived class?
+A) No ❌
+Incorrect: C++ supports scope resolution.
+B) Yes, using scope resolution ✅
+Correct: You can use Base::func().
+C) Only virtual functions ❌
+Incorrect: Applies to all functions.
+D) Not in multiple inheritance ❌
+Incorrect: Still allowed, though ambiguity might need resolving.
+
+Q41. Output?
+
+class A {
+public:
+    void display() { cout << "A "; }
+};
+class B : public A {
+public:
+    void display() { cout << "B "; }
+};
+int main() {
+    B b;
+    b.A::display();
+}
+A) B ❌
+Incorrect: B::display() is not called here.
+B) A ✅
+Correct: b.A::display(); explicitly calls base class method using scope resolution.
+C) Compilation error ❌
+Incorrect: Legal syntax to access base method.
+D) Undefined ❌
+Incorrect: Well-defined behavior.
+
+Q42. What’s true about hybrid inheritance?
+A) It uses only one base class ❌
+Incorrect: It uses multiple inheritance paths, including at least two base classes.
+B) It is a combination of types of inheritance ✅
+Correct: Combines multiple types like multilevel and multiple inheritance.
+C) It’s not supported in C++ ❌
+Incorrect: C++ supports hybrid inheritance.
+D) It avoids Diamond problem ❌
+Incorrect: It often causes the Diamond problem, not avoids it.
+
+Q43. Can friend function of a class access protected members?
+A) No ❌
+Incorrect: Friend functions can access all private and protected members.
+B) Yes ✅
+Correct: Friend functions are allowed to access protected and private members.
+C) Only if it's in same package ❌
+Incorrect: C++ doesn’t have the concept of “packages.”
+D) Only with virtual inheritance ❌
+Incorrect: Unrelated to inheritance type.
+
+Q44. What is the correct way to initialize a base class member in derived constructor?
+A) Base::Base() ❌
+Incorrect: Not valid constructor initialization syntax.
+B) Base(); ❌
+Incorrect: Not how constructors are initialized.
+C) Derived() : Base() {} ✅
+Correct: Proper way to invoke base constructor using initializer list.
+D) Can't initialize ❌
+Incorrect: It’s possible and required if base has parameterized constructor.
+
+Q45. Output?
+class A {
+public:
+    A() { cout << "A "; }
+};
+class B : public A {
+public:
+    B(int x) { cout << "B " << x; }
+};
+int main() {
+    B b(5);
+}
+A) B 5 ❌
+Incorrect: Base constructor A is also called.
+B) A B 5 ✅
+Correct: A's constructor runs first, then B's.
+C) A 5 ❌
+Incorrect: "5" is printed with "B", not alone.
+D) Compilation error ❌
+Incorrect: Legal constructor chaining.
+
+Q46. Which keyword resolves ambiguity in hybrid inheritance?
+A) protected ❌
+Incorrect: Access modifier, not related to ambiguity.
+B) private ❌
+Incorrect: Also access modifier.
+C) virtual ✅
+Correct: Virtual inheritance ensures only one base subobject to resolve ambiguity.
+D) friend ❌
+Incorrect: Related to access, not inheritance hierarchy.
+
+Q47. Can a destructor be private in base class?
+A) Yes, but it can't be deleted ❌
+Incorrect: It can be deleted via a public static function or friend.
+B) No ❌
+Incorrect: C++ allows private destructors.
+C) Only in abstract classes ❌
+Incorrect: Not limited to abstract classes.
+D) Yes, for singleton pattern ✅
+Correct: Private destructors are commonly used in singleton pattern to prevent destruction from outside.
+
+Q48. In which situation must you use virtual inheritance?
+A) To implement polymorphism ❌
+Incorrect: Virtual functions handle that, not virtual inheritance.
+B) To avoid constructor chaining ❌
+Incorrect: Doesn’t prevent constructor chaining.
+C) To resolve ambiguity in diamond inheritance ✅
+Correct: Virtual inheritance ensures only one copy of the grandparent class.
+D) To hide base class ❌
+Incorrect: Hiding is unrelated.
+
+Q49. Output?
+class A {
+public:
+    A() { cout << "A "; }
+    virtual ~A() { cout << "~A "; }
+};
+class B : public A {
+public:
+    B() { cout << "B "; }
+    ~B() { cout << "~B "; }
+};
+int main() {
+    A* obj = new B();
+    delete obj;
+}
+A) A B ~A ❌
+Incorrect: ~B() is also called because ~A() is virtual.
+B) A B ~B ~A ✅
+Correct: Virtual destructor ensures both destructors are called.
+C) A ~A ❌
+Incorrect: Would happen if destructor wasn’t virtual.
+D) B ~B ❌
+Incorrect: A constructor is always called first.
+
+Q50. Which of the following is true about friend functions and inheritance?
+A) Friend functions are inherited ❌
+Incorrect: Friends are not inherited.
+B) Friend functions are not inherited ✅
+Correct: Friendship is not inherited by derived classes.
+C) Friend functions can access all derived members ❌
+Incorrect: They can only access what they are declared friend of.
+D) Friend functions are only allowed in single inheritance ❌
+Incorrect: Allowed in any inheritance.
