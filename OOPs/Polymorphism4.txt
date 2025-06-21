@@ -1,0 +1,773 @@
+Q1.
+class Base {
+public:
+    virtual void show(int x = 10) {
+        cout << "Base: " << x << endl;
+    }
+};
+class Derived : public Base {
+public:
+    void show(int x = 20) override {
+        cout << "Derived: " << x << endl;
+    }
+};
+int main() {
+    Base *ptr = new Derived;
+    ptr->show();
+}
+What is the output?
+A) Base: 10 – ❌ Incorrect
+Derived::show() is called, not Base::show().
+B) Derived: 10 – ✅ Correct
+Virtual function dispatch selects Derived::show, but the default argument from base (10) is used.
+C) Derived: 20 – ❌ Incorrect
+Default arguments are resolved statically based on pointer type.
+D) Base: 20 – ❌ Incorrect
+Both function and argument source are mismatched here.
+
+Q2.
+Which of the following conditions must be met to achieve runtime polymorphism in C++?
+A) Overloaded non-virtual functions – ❌ Incorrect
+Function overloading is compile-time polymorphism.
+B) Inheritance and same function signature – ❌ Incorrect
+This is necessary, but not sufficient without virtual keyword.
+C) Virtual functions and inheritance – ✅ Correct
+This combination enables runtime polymorphism via dynamic dispatch.
+D) Templates – ❌ Incorrect
+Templates are used for compile-time polymorphism.
+
+Q3.
+class A {
+public:
+    virtual void func() const {
+        cout << "A::func\n";
+    }
+};
+class B : public A {
+public:
+    void func() {
+        cout << "B::func\n";
+    }
+};
+int main() {
+    const A* a = new B;
+    a->func();
+}
+What will be the output?
+A) A::func – ✅ Correct
+Because func() in B does not match signature (missing const), so A::func() is called.
+B) B::func – ❌ Incorrect
+Would only be called if func() in B was void func() const.
+C) Compilation error – ❌ Incorrect
+This compiles fine.
+D) Undefined behavior – ❌ Incorrect
+This is well-defined and predictable.
+
+Q4.
+Can a virtual function be private?
+A) No – ❌ Incorrect
+Private virtual functions are allowed.
+B) Yes, and it can still be overridden in derived class – ✅ Correct
+Derived classes can override even private virtuals.
+C) Yes, but only accessed in derived class – ❌ Incorrect
+Private members aren’t directly accessible in derived classes.
+D) Only in abstract classes – ❌ Incorrect
+Access specifiers aren’t restricted by class type.
+
+Q5.
+class A {
+public:
+    virtual void display() {
+        cout << "A";
+    }
+};
+class B : public A {
+private:
+    void display() override {
+        cout << "B";
+    }
+};
+int main() {
+    A* ptr = new B;
+    ptr->display();
+}
+What will be the output?
+A) A – ❌ Incorrect
+Virtual dispatch chooses derived version.
+B) B – ✅ Correct
+Even though B::display() is private, it’s still valid through base class pointer due to virtual dispatch.
+C) Compilation error – ❌ Incorrect
+Access specifier doesn't prevent overriding.
+D) Runtime error – ❌ Incorrect
+Valid and defined behavior.
+
+Q6.
+class Base {
+public:
+    virtual ~Base() {
+        cout << "Base Destructor\n";
+    }
+};
+class Derived : public Base {
+public:
+    ~Derived() {
+        cout << "Derived Destructor\n";
+    }
+};
+int main() {
+    Base* b = new Derived;
+    delete b;
+}
+What will be the output?
+A) Base Destructor – ❌ Incorrect
+Derived destructor would not be called only if destructor was not virtual.
+B) Derived Destructor – ❌ Incorrect
+Only base destructor would be called if base destructor wasn’t virtual.
+C) Derived Destructor followed by Base Destructor – ✅ Correct
+Correct and expected — both destructors are called in reverse order of inheritance.
+D) Base Destructor followed by Derived Destructor – ❌ Incorrect
+Destructors call Derived first, then Base.
+
+Q7.
+Choose the correct statement regarding inline virtual functions in C++.
+A) All virtual functions are always inline – ❌ Incorrect
+Virtual functions are typically not inlined due to dynamic dispatch.
+B) Inline virtuals behave the same as non-virtuals – ❌ Incorrect
+They behave differently due to runtime resolution.
+C) Virtual functions can be inline, but only if resolved statically – ✅ Correct
+Inlining only works if resolved at compile-time (e.g., direct call on object, not via pointer).
+D) Virtual and inline cannot coexist – ❌ Incorrect
+They can coexist, but inlining is rarely applied.
+
+Q8.
+Can a static function be virtual in C++?
+A) Yes – ❌ Incorrect
+Static and virtual are mutually exclusive.
+B) Only if declared in abstract class – ❌ Incorrect
+Still illegal — static can't be virtual in any class.
+C) No, static functions can't be virtual – ✅ Correct
+Because static functions don't participate in dynamic dispatch.
+D) Yes, but not overridden – ❌ Incorrect
+Still invalid; such function won’t compile.
+
+Q9.
+class A {
+public:
+    virtual void print() = 0;
+    virtual ~A() = 0;
+};
+A::~A() {
+    cout << "Pure virtual destructor called\n";
+}
+class B : public A {
+public:
+    void print() override {
+        cout << "Print B\n";
+    }
+    ~B() {
+        cout << "B destroyed\n";
+    }
+};
+int main() {
+    A* obj = new B;
+    obj->print();
+    delete obj;
+}
+Output?
+A) Print B – ✅ Correct
+print() is overridden in B and is called.
+B) Pure virtual destructor called – ✅ Correct
+The base destructor is defined and gets invoked.
+C) B destroyed – ✅ Correct
+B's destructor is invoked first.
+D) All of the above – ✅ Correct
+All three outputs occur in order:
+Print B
+B destroyed
+Pure virtual destructor called
+
+Q10.
+Which of the following is true for pure virtual functions?
+A) They can have body – ✅ Correct
+Though rare, they can have definitions outside the class (especially destructors).
+B) They must be overridden in all derived classes – ❌ Incorrect
+Only non-abstract derived classes must override them.
+C) They can make a class abstract – ✅ Correct
+Declaring even one pure virtual function makes a class abstract.
+D) All of the above – ✅ Correct
+All statements are true.
+
+Q11. What does declaring a function as virtual void func() = 0; mean?
+A) Function is inline – ❌ Incorrect.
+This has nothing to do with the inline keyword; it defines a pure virtual function.
+B) Function cannot be inherited – ❌ Incorrect.
+The function must be inherited and overridden in derived classes.
+C) Class is abstract – ✅ Correct.
+Declaring a pure virtual function makes the class abstract.
+D) Function is overridden by default – ❌ Incorrect.
+It's not automatically overridden; the derived class must override it.
+
+Q12. If a base class has a virtual destructor, and a derived class does not define its own destructor, what happens?
+A) Only base destructor is called – ❌ Incorrect.
+If derived doesn't define one, the default destructor is used, and base destructor still runs.
+B) Compilation error – ❌ Incorrect.
+It's perfectly valid — no compilation error.
+C) Undefined behavior – ❌ Incorrect.
+Virtual destructor ensures proper cleanup, even if derived destructor is implicit.
+D) Base destructor still ensures cleanup of derived object – ✅ Correct.
+Virtual destructor ensures correct destruction chain even if derived class has no custom destructor.
+
+Q13. What will be printed?
+class Base {
+public:
+    virtual void show() { cout << "Base\n"; }
+};
+class Derived : public Base {
+public:
+    void show(int) { cout << "Derived\n"; }
+};
+int main() {
+    Base* b = new Derived;
+    b->show();
+}
+A) Derived – ❌ Incorrect.
+The derived version is not overriding the base version (different signature).
+B) Base – ✅ Correct.
+Base pointer calls Base::show() because Derived::show(int) is an overload, not an override.
+C) Compilation error – ❌ Incorrect.
+Code compiles fine.
+D) Ambiguity error – ❌ Incorrect.
+No ambiguity; clear overload vs override separation.
+
+Q14. What will happen when compiled?
+class A {
+public:
+    virtual void foo() { cout << "A\n"; }
+};
+class B : public A {
+public:
+    void foo() override final { cout << "B\n"; }
+};
+class C : public B {
+public:
+    void foo() { cout << "C\n"; }
+};
+A) C’s foo() overrides B’s – ❌ Incorrect.
+Cannot override a final function.
+B) Runtime polymorphism works as usual – ❌ Incorrect.
+Compilation fails before runtime.
+C) Compilation error due to final – ✅ Correct.
+You cannot override a function marked final, so it fails to compile.
+D) B is not inheritable – ❌ Incorrect.
+B is inheritable, but its foo() cannot be overridden.
+
+Q15. What is the output?
+class A {
+public:
+    A() { show(); }
+    virtual void show() { cout << "A's show\n"; }
+};
+class B : public A {
+public:
+    void show() override { cout << "B's show\n"; }
+};
+int main() {
+    B b;
+}
+A) A's show – ✅ Correct.
+During base class constructor execution, virtual dispatch does not work, so A::show() is called.
+B) B's show – ❌ Incorrect.
+Virtual calls in constructors call base version only.
+C) Runtime error – ❌ Incorrect.
+No runtime error occurs.
+D) B's show followed by A's show – ❌ Incorrect.
+Only A::show() is called.
+
+Q16. What will be the output?
+class X {
+public:
+    virtual void f() = 0;
+    virtual void g() { cout << "X::g\n"; }
+};
+class Y : public X {
+public:
+    void f() override { cout << "Y::f\n"; }
+};
+int main() {
+    Y y;
+    y.g();
+}
+A) Compilation error – ❌ Incorrect.
+All pure virtuals are implemented, and g() has a body.
+B) Y::f – ❌ Incorrect.
+f() is not called.
+C) X::g – ✅ Correct.
+g() is a concrete method of base class, and is called as-is.
+D) Runtime error – ❌ Incorrect.
+No such error occurs.
+
+Q17. Can a class with a pure virtual destructor be instantiated directly?
+A) Yes – ❌ Incorrect.
+A class with any pure virtual function is abstract.
+B) No – ✅ Correct.
+It is still abstract, even if destructor has a body.
+C) Only if it’s defined outside the class – ❌ Incorrect.
+That applies to destructor definition, not instantiation rules.
+D) Only with smart pointers – ❌ Incorrect.
+Smart pointers don't affect abstract class instantiation.
+
+Q18. Which of the following is true about virtual table (vtable)?
+A) It is used for compile-time function resolution – ❌ Incorrect.
+Vtable is used at runtime.
+B) It's used only with static functions – ❌ Incorrect.
+Static functions do not participate in vtable.
+C) It supports dynamic dispatch – ✅ Correct.
+The vtable enables runtime polymorphism via virtual functions.
+D) It only applies to constructors – ❌ Incorrect.
+Constructors are not virtual, hence not in vtable.
+
+Q19. What is the output?
+class Base {
+public:
+    void fun() { cout << "Base\n"; }
+    virtual void vfun() { cout << "Base VFun\n"; }
+};
+class Derived : public Base {
+public:
+    void fun() { cout << "Derived\n"; }
+    void vfun() override { cout << "Derived VFun\n"; }
+};
+int main() {
+    Base* ptr = new Derived;
+    ptr->fun();
+    ptr->vfun();
+}
+A) Base, Base VFun – ❌ Incorrect.
+vfun() is virtual and overridden, so Derived VFun is printed.
+B) Base, Derived VFun – ✅ Correct.
+fun() is non-virtual, so base version is called.
+vfun() is virtual and overridden, so derived version is called.
+C) Derived, Base VFun – ❌ Incorrect.
+fun() is not virtual, so base version runs.
+D) Derived, Derived VFun – ❌ Incorrect.
+Only vfun() runs from derived; fun() remains base.
+
+Q20. Virtual function mechanism uses:
+A) Early binding – ❌ Incorrect.
+Virtual functions are not resolved early.
+B) Late binding – ✅ Correct.
+Virtual functions use runtime (late) binding via vtable.
+C) Static binding – ❌ Incorrect.
+Non-virtual functions use static binding.
+D) Template instantiation – ❌ Incorrect.
+Templates are resolved at compile time; unrelated to virtual dispatch.
+
+Q21. What is the main purpose of pure virtual functions?
+A) Runtime polymorphism – ✅ Correct
+Pure virtual functions enforce that derived classes implement the function, enabling runtime polymorphism through base class pointers/references.
+B) Constructor overloading – ❌ Incorrect
+Constructors cannot be virtual; this is unrelated.
+C) Function overloading – ❌ Incorrect
+Overloading is resolved at compile time; unrelated to pure virtuals.
+D) Static binding – ❌ Incorrect
+Pure virtual functions use dynamic (runtime) binding, not static.
+
+Q22. Can you instantiate an abstract class object?
+A) Yes – ❌ Incorrect
+An abstract class cannot be instantiated directly.
+B) No – ✅ Correct
+Abstract classes (those with at least one pure virtual function) cannot be instantiated.
+C) Yes, only with static functions – ❌ Incorrect
+Having static functions doesn’t allow instantiation of abstract classes.
+D) Yes, if it has only destructors – ❌ Incorrect
+Even a pure virtual destructor makes the class abstract.
+
+Q23.
+class A {
+public:
+    virtual void func() = 0;
+};
+class B : public A {};
+int main() {
+    B b;
+}
+A) Compiles successfully – ❌ Incorrect
+B doesn't override the pure virtual function, so it's still abstract.
+B) Compiles but error at runtime – ❌ Incorrect
+Fails to compile, so no runtime involved.
+C) Compilation error due to unimplemented pure virtual function – ✅ Correct
+B must override func(); otherwise it remains abstract and cannot be instantiated.
+D) Undefined behavior – ❌ Incorrect
+No undefined behavior—there is a clear compile-time error.
+
+Q24. If a virtual function is not overridden in a derived class, and the function is called using a base pointer to derived, which version gets invoked?
+A) Derived version – ❌ Incorrect
+It doesn’t exist, so it can't be invoked.
+B) Base version – ✅ Correct
+If the derived class doesn’t override the function, the base version is called.
+C) Undefined behavior – ❌ Incorrect
+It’s well-defined: base version is called.
+D) Error – ❌ Incorrect
+No error unless function is pure virtual and unimplemented.
+
+Q25.
+class Base {
+public:
+    virtual void show(int x = 100) {
+        cout << "Base: " << x << endl;
+    }
+};
+class Derived : public Base {
+public:
+    void show(int x = 200) override {
+        cout << "Derived: " << x << endl;
+    }
+};
+int main() {
+    Derived d;
+    Base* b = &d;
+    b->show();
+}
+A) Derived: 200 – ❌ Incorrect
+Default parameters are resolved at compile time, based on pointer type.
+B) Derived: 100 – ❌ Incorrect
+If Derived::show() is invoked, it uses its default, but that’s not the case.
+C) Base: 100 – ✅ Correct
+Derived::show() is called via virtual dispatch, but the default parameter (100) comes from the static type (Base*).
+D) Base: 200 – ❌ Incorrect
+Default parameter from Base, and function is Derived::show() — hence "Derived: 100", but it's not an option.
+Note: The function body is derived, but the default argument comes from base.
+
+Q26. What happens when a virtual function is called from a constructor?
+A) It calls the most derived version – ❌ Incorrect
+Virtual dispatch is disabled inside constructors.
+B) It invokes the base version only – ✅ Correct
+Inside constructors, virtual calls invoke the function defined in the current class.
+C) It's undefined – ❌ Incorrect
+It is defined behavior — base version is called.
+D) It always causes runtime error – ❌ Incorrect
+No such runtime error occurs.
+
+Q27.
+class A {
+public:
+    static void show() {
+        cout << "Static A\n";
+    }
+    virtual void vshow() {
+        cout << "Virtual A\n";
+    }
+};
+A) It can be overridden – ❌ Incorrect
+Static functions cannot be overridden.
+B) It is subject to dynamic dispatch – ❌ Incorrect
+Static methods do not participate in virtual dispatch.
+C) It cannot be virtual – ✅ Correct
+C++ does not allow static functions to be declared virtual.
+D) It can be abstract – ❌ Incorrect
+Static functions cannot be abstract or virtual.
+
+Q28. Which of the following can't be virtual?
+A) Destructor – ❌ Incorrect
+Destructors can and should be virtual when using inheritance.
+B) Constructor – ✅ Correct
+Constructors cannot be virtual in C++. Reason: Object construction needs concrete type known at compile time.
+C) Member function – ❌ Incorrect
+Most virtual functions are member functions.
+D) Method with default arguments – ❌ Incorrect
+Default arguments are allowed with virtual functions, though resolved statically.
+
+Q29. What is the size of an empty class with a virtual function (assuming 64-bit)?
+A) 0 – ❌ Incorrect
+Empty classes with virtuals are never size 0.
+B) 1 – ❌ Incorrect
+Non-virtual empty class may be size 1 for uniqueness, but not with vtable.
+C) 4 – ❌ Incorrect
+Maybe in 32-bit, not 64-bit.
+D) 8 – ✅ Correct
+On a 64-bit system, a class with a virtual function stores a vptr — typically 8 bytes.
+
+Q30. What is the output?
+class A {
+public:
+    virtual void fun() { cout << "A::fun\n"; }
+};
+class B : public A {
+public:
+    void fun() override { cout << "B::fun\n"; }
+};
+int main() {
+    A a, *ptr = &a;
+    B b;
+    ptr = &b;
+    ptr->fun();
+}
+A) A::fun – ❌ Incorrect
+Even though ptr is of type A*, it points to a B object.
+B) B::fun – ✅ Correct
+Because fun() is virtual and ptr points to a B, the derived version is called.
+C) Error – ❌ Incorrect
+Code compiles and runs fine.
+D) Depends on compiler – ❌ Incorrect
+Behavior is well-defined by C++ virtual function mechanism.
+
+Q31. Is it mandatory to override a pure virtual destructor in the derived class?
+A) Yes – ❌ Incorrect
+Derived class is not required to override a pure virtual destructor unless it needs custom destruction logic.
+B) No – ✅ Correct
+A pure virtual destructor must be defined, but doesn’t have to be overridden in derived class.
+C) Only if destructor is public – ❌ Incorrect
+Access specifier doesn’t change the override requirement.
+D) Depends on inheritance type – ❌ Incorrect
+Irrelevant — this rule is consistent across inheritance types.
+
+Q32.
+class A {
+public:
+    virtual void func() const {
+        cout << "Const A\n";
+    }
+};
+class B : public A {
+public:
+    void func() {
+        cout << "Non-const B\n";
+    }
+};
+int main() {
+    const A* obj = new B;
+    obj->func();
+}
+A) Const A – ✅ Correct
+Const object can only call const-qualified methods, so A::func() is called.
+B) Non-const B – ❌ Incorrect
+This method is not const-qualified, so cannot be called by const A*.
+C) Compilation error – ❌ Incorrect
+Code compiles fine — A::func() const is called.
+D) Undefined behavior – ❌ Incorrect
+Fully defined behavior — base const function is called.
+
+Q33. A class is abstract if:
+A) It has at least one pure virtual function – ✅ Correct
+That’s the definition of an abstract class in C++.
+B) All its functions are virtual – ❌ Incorrect
+Not necessary — just one pure virtual makes it abstract.
+C) Its destructor is virtual – ❌ Incorrect
+That makes it polymorphic, not abstract.
+D) It uses dynamic memory – ❌ Incorrect
+Unrelated to abstraction.
+
+Q34. Which of the following cannot coexist?
+A) Virtual function and inline – ❌ Incorrect
+They can coexist, though virtual may disable inlining at runtime.
+B) Virtual function and static – ✅ Correct
+Static functions cannot be virtual in C++.
+C) Pure virtual and body – ❌ Incorrect
+Pure virtual functions can have a body, especially destructors.
+D) Virtual and friend – ❌ Incorrect
+They can coexist; a virtual function can be a friend of another class.
+
+Q35. Can we have a pointer to a pure virtual function?
+A) Yes – ✅ Correct
+Function pointers can point to any function, including pure virtual ones.
+B) No – ❌ Incorrect
+It's allowed — function pointer can hold a reference to a virtual function.
+C) Only for virtual destructors – ❌ Incorrect
+All virtual (even pure virtual) functions are allowed.
+D) Only in friend classes – ❌ Incorrect
+Access level doesn't restrict pointer assignment.
+
+Q36. Which is true for pure virtual function:
+A) No definition is allowed – ❌ Incorrect
+You can define a pure virtual function outside the class.
+B) Must be defined outside class for destructors – ✅ Correct
+Only pure virtual destructors must be defined outside the class.
+C) Cannot be overridden – ❌ Incorrect
+They must be overridden in derived classes.
+D) Always private – ❌ Incorrect
+Access modifier is not restricted.
+
+Q37. Calling a non-virtual function via base pointer to derived class results in:
+A) Base version execution – ✅ Correct
+Non-virtual functions use early binding, so base version is executed.
+B) Derived version execution – ❌ Incorrect
+Requires virtual keyword.
+C) Depends on access specifier – ❌ Incorrect
+Access level doesn't affect virtual dispatch.
+D) Undefined behavior – ❌ Incorrect
+Fully defined behavior: base version is used.
+
+Q38.
+class A {
+public:
+    virtual void display() const {
+        cout << "A";
+    }
+};
+class B : public A {
+public:
+    void display() {
+        cout << "B";
+    }
+};
+int main() {
+    const A* a = new B;
+    a->display();
+}
+A) A – ✅ Correct
+display() in B doesn’t match signature (const missing), so A::display() is used.
+B) B – ❌ Incorrect
+Wrong signature — B's function doesn’t override the base one.
+C) Compilation error – ❌ Incorrect
+No error — function overload occurs.
+D) A followed by B – ❌ Incorrect
+Only A::display() is called.
+
+Q39. Which operator cannot be overloaded virtually?
+A) + – ❌ Incorrect
+Operator + can be overloaded, but not virtually.
+B) () – ❌ Incorrect
+Operator () (function call operator) can be virtual.
+C) -> – ✅ Correct
+Arrow (->) operator cannot be virtual in C++.
+D) Assignment (=) – ❌ Incorrect
+Assignment can be overloaded, but not virtually.
+
+Q40.
+class A {
+public:
+    virtual void foo() {}
+};
+class B : public A {
+    void foo() override {}
+};
+What’s the advantage of virtual function in this context?
+A) Inline speed – ❌ Incorrect
+Virtual functions may disable inlining, especially across boundaries.
+B) Type safety – ❌ Incorrect
+C++ type system handles this separately.
+C) Runtime dispatch – ✅ Correct
+Virtual functions allow runtime (dynamic) dispatch based on object type.
+D) Const correctness – ❌ Incorrect
+Const correctness is enforced by signatures, not virtual dispatch.
+
+Q41. A pure virtual function is also known as:
+A) Final function – ❌ Incorrect
+"Final" prevents overriding, but pure virtual requires it — opposite concepts.
+B) Abstract function – ✅ Correct
+Pure virtual functions are also called abstract functions.
+C) Static function – ❌ Incorrect
+Static functions can’t be virtual at all.
+D) Virtual friend – ❌ Incorrect
+No such standard concept in C++.
+
+Q42. Which of these types of polymorphism does virtual function support?
+A) Compile-time – ❌ Incorrect
+Compile-time polymorphism involves overloading or templates, not virtuals.
+B) Run-time – ✅ Correct
+Virtual functions enable runtime (dynamic) polymorphism.
+C) Both – ❌ Incorrect
+Only supports runtime, not compile-time.
+D) Neither – ❌ Incorrect
+Virtuals are specifically for polymorphism.
+
+Q43. Which of the following function prototypes is legal for pure virtual destructor?
+A) virtual ~A(); = 0; – ❌ Incorrect
+Syntax error: semicolon is misplaced.
+B) virtual ~A() = 0; – ✅ Correct
+Correct syntax to declare a pure virtual destructor.
+C) virtual A() = 0; – ❌ Incorrect
+Constructors cannot be virtual.
+D) ~virtual A() = 0; – ❌ Incorrect
+Invalid syntax: virtual should come before the function name.
+
+Q44. Why do virtual destructors matter?
+A) They're more secure – ❌ Incorrect
+Security is not the core reason.
+B) To avoid memory leaks when using base pointers – ✅ Correct
+Without a virtual destructor, only base class’s destructor gets called — can lead to resource leaks.
+C) They improve performance – ❌ Incorrect
+Slight performance cost; not used for performance.
+D) They allow static polymorphism – ❌ Incorrect
+Virtuals are for dynamic polymorphism.
+
+Q45. Which of the following access modifiers can a virtual function have?
+A) public only – ❌ Incorrect
+Virtual functions can be in any access scope.
+B) private only – ❌ Incorrect
+Virtuals aren’t limited to private either.
+C) protected and public only – ❌ Incorrect
+Too restrictive — they can also be private.
+D) Any (public, private, protected) – ✅ Correct
+Virtuals can have any access specifier.
+
+Q46. Is virtual keyword inherited?
+A) No, only function gets inherited – ✅ Correct
+The function gets inherited, and stays virtual, but virtual itself isn’t re-declared in derived class.
+B) Yes – ❌ Incorrect
+Technically, the behavior is inherited, but you don’t write virtual again.
+C) It depends – ❌ Incorrect
+No ambiguity — it’s a consistent rule.
+D) Only with final keyword – ❌ Incorrect
+final prevents overriding — unrelated.
+
+Q47. Which of the following statements is correct regarding pure virtual functions?
+A) Can be static – ❌ Incorrect
+Static functions cannot be virtual, hence can't be pure virtual either.
+B) Cannot have body in abstract class – ❌ Incorrect
+Pure virtuals can have a body, especially for destructors.
+C) Must be defined in base class – ❌ Incorrect
+They must be declared in base, but defined in derived.
+D) Can be defined outside base class – ✅ Correct
+True — a pure virtual function (especially destructors) can have definition outside the class.
+
+Q48. Can you call a virtual function from destructor?
+A) Yes – ❌ Incorrect
+Technically allowed, but base class version is always called, not overridden one.
+B) No – ✅ Correct (for expected behavior)
+Calling virtual function from destructor doesn’t dispatch to derived version — thus should be avoided.
+C) Only for abstract classes – ❌ Incorrect
+Not related to abstractness.
+D) Only for friend classes – ❌ Incorrect
+Irrelevant.
+
+Q49.
+class A {
+public:
+    virtual void foo() = 0;
+};
+void A::foo() {
+    cout << "Pure virtual defined\n";
+}
+What is this scenario called?
+A) Invalid declaration – ❌ Incorrect
+This is a valid C++ feature.
+B) Late definition – ❌ Incorrect
+Not a standard term.
+C) Defining pure virtual function – ✅ Correct
+This is a valid definition of a pure virtual function outside the class.
+D) Constructor overloading – ❌ Incorrect
+Not related.
+
+Q50.
+class A {
+public:
+    A() { func(); }
+    virtual void func() { cout << "A\n"; }
+};
+class B : public A {
+public:
+    void func() override { cout << "B\n"; }
+};
+int main() {
+    B b;
+}
+What is printed?
+A) B – ❌ Incorrect
+Virtual function called from base constructor calls base version, not derived.
+B) A – ✅ Correct
+During base class construction, only base version is called.
+C) Both – ❌ Incorrect
+Only A::func() is invoked.
+D) Compilation error – ❌ Incorrect
+Valid and compiles fine.
