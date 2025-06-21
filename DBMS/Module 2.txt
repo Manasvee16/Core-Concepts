@@ -1,0 +1,280 @@
+Q1. In the relational model, data is stored in the form of:
+A) Trees – Incorrect. Trees are used in hierarchical models.
+B) Graphs – Incorrect. Graphs are used in network databases.
+C) Tables – Correct. The relational model stores data in relations, which are represented as tables.
+D) Files – Incorrect. Files are used in file-based systems, not relational models.
+
+Q2. A row in a table is called:
+A) Tuple – Correct. Each row in a relational table is a tuple, representing a single record.
+B) Attribute – Incorrect. Attributes are columns in a table.
+C) Relation – Incorrect. A relation refers to the entire table, not a row.
+D) Field – Incorrect. A field typically refers to a single cell (intersection of row and column).
+
+Q3. A column in a table is known as:
+A) Tuple – Incorrect. Tuples are rows.
+B) Entity – Incorrect. An entity is a real-world object represented by a table.
+C) Attribute – Correct. Attributes are the columns that describe properties of entities.
+D) Degree – Incorrect. Degree refers to the number of attributes (columns) in a relation.
+
+Q4. The number of rows in a relation is called:
+A) Degree – Incorrect. Degree refers to the number of columns.
+B) Cardinality – Correct. Cardinality is the number of tuples (rows) in a relation.
+C) Field – Incorrect. Field is an individual cell.
+D) Domain – Incorrect. Domain refers to the permissible values an attribute can take.
+
+Q5. The number of columns in a relation is called:
+A) Degree – Correct. Degree is the count of attributes (columns) in a relation.
+B) Cardinality – Incorrect. Cardinality is the number of rows.
+C) Tuple – Incorrect. A tuple is a single row.
+D) Row – Incorrect. This refers to a single data record, not the count of columns.
+
+Q6. Which of the following is a correct property of a relation?
+A) No duplicate rows – Correct. Relations must have unique tuples (rows).
+B) Columns must be of same data type – Incorrect. Each column can have a different data type.
+C) Rows can be ordered – Incorrect. Tuples in a relation have no inherent ordering.
+D) Columns can have the same name – Incorrect. Each attribute (column) must have a unique name.
+
+Q7. A primary key:
+A) Can have NULL values – Incorrect. Primary keys cannot have NULLs.
+B) Can be duplicated – Incorrect. Primary keys must be unique.
+C) Uniquely identifies a row – Correct. A primary key uniquely identifies each record in a table.
+D) Is a foreign key – Incorrect. A foreign key references a primary key, but they are not the same.
+
+Q8. A foreign key:
+A) Must be unique – Incorrect. Foreign keys can have duplicates.
+B) Can’t have NULL values – Incorrect. Foreign keys can be NULL (if optional).
+C) Refers to a primary key in another table – Correct. Foreign keys enforce referential integrity.
+D) Is always a primary key – Incorrect. A foreign key may or may not be a primary key.
+
+Q9. A table without a primary key is said to have:
+A) Strong entity – Incorrect. Strong entities have their own primary key.
+B) Weak schema – Incorrect. “Weak schema” is not a DBMS term.
+C) Redundant keys – Incorrect. Redundant keys mean duplicate keys, not no key.
+D) No unique identifier – Correct. Without a primary key, the table lacks a unique way to identify rows.
+
+Q10. Which of these is NOT a valid constraint in relational model?
+A) NOT NULL – Valid. Ensures a column cannot be null.
+B) UNIQUE – Valid. Ensures all values in a column are different.
+C) INCREMENT – Correct. This is not a standard constraint keyword in SQL.
+D) CHECK – Valid. Enforces a condition on values in a column.
+
+Q11. What does ER in ER model stand for?
+A) Entity Relationship – ✅ Correct. The ER model stands for "Entity Relationship" model, which is used to design databases conceptually.
+B) Entry Resource – ❌ Incorrect. Not related to database modeling.
+C) Enhanced Record – ❌ Incorrect. No such term exists in ER modeling.
+D) Event Record – ❌ Incorrect. This is not what ER stands for.
+
+Q12. Which of the following is NOT an element of ER model?
+A) Entities – ❌ Incorrect. Entities are key components in an ER model.
+B) Attributes – ❌ Incorrect. Attributes describe properties of entities.
+C) Relationships – ❌ Incorrect. Relationships show how entities are associated.
+D) Queries – ✅ Correct. Queries are not part of the ER model; they are part of data manipulation.
+
+Q13. Entities in ER model correspond to:
+A) Rows in table – ❌ Incorrect. Rows represent tuples, not entities directly.
+B) Tables – ✅ Correct. Entities in ER model are implemented as tables in a relational database.
+C) Columns – ❌ Incorrect. Columns represent attributes.
+D) Primary keys – ❌ Incorrect. Primary keys identify entities but are not entities themselves.
+
+Q14. Attributes in ER model are:
+A) Tables – ❌ Incorrect. Attributes are not tables.
+B) Columns – ✅ Correct. Attributes become columns in the relational schema.
+C) Records – ❌ Incorrect. Records are rows (tuples).
+D) Tuples – ❌ Incorrect. Tuples represent rows, not attributes.
+
+Q15. A relationship in ER model connects:
+A) Attribute to Attribute – ❌ Incorrect. Attributes don’t form relationships directly.
+B) Entity to Attribute – ❌ Incorrect. Attributes describe entities, not form relationships.
+C) Entity to Entity – ✅ Correct. Relationships are defined between two or more entities.
+D) Attribute to Relationship – ❌ Incorrect. Attributes describe entities or relationships but don’t connect them.
+
+Q16. An entity set is a:
+A) Collection of related records – ❌ Incorrect. That’s more of a relational table.
+B) Collection of similar entities – ✅ Correct. An entity set groups similar entities that share attributes.
+C) Set of tuples – ❌ Incorrect. That describes a relation/table.
+D) Set of primary keys – ❌ Incorrect. Primary keys identify tuples, not entities directly.
+
+Q17. Which of the following is a type of entity?
+A) Strong – ❌ Incorrect alone. It's one type, but not the only type.
+B) Weak – ❌ Incorrect alone. Also a valid type, but not the only one.
+C) Associative – ❌ Incorrect alone. It's also a valid type.
+D) All of the above – ✅ Correct. All three are valid types of entities in ER modeling.
+
+Q18. A weak entity:
+A) Has its own primary key – ❌ Incorrect. Weak entities lack their own primary key.
+B) Depends on strong entity – ✅ Correct. A weak entity cannot be uniquely identified without a related strong entity.
+C) Has no attributes – ❌ Incorrect. Weak entities do have attributes, including partial keys.
+D) Cannot be linked to another entity – ❌ Incorrect. It must be linked to a strong entity via a relationship.
+
+Q19. A strong entity:
+A) Depends on another entity – ❌ Incorrect. A strong entity is independent.
+B) Has a partial key – ❌ Incorrect. Weak entities have partial keys.
+C) Can exist without any other entity – ✅ Correct. Strong entities have a primary key and do not depend on other entities.
+D) Cannot have attributes – ❌ Incorrect. All entities, strong or weak, have attributes.
+
+Q20. Which of these uniquely identifies a weak entity?
+A) Foreign key – ❌ Incorrect. A foreign key refers to another table but doesn’t uniquely identify a weak entity alone.
+B) Primary key of its own – ❌ Incorrect. Weak entities lack a complete primary key.
+C) Primary key of related entity + discriminator – ✅ Correct. Weak entities are uniquely identified using the primary key of the related strong entity plus a partial key (discriminator).
+D) Null key – ❌ Incorrect. Null values cannot be used as unique identifiers.
+
+Q21. In E-R diagrams, entities are represented by:
+A) Diamonds – ❌ Incorrect. Diamonds represent relationships, not entities.
+B) Rectangles – ✅ Correct. Entities are shown as rectangles in an ER diagram.
+C) Ellipses – ❌ Incorrect. Ellipses represent attributes.
+D) Lines – ❌ Incorrect. Lines are used to connect entities, attributes, and relationships.
+
+Q22. Attributes are represented by:
+A) Rectangles – ❌ Incorrect. Rectangles are for entities.
+B) Circles – ❌ Incorrect. Circles are not a standard symbol in ER diagrams.
+C) Ellipses – ✅ Correct. Attributes are represented using ellipses.
+D) Lines – ❌ Incorrect. Lines are connectors.
+
+Q23. Relationships in E-R diagrams are represented by:
+A) Ovals – ❌ Incorrect. Ovals (ellipses) are used for attributes.
+B) Squares – ❌ Incorrect. Not a standard symbol in ER diagrams.
+C) Diamonds – ✅ Correct. Diamonds are used to represent relationships between entities.
+D) Arrows – ❌ Incorrect. Arrows may indicate direction (e.g., in generalization), but not the relationship itself.
+
+Q24. A multi-valued attribute is represented by:
+A) Double ellipse – ✅ Correct. Multi-valued attributes are shown using a double ellipse.
+B) Dashed line – ❌ Incorrect. Dashed lines are sometimes used for derived attributes or weak entities.
+C) Square – ❌ Incorrect. Squares are not standard in ER diagrams.
+D) Diamond – ❌ Incorrect. Diamonds represent relationships.
+
+Q25. A derived attribute is shown as:
+A) Solid ellipse – ❌ Incorrect. Solid ellipse represents a regular (simple) attribute.
+B) Dashed ellipse – ✅ Correct. A derived attribute is shown using a dashed ellipse.
+C) Rectangle – ❌ Incorrect. Rectangles are for entities.
+D) Double rectangle – ❌ Incorrect. This symbol does not exist in standard ER diagrams.
+
+Q26. A key attribute is drawn:
+A) Inside a diamond – ❌ Incorrect. Diamonds are for relationships.
+B) Underlined inside an ellipse – ✅ Correct. Key attributes are underlined in the attribute ellipse.
+C) With a dotted line – ❌ Incorrect. This is not a standard for key attributes.
+D) As a rectangle – ❌ Incorrect. Rectangles represent entities, not attributes.
+
+Q27. The total participation of an entity in a relationship is shown by:
+A) Dashed line – ❌ Incorrect. Dashed line is typically used to show weak relationships.
+B) Double line – ✅ Correct. A double line between an entity and a relationship indicates total participation.
+C) Arrow – ❌ Incorrect. Arrows indicate direction or constraints like generalization.
+D) Bold ellipse – ❌ Incorrect. Ellipses are for attributes, and bolding is not a standard symbol.
+
+Q28. The cardinality of a relationship describes:
+A) Type of attributes – ❌ Incorrect. This is not related to cardinality.
+B) Number of participating entities – ✅ Correct. Cardinality defines how many instances of an entity participate in a relationship (e.g., one-to-many).
+C) Number of values an attribute can take – ❌ Incorrect. This refers to domain, not cardinality.
+D) None of the above – ❌ Incorrect. Option B is correct.
+
+Q29. One-to-many relationship is represented as:
+A) 1:N – ✅ Correct. 1:N is the standard notation for one-to-many relationships.
+B) N:1 – ❌ Incorrect. This is the reverse (many-to-one).
+C) 1:1 – ❌ Incorrect. This indicates a one-to-one relationship.
+D) N:N – ❌ Incorrect. This represents many-to-many.
+
+Q30. Which of the following is a unary relationship?
+A) One entity involved – ✅ Correct. A unary (or recursive) relationship is where an entity is related to itself.
+B) Two entities involved – ❌ Incorrect. That would be a binary relationship.
+C) Three entities involved – ❌ Incorrect. This is a ternary relationship.
+D) No entity involved – ❌ Incorrect. Relationships must involve at least one entity.
+
+
+Q31. If a student is enrolled in multiple courses, which relationship type is best?
+A) 1:1 – ❌ Incorrect. This would imply one student can enroll in only one course, which is too restrictive.
+B) 1:N – ❌ Incorrect. This would imply one student can enroll in many courses, but not vice versa.
+C) N:1 – ❌ Incorrect. This implies many students can enroll in only one course.
+D) M:N – ✅ Correct. Many students can enroll in many courses, so a many-to-many relationship (M:N) is appropriate.
+
+Q32. Which E-R construct is used when an entity has multiple roles in the same relationship?
+A) Aggregation – ❌ Incorrect. Aggregation is used for relationships involving relationships and entities.
+B) Specialization – ❌ Incorrect. Specialization divides an entity into sub-entities.
+C) Generalization – ❌ Incorrect. Generalization combines similar entities into a generalized superclass.
+D) Recursive relationship – ✅ Correct. Recursive relationship (unary) is used when an entity participates more than once in the same relationship with different roles.
+
+Q33. Aggregation is used to:
+A) Group weak entities – ❌ Incorrect. Aggregation doesn’t group weak entities.
+B) Represent a relationship between a relationship and an entity – ✅ Correct. Aggregation allows modeling a relationship between an entity and a relationship.
+C) Make a table – ❌ Incorrect. Not related to physical schema.
+D) Join two relationships – ❌ Incorrect. Relationships themselves aren't joined directly.
+
+Q34. Generalization is the process of:
+A) Combining subclasses – ✅ Correct. Generalization abstracts common features from multiple entities into a higher-level entity.
+B) Dividing entities – ❌ Incorrect. That describes specialization.
+C) Creating many-to-many relationships – ❌ Incorrect. This is not related to generalization.
+D) Linking weak entities – ❌ Incorrect. Generalization isn’t used for weak entities.
+
+Q35. Specialization is used when:
+A) A general entity is divided into sub-entities – ✅ Correct. Specialization breaks down a general entity into more specific sub-entities.
+B) Many-to-many relationships are split – ❌ Incorrect. This is done during schema refinement, not specialization.
+C) Composite attributes are merged – ❌ Incorrect. Irrelevant to specialization.
+D) Entities are renamed – ❌ Incorrect. Specialization is about structure, not naming.
+
+Q36. An attribute which can be divided further is:
+A) Composite – ✅ Correct. A composite attribute consists of smaller sub-parts (e.g., full name → first name, last name).
+B) Simple – ❌ Incorrect. Simple attributes can't be broken down further.
+C) Derived – ❌ Incorrect. Derived attributes are computed from other values.
+D) Multi-valued – ❌ Incorrect. These store multiple values, not sub-parts.
+
+Q37. Which attribute type can have multiple values for a single entity?
+A) Composite – ❌ Incorrect. Composite attributes are single but divisible.
+B) Derived – ❌ Incorrect. Derived attributes are calculated.
+C) Multi-valued – ✅ Correct. Multi-valued attributes can store more than one value (e.g., phone numbers).
+D) Key – ❌ Incorrect. A key attribute is meant to be unique and single-valued.
+
+Q38. Which type of relationship is used when each employee is assigned to one department, but a department has many employees?
+A) One-to-One – ❌ Incorrect. That would imply one employee to one department and vice versa.
+B) Many-to-One – ❌ Incorrect. Implies many departments per employee, which is not correct.
+C) One-to-Many – ✅ Correct. One department can have many employees, but each employee belongs to one department.
+D) Many-to-Many – ❌ Incorrect. Not applicable here as it suggests multiple departments per employee.
+
+Q39. A ternary relationship involves:
+A) One entity set – ❌ Incorrect. That’s unary.
+B) Two entity sets – ❌ Incorrect. That’s binary.
+C) Three entity sets – ✅ Correct. Ternary relationships involve three different entity sets.
+D) Four entity sets – ❌ Incorrect. That would be quaternary.
+
+Q40. A student, course, and instructor are best modeled using a:
+A) Binary relationship – ❌ Incorrect. Two entities only; this involves three.
+B) Unary relationship – ❌ Incorrect. Unary is self-relationship within one entity.
+C) Ternary relationship – ✅ Correct. Since three entities are involved (student, course, instructor), a ternary relationship is best.
+D) Weak relationship – ❌ Incorrect. There is no dependency here indicating a weak entity.
+
+Q41. ER model provides a high-level conceptual view of data.
+A) True – ✅ Correct. The Entity-Relationship (ER) model is designed to give a high-level, conceptual representation of data and its relationships.
+B) False – ❌ Incorrect. This is the main purpose of ER modeling.
+
+Q42. Derived attributes are stored in the database directly.
+A) True – ❌ Incorrect. Derived attributes are not stored directly; they are computed from stored data.
+B) False – ✅ Correct. For example, "Age" may be derived from "Date of Birth".
+
+Q43. Relationship sets can have attributes.
+A) True – ✅ Correct. Relationships can have attributes (e.g., "Enrollment Date" in a STUDENT–COURSE relationship).
+B) False – ❌ Incorrect. It's perfectly valid and supported in ER modeling.
+
+Q44. A key attribute is always composite.
+A) True – ❌ Incorrect. A key attribute can be composite, but it’s not always composite. It may also be a single attribute.
+B) False – ✅ Correct.
+
+Q45. Ellipses are used to represent relationships.
+A) True – ❌ Incorrect. Ellipses represent attributes in ER diagrams.
+B) False – ✅ Correct. Diamonds are used for relationships.
+
+Q46. Total participation means every instance of the entity must participate in the relationship.
+A) True – ✅ Correct. Total participation is shown with a double line and means that each entity must be related through the relationship.
+B) False – ❌ Incorrect.
+
+Q47. A composite attribute can include multi-valued attributes.
+A) True – ✅ Correct. A composite attribute can contain multiple components, and each component may be multi-valued.
+B) False – ❌ Incorrect.
+
+Q48. One-to-one relationships are rare in practice.
+A) True – ✅ Correct. Most real-world scenarios involve one-to-many or many-to-many relationships; 1:1 is less common.
+B) False – ❌ Incorrect.
+
+Q49. ER diagrams are used to model logical structure of databases.
+A) True – ✅ Correct. ER diagrams visually model the logical structure of databases before physical design.
+B) False – ❌ Incorrect.
+
+Q50. The relational model supports many-to-many relationships directly.
+A) True – ❌ Incorrect. The relational model does not directly support many-to-many relationships. These must be broken down using an associative (junction) table.
+B) False – ✅ Correct.
