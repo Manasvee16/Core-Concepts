@@ -1,0 +1,505 @@
+Q1. What is a DBMS?
+A. A system to manage documents
+❌ Incorrect. That's more like a Document Management System (DMS), not DBMS.
+B. A software for designing websites
+❌ Incorrect. That’s more related to web development tools.
+C. A collection of programs that manage the database
+✅ Correct. DBMS stands for Database Management System, which manages data efficiently.
+D. A type of spreadsheet
+❌ Incorrect. Spreadsheets are tools like Excel, not DBMS.
+
+Q2. Which of the following is NOT a function of DBMS?
+A. Data storage
+✅ DBMS stores data efficiently.
+B. Data retrieval
+✅ DBMS allows querying and retrieving data.
+C. Virus protection
+❌ Correct Answer. DBMS is not responsible for virus protection; that’s antivirus software’s role.
+D. Data manipulation
+✅ DBMS supports data manipulation through DML (Data Manipulation Language).
+
+Q3. What does DBMS stand for?
+A. Data Base Management System
+✅ Correct. This is the full form of DBMS.
+B. Data Base Module Software
+❌ Incorrect. This is a made-up term.
+C. Database Management Software
+❌ Close, but not the standard abbreviation.
+D. Data Back Management Software
+❌ Incorrect. It doesn’t relate to standard DBMS terminology.
+
+Q4. The full form of RDBMS is:
+A. Real-time Database Management Software
+❌ Incorrect. RDBMS is not limited to real-time.
+B. Relational Database Management System
+✅ Correct. RDBMS organizes data using relations (tables).
+C. Remote Data Backup and Management Software
+❌ Incorrect. Not the correct terminology.
+D. Relational Data Block Management System
+❌ Incorrect. Not a valid industry term.
+
+Q5. Which of the following is a type of DBMS?
+A. Relational
+✅ Correct. One of the most commonly used types.
+B. Hierarchical
+✅ Correct. Organizes data in tree-like structures.
+C. Network
+✅ Correct. Allows complex relationships using graphs.
+D. All of the above
+✅ Correct Answer. All mentioned types are valid DBMS models.
+
+Q6. In a hierarchical DBMS, data is organized in:
+A. Graphs
+❌ Incorrect. Graphs are used in network DBMS.
+B. Trees
+✅ Correct. Hierarchical DBMS uses tree structures (parent-child relationships).
+C. Tables
+❌ Incorrect. Tables are used in relational DBMS.
+D. Arrays
+❌ Incorrect. Arrays are data structures, not DBMS organization models.
+
+Q7. Which DBMS model uses parent-child relationship?
+A. Network model
+❌ Incorrect. It uses graphs (set-based relationships).
+B. Relational model
+❌ Incorrect. It uses tables.
+C. Hierarchical model
+✅ Correct. It uses a tree-based structure (parent-child).
+D. Object-oriented model
+❌ Incorrect. It organizes data in objects.
+
+Q8. Which model uses records and sets?
+A. Relational
+❌ Incorrect. Uses tuples and relations (tables).
+B. Hierarchical
+❌ Incorrect. Uses tree structure.
+C. Network
+✅ Correct. Network model uses records and sets to define relationships.
+D. Object-oriented
+❌ Incorrect. Uses classes and objects.
+
+Q9. Which of the following supports complex data types like images and audio?
+A. Relational model
+❌ Not ideal for complex data types.
+B. Object-oriented model
+✅ Correct. It allows storage of complex data like images and audio using encapsulation.
+C. Hierarchical model
+❌ Not suitable for complex types.
+D. Network model
+❌ More suited for record-based data, not complex objects.
+
+Q10. The relational model represents data in the form of:
+A. Trees
+❌ Incorrect. That’s hierarchical.
+B. Graphs
+❌ Incorrect. That’s network model.
+C. Tables
+✅ Correct. Relational model stores data in tables (relations).
+D. Files
+❌ Incorrect. Files are more relevant in file systems.
+
+Q11. A table in a relational database is called:
+A. Record
+❌ Incorrect. A record refers to a row in a table, not the table itself.
+B. Field
+❌ Incorrect. A field represents a column in a table.
+C. Relation
+✅ Correct. In relational DBMS, a table is referred to as a relation.
+D. Tuple
+❌ Incorrect. A tuple is a row in a relation (table), not the table itself.
+
+Q12. What is the difference between DBMS and RDBMS?
+A. DBMS uses tables, RDBMS does not
+❌ Incorrect. RDBMS uses tables with relationships; DBMS may or may not use them.
+B. RDBMS uses tables with relationships, DBMS does not
+✅ Correct. RDBMS enforces relationships using foreign keys and constraints, while traditional DBMS may not.
+C. DBMS uses SQL, RDBMS does not
+❌ Incorrect. Both use SQL, but RDBMS strictly follows relational concepts.
+D. DBMS is newer than RDBMS
+❌ Incorrect. RDBMS is an evolution of DBMS.
+
+Q13. Which of the following is a component of DBMS?
+A. Query processor
+✅ Correct. It interprets and executes SQL queries.
+B. Web server
+❌ Incorrect. Web servers are part of web applications, not DBMS.
+C. Spreadsheet
+❌ Incorrect. Not related to DBMS components.
+D. Firewall
+❌ Incorrect. Firewalls are for security, not a DBMS component.
+
+Q14. The component that manages disk storage in DBMS is:
+A. Query processor
+❌ Incorrect. It handles SQL queries, not storage.
+B. DDL compiler
+❌ Incorrect. It processes schema definitions.
+C. Storage manager
+✅ Correct. It manages disk storage and data placement.
+D. Transaction manager
+❌ Incorrect. It handles transactions and ensures ACID properties.
+
+Q15. Which is NOT an advantage of DBMS?
+A. Data redundancy is reduced
+✅ DBMS reduces duplication of data.
+B. Easier data sharing
+✅ DBMS allows multiple users to access data easily.
+C. Expensive to set up
+✅ Correct Answer. This is a disadvantage of DBMS (high setup and maintenance cost).
+D. Improved data security
+✅ DBMS improves data security through access control.
+
+Q16. Which is a disadvantage of DBMS?
+A. Reduced data consistency
+❌ Incorrect. DBMS improves data consistency.
+B. Improved backup and recovery
+❌ Incorrect. That is an advantage of DBMS.
+C. Cost and complexity
+✅ Correct. High cost and setup complexity are major disadvantages of DBMS.
+D. Easy data access
+❌ Incorrect. Easy access is a benefit of DBMS.
+
+Q17. The language used to define database structure is:
+A. DML
+❌ Incorrect. DML is for manipulating data (INSERT, UPDATE).
+B. DDL
+✅ Correct. DDL (Data Definition Language) defines structure using commands like CREATE, ALTER.
+C. SQL
+❌ Partially correct, but too broad—SQL includes both DDL and DML.
+D. HTML
+❌ Incorrect. HTML is for web design, not databases.
+
+Q18. DML stands for:
+A. Data Management Language
+❌ Incorrect. No such term exists.
+B. Data Modeling Language
+❌ Incorrect. Modeling relates to design, not manipulation.
+C. Data Manipulation Language
+✅ Correct. DML is used for inserting, updating, deleting, and selecting data.
+D. Data Messaging Language
+❌ Incorrect. Not a valid term in DBMS.
+
+Q19. How many rules are represented by Dr. E. F. Codd that a database must obey if it has to be considered truly relational?
+A. 10
+❌ Incorrect.
+B. 15
+❌ Incorrect.
+C. 14
+✅ Correct. Codd's 12 rules are commonly cited, but with Rule 0, there are 13; some sources include a 14th.
+D. 12
+❌ Not the most complete answer, as 14 is often the accepted total (including Rule 0 and 12 others).
+
+Q20. Which of the following provides interface between user and DBMS?
+A. Data dictionary
+❌ Incorrect. It stores metadata, not an interface.
+B. Query processor
+✅ Correct. It interprets user queries and acts as the interface to DBMS.
+C. Storage manager
+❌ Incorrect. It manages disk storage internally.
+D. Buffer manager
+❌ Incorrect. It handles buffer memory, not user interaction.
+
+Q21. The DBMS component that logs transactions and ensures recovery is:
+A. Transaction Manager
+✅ Correct. It is responsible for maintaining logs of transactions and ensuring atomicity, consistency, isolation, and durability (ACID).
+B. DML compiler
+❌ Incorrect. It compiles data manipulation language statements but doesn't handle recovery.
+C. Query Optimizer
+❌ Incorrect. It optimizes the execution of queries but not transaction logging.
+D. Buffer Manager
+❌ Incorrect. It manages memory buffers, not transaction logs.
+
+Q22. The part of DBMS that checks for access rights is:
+A. Transaction Manager
+❌ Incorrect. It deals with transaction consistency, not access rights.
+B. Authorization Manager
+✅ Correct. It handles user permissions and ensures that only authorized users can access certain parts of the database.
+C. File Manager
+❌ Incorrect. It handles storage structure, not user rights.
+D. Data Manager
+❌ Incorrect. It's a broader module that does not specifically deal with access control.
+
+Q23. Redundancy in databases leads to:
+A. Less performance
+✅ Correct. Redundancy can lead to inefficiencies like increased storage and slower operations.
+B. Security
+❌ Incorrect. Redundancy does not enhance security.
+C. Faster access
+❌ Incorrect. In most cases, redundancy slows down access, especially with updates.
+D. Data inconsistency
+✅ Also correct. Multiple copies of the same data can become inconsistent if not updated properly.
+
+(Note: Both A and D are valid, but D is more severe. The best answer is D.)
+
+✅ Correct answer: D
+
+Q24. DBMS minimizes data inconsistency by:
+A. Increasing cost
+❌ Incorrect. Though DBMS can be costly, that's unrelated to consistency.
+B. Controlling data redundancy
+✅ Correct. Reducing duplicate data lowers the risk of conflicting or outdated information.
+C. Hiding data
+❌ Incorrect. Hiding data is related to security, not consistency.
+D. Encrypting data
+❌ Incorrect. Encryption ensures confidentiality, not consistency.
+
+Q25. Data dictionary stores:
+A. Actual data
+❌ Incorrect. Actual data is stored in the database itself, not in the dictionary.
+B. Metadata
+✅ Correct. A data dictionary holds information about data—like table names, column types, constraints, etc.
+C. Indexes
+❌ Incorrect. Indexes are stored separately and aid in faster retrieval, not in the dictionary.
+D. Foreign keys
+❌ Incorrect. Foreign key constraints are defined in schema, not stored in the dictionary explicitly.
+
+Q26. In DBMS, data independence means:
+A. Data does not change
+❌ Incorrect. Data can change, and independence is not about immutability.
+B. Data and application programs are not dependent on each other
+✅ Correct. Data independence allows data to change without needing to modify application programs.
+C. Users are independent
+❌ Incorrect. This does not relate to the concept of data independence.
+D. Security is maintained
+❌ Incorrect. While security is a DBMS concern, it's unrelated to data independence.
+
+Q27. Logical data independence is the ability to:
+A. Change physical structure without affecting programs
+❌ Incorrect. That describes physical data independence.
+B. Change logical structure without affecting programs
+✅ Correct. Logical data independence allows changes like adding new fields or tables without altering application programs.
+C. Change data type
+❌ Incorrect. Changing data types may affect both logical and physical levels.
+D. Change DBMS
+❌ Incorrect. That's a matter of migration, not data independence.
+
+Q28. Physical data independence allows changes in:
+A. Schema
+❌ Incorrect. Schema refers to the logical structure.
+B. Storage structure
+✅ Correct. It allows modifications to how data is stored physically (e.g., indexing, file format) without affecting the application layer.
+C. Data format
+✅ Also partially correct, but "storage structure" is more comprehensive.
+D. Application logic
+❌ Incorrect. Application logic should not depend on physical structure; independence ensures this.
+
+✅ Correct answer: B
+
+Q29. The three-level architecture of DBMS includes:
+A. User level, Server level, Data level
+❌ Incorrect. These terms are not part of the standard three-level architecture.
+B. External, Conceptual, Internal
+✅ Correct. This is the ANSI/SPARC architecture model that separates user views, logical structure, and physical storage.
+C. Logical, Physical, Network
+❌ Incorrect. This is a mix of terms, not an architecture model.
+D. View, Model, Table
+❌ Incorrect. These are basic terms, not architectural layers.
+
+Q30. Conceptual schema defines:
+A. Physical storage
+❌ Incorrect. Physical storage is defined by the internal schema.
+B. View of end-users
+❌ Incorrect. This is defined by the external schema.
+C. Logical structure of the database
+✅ Correct. The conceptual schema provides a global view of the entire database and defines tables, relationships, and constraints.
+D. Indexes and keys
+❌ Incorrect. While keys are part of the schema, indexes relate to physical design.
+
+Q31. Which level of DBMS describes how data is stored?
+A. Conceptual
+❌ Incorrect. Conceptual level defines the logical structure, not physical storage.
+B. External
+❌ Incorrect. External level deals with how users see data (user view).
+C. Internal
+✅ Correct. The internal level (also called physical level) describes the physical storage of data on disk.
+D. Logical
+❌ Incorrect. Logical is another word for conceptual level, which doesn’t deal with physical storage.
+
+Q32. Which one is responsible for concurrency control in DBMS?
+A. File Manager
+❌ Incorrect. The file manager manages files and storage access, not concurrency.
+B. Transaction Manager
+✅ Correct. It ensures that concurrent transactions are executed safely without conflict.
+C. Query Processor
+❌ Incorrect. It parses and optimizes queries but does not manage concurrency.
+D. Data Dictionary
+❌ Incorrect. It stores metadata, not involved in concurrency control.
+
+Q33. The acronym ACID in DBMS stands for:
+A. Accuracy, Consistency, Isolation, Durability
+❌ Incorrect. "Accuracy" is not part of ACID.
+B. Atomicity, Consistency, Isolation, Durability
+✅ Correct. These four properties ensure reliable transaction processing in DBMS.
+C. Action, Compilation, Isolation, Durability
+❌ Incorrect. These are unrelated terms.
+D. Atomicity, Consistency, Integration, Duration
+❌ Incorrect. "Integration" and "Duration" are incorrect terms here.
+
+Q34. Which of the following ensures atomicity in DBMS?
+A. Data dictionary
+❌ Incorrect. It stores metadata, not related to atomicity.
+B. Query optimizer
+❌ Incorrect. It only optimizes query execution plans.
+C. Transaction manager
+✅ Correct. It ensures that transactions are completed fully or not at all (atomicity).
+D. Authorization manager
+❌ Incorrect. It handles access control, not atomicity.
+
+Q35. What is normalization in DBMS?
+A. Storing large data
+❌ Incorrect. This is not related to normalization.
+B. Reducing data size
+❌ Incorrect. While data redundancy is reduced, the goal isn't directly reducing size.
+C. Organizing data to reduce redundancy
+✅ Correct. Normalization is used to organize database structure to eliminate redundancy and ensure data integrity.
+D. Making data consistent
+❌ Incorrect. Though consistency is a result, it is not the primary goal or definition.
+
+Q36. Which command is used to retrieve data?
+A. SELECT
+✅ Correct. The SELECT command is used in SQL to fetch data from one or more tables.
+B. INSERT
+❌ Incorrect. It is used to add new records to a table.
+C. DELETE
+❌ Incorrect. It is used to remove data from a table.
+D. UPDATE
+❌ Incorrect. It modifies existing records in a table.
+
+Q37. Which of these is NOT a DDL command?
+A. CREATE
+❌ Incorrect. It is a DDL command used to create tables and schema objects.
+B. ALTER
+❌ Incorrect. ALTER is a DDL command used to change table structure.
+C. DROP
+❌ Incorrect. DROP removes tables or databases and is part of DDL.
+D. SELECT
+✅ Correct. SELECT is a DML command, not DDL, as it retrieves data rather than defining structure.
+
+Q38. Which of these is NOT a DML command?
+A. SELECT
+❌ Incorrect. SELECT is a valid DML command.
+B. DELETE
+❌ Incorrect. DELETE is a DML command used to remove records.
+C. INSERT
+❌ Incorrect. INSERT adds new records and is part of DML.
+D. CREATE
+✅ Correct. CREATE is a DDL command, used to define schema objects, not manipulate data.
+
+Q39. The process of granting rights to users is known as:
+A. Authorization
+✅ Correct. Authorization involves granting users permission to access specific parts of the database.
+B. Authentication
+❌ Incorrect. Authentication verifies user identity, not their permissions.
+C. Auditing
+❌ Incorrect. Auditing is monitoring and logging access, not granting rights.
+D. Access control
+❌ Incorrect. Access control is the broader process; authorization is a component of it, but not the process name itself in this context.
+
+Q40. What is the main purpose of indexing?
+A. Increase redundancy
+❌ Incorrect. Indexing does not increase redundancy; it enhances efficiency.
+B. Reduce security
+❌ Incorrect. Indexing has no direct effect on security.
+C. Speed up data retrieval
+✅ Correct. Indexes are used to quickly locate and access data in a database.
+D. Normalize data
+❌ Incorrect. Normalization is unrelated to indexing; it structures data to reduce redundancy.
+
+Q41. Which one is a relational DBMS?
+A. MS Excel
+❌ Incorrect. Excel is a spreadsheet software, not a relational database system.
+B. MongoDB
+❌ Incorrect. MongoDB is a NoSQL database.
+C. MySQL
+✅ Correct. MySQL is a relational DBMS that uses SQL and tables with relationships.
+D. Redis
+❌ Incorrect. Redis is a key-value NoSQL store, not relational.
+
+Q42. Which of the following is a NoSQL database?
+A. Oracle
+❌ Incorrect. Oracle is a relational database.
+B. MongoDB
+✅ Correct. MongoDB is a document-based NoSQL database.
+C. MS Access
+❌ Incorrect. MS Access is a relational database.
+D. SQLite
+❌ Incorrect. SQLite is a lightweight relational database.
+
+Q43. Which one provides relationship constraints like primary keys and foreign keys?
+A. Hierarchical DBMS
+❌ Incorrect. It organizes data in a tree structure, not suitable for relational constraints.
+B. Network DBMS
+❌ Incorrect. It uses records and sets, not relational constraints.
+C. Relational DBMS
+✅ Correct. RDBMS supports relational constraints like primary and foreign keys.
+D. Object-oriented DBMS
+❌ Incorrect. It supports object-based modeling but not typical relational constraints.
+
+Q44. A row in a table is also known as:
+A. Attribute
+❌ Incorrect. An attribute refers to a column in a table.
+B. Tuple
+✅ Correct. In relational databases, a tuple represents a single row in a table.
+C. Field
+❌ Incorrect. A field is usually used to refer to a single data value (intersection of row and column).
+D. Domain
+❌ Incorrect. A domain defines the permissible values for an attribute, not a row.
+
+Q45. Which of these is NOT a DBMS vendor?
+A. IBM
+❌ Incorrect. IBM provides DB2, a popular DBMS.
+B. Oracle
+❌ Incorrect. Oracle is a major relational DBMS provider.
+C. Google Chrome
+✅ Correct. Google Chrome is a web browser, not a DBMS vendor.
+D. Microsoft
+❌ Incorrect. Microsoft provides SQL Server and MS Access.
+
+Q46. Which is NOT a feature of DBMS?
+A. Concurrent access
+❌ Incorrect. DBMS supports concurrent access to data.
+B. Data isolation
+❌ Incorrect. DBMS provides logical data independence, which is related to isolation.
+C. Redundant data
+✅ Correct. One of the goals of DBMS is to eliminate redundant data. So this is not a feature.
+D. Backup and recovery
+❌ Incorrect. DBMS offers backup and recovery mechanisms as key features.
+
+Q47. Which of the following is best for handling structured data?
+A. DBMS
+✅ Correct. Structured data is well-suited for relational DBMS with tables and schemas.
+B. File system
+❌ Incorrect. File systems do not provide the organization, query language, or consistency controls of DBMS.
+C. Spreadsheet
+❌ Incorrect. Spreadsheets can hold structured data but are not as powerful or scalable as DBMS.
+D. Email server
+❌ Incorrect. Email servers are for communication, not structured data management.
+
+Q48. Data consistency is maintained in DBMS using:
+A. Indexing
+❌ Incorrect. Indexing speeds up access but doesn't ensure consistency.
+B. Transactions
+❌ Incorrect. Transactions help but need to follow ACID to ensure full consistency.
+C. Normalization
+❌ Incorrect. Normalization reduces redundancy, but consistency is better ensured through ACID.
+D. ACID properties
+✅ Correct. ACID (Atomicity, Consistency, Isolation, Durability) directly enforces data consistency in transactions.
+
+Q49. Which type of DBMS stores data in the form of objects?
+A. Relational
+❌ Incorrect. Relational DBMS stores data in tables.
+B. Network
+❌ Incorrect. Network DBMS uses records and links (sets).
+C. Hierarchical
+❌ Incorrect. Uses parent-child tree structure.
+D. Object-oriented
+✅ Correct. Object-oriented DBMS stores data as objects, supporting complex data types.
+
+Q50. Which tool is typically used to interact with RDBMS?
+A. Terminal
+❌ Incorrect. While some interaction can occur via terminal, it is not specific to RDBMS.
+B. Command Prompt
+❌ Incorrect. Same as terminal, it's a shell, not an RDBMS tool.
+C. SQL
+✅ Correct. Structured Query Language (SQL) is the standard language used to interact with RDBMS.
+D. Python
+❌ Incorrect. Python can be used with RDBMS, but SQL is the direct interaction tool.
