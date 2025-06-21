@@ -1,0 +1,291 @@
+Q1. What does the CREATE DATABASE command do?
+A) Creates tables – ❌ Incorrect. This command creates databases, not tables.
+B) Creates a new database – ✅ Correct. The CREATE DATABASE command is used to create a new database.
+C) Creates a column – ❌ Incorrect. Columns are created using CREATE TABLE or ALTER TABLE.
+D) None of the above – ❌ Incorrect. Option B is correct.
+
+Q2. What is the correct syntax to create a database named company?
+A) MAKE DATABASE company; – ❌ Incorrect. MAKE is not a valid SQL keyword.
+B) CREATE DB company; – ❌ Incorrect. While some systems may understand this, standard SQL uses CREATE DATABASE.
+C) CREATE DATABASE company; – ✅ Correct. This is the correct standard SQL syntax.
+D) BUILD DATABASE company; – ❌ Incorrect. BUILD is not a valid SQL keyword for this purpose.
+
+Q3. Which clause prevents error if the database already exists?
+A) IF EXISTS – ❌ Incorrect. This is used for dropping objects, not creating.
+B) IF NOT EXISTS – ✅ Correct. This clause avoids error by only creating the database if it does not already exist.
+C) WHEN NOT EXISTS – ❌ Incorrect. Not a valid SQL syntax.
+D) WHERE NOT EXISTS – ❌ Incorrect. WHERE is used for conditions in queries, not object creation.
+
+Q4. What happens if you try to create an existing database without IF NOT EXISTS?
+A) It is recreated – ❌ Incorrect. SQL does not recreate existing databases.
+B) No action taken – ❌ Incorrect. An error will be thrown instead.
+C) An error is thrown – ✅ Correct. Without IF NOT EXISTS, SQL throws an error if the database exists.
+D) All data is deleted – ❌ Incorrect. SQL does not automatically delete data unless explicitly commanded.
+
+Q5. Which is the correct syntax to avoid error when creating an existing DB?
+A) CREATE DATABASE company IF NOT EXIST; – ❌ Incorrect syntax order.
+B) CREATE DATABASE IF NOT EXISTS company; – ✅ Correct. This is the proper syntax.
+C) IF NOT EXISTS CREATE DATABASE company; – ❌ Incorrect order and format.
+D) CREATE IF NOT EXISTS DATABASE company; – ❌ Incorrect order.
+
+Q6. The CREATE DATABASE command belongs to which SQL category?
+A) DML – ❌ Incorrect. DML is for data manipulation (SELECT, INSERT, etc.).
+B) DCL – ❌ Incorrect. DCL is for control like GRANT and REVOKE.
+C) DDL – ✅ Correct. CREATE DATABASE is a Data Definition Language (DDL) command.
+D) TCL – ❌ Incorrect. TCL handles transactions (COMMIT, ROLLBACK, etc.).
+
+Q7. Which of the following is invalid database name?
+A) sales_data – ✅ Valid. It starts with a letter and uses underscore.
+B) 123company – ❌ Correct Answer. Invalid because it starts with digits, which is not allowed in some DBMS.
+C) dataStore – ✅ Valid. Starts with a letter and contains no special characters.
+D) db_2025 – ✅ Valid. Starts with a letter and includes an underscore and numbers.
+
+Q8. What character set can you define when creating a database?
+A) UTF-9 – ❌ Incorrect. Not a valid character set.
+B) ASCII – ❌ Not commonly defined as default charset in modern DBMS.
+C) utf8 – ✅ Correct. Common and valid charset for databases.
+D) None – ❌ Incorrect. You can specify a character set.
+
+Q9. A schema is equivalent to what in MySQL?
+A) View – ❌ Incorrect. A view is a virtual table.
+B) Table – ❌ Incorrect. Tables are within schemas/databases.
+C) Database – ✅ Correct. In MySQL, “schema” is synonymous with “database”.
+D) Index – ❌ Incorrect. Indexes are created for fast data access.
+
+Q10. Which command creates a database only if it doesn’t already exist?
+A) CREATE SCHEMA database; – ❌ Incorrect. SCHEMA and DATABASE are synonymous, but syntax is wrong.
+B) CREATE DATABASE IF NOT EXISTS mydb; – ✅ Correct. Prevents error by checking existence first.
+C) CREATE DATABASE mydb IF NOT EXIST; – ❌ Incorrect syntax.
+D) CREATE OR REPLACE DATABASE mydb; – ❌ Not standard SQL; not supported by all databases.
+
+Q11. What does the CREATE TABLE command do?
+A) Creates a new row – ❌ Incorrect. INSERT is used to add a row.
+B) Creates a new column – ❌ Incorrect. Columns are added with ALTER TABLE.
+C) Creates a table structure – ✅ Correct. CREATE TABLE defines the structure of a new table.
+D) None of the above – ❌ Incorrect. Option C is correct.
+
+Q12. Which keyword is used to ensure a table is only created if it doesn’t already exist?
+A) IF EXISTS – ❌ Incorrect. This is used with DROP, not CREATE.
+B) IF NOT EXISTS – ✅ Correct. This prevents error if the table already exists.
+C) WHEN NOT EXISTS – ❌ Incorrect. Not a valid SQL syntax.
+D) EXISTS NOT – ❌ Incorrect. Not a valid keyword combination.
+
+Q13. What is the correct syntax for creating a table named students?
+A) CREATE TABLE students(); – ❌ Incorrect. Missing column definitions inside parentheses.
+B) CREATE students(); – ❌ Incorrect. CREATE TABLE is required.
+C) CREATE TABLE students (...); – ✅ Correct. Column definitions go inside parentheses.
+D) MAKE TABLE students(); – ❌ Incorrect. MAKE is not an SQL keyword.
+
+Q14. Which of the following defines a primary key in CREATE TABLE?
+A) UNIQUE KEY – ❌ Incorrect. Unique does not guarantee non-null values.
+B) FOREIGN KEY – ❌ Incorrect. Used to reference another table’s key.
+C) MAIN KEY – ❌ Incorrect. Not a valid SQL term.
+D) PRIMARY KEY – ✅ Correct. Uniquely identifies each row and disallows NULLs.
+
+Q15. Which clause is used to set default value for a column?
+A) SET DEFAULT – ❌ Incorrect. Not valid SQL syntax.
+B) DEFAULT – ✅ Correct. The DEFAULT clause assigns a value if none is provided during insert.
+C) INIT – ❌ Incorrect. Not an SQL keyword.
+D) PRIMARY – ❌ Incorrect. Used in defining keys, not default values.
+
+Q16. What datatype is used to store large text data?
+A) VARCHAR – ❌ Incorrect. Suitable for smaller strings (e.g., up to 65535 characters depending on DB).
+B) CHAR – ❌ Incorrect. Fixed-length and smaller in capacity.
+C) TEXT – ✅ Correct. TEXT is designed for large blocks of text.
+D) STRING – ❌ Incorrect. Not a standard SQL datatype.
+
+Q17. Which command sets a column to auto-increment?
+A) AUTO – ❌ Incorrect. Not a valid SQL keyword.
+B) AUTO_INCREMENT – ✅ Correct. Used in MySQL to auto-increment integer columns.
+C) INCREMENT – ❌ Incorrect. Not a valid clause.
+D) SERIAL – ❌ Partially correct in PostgreSQL, but AUTO_INCREMENT is standard for MySQL.
+
+Q18. In SQL, the column name must:
+A) Begin with a digit – ❌ Incorrect. Column names must begin with a letter or underscore.
+B) Be case-insensitive – ❌ Not always true. Case sensitivity depends on the DBMS.
+C) Not be a keyword – ✅ Correct. Reserved SQL keywords cannot be used as column names.
+D) Use special characters – ❌ Incorrect. Special characters are not allowed (except underscores).
+
+Q19. Can you define multiple columns in one CREATE TABLE statement?
+A) No – ❌ Incorrect. SQL supports multiple columns in one statement.
+B) Yes – ✅ Correct. You can define many columns when creating a table.
+C) Only two – ❌ Incorrect. No such limitation.
+D) Only in MySQL – ❌ Incorrect. All SQL-compliant DBMS support this.
+
+Q20. What command creates a table only if it doesn’t exist?
+A) CREATE TABLE students; – ❌ Incorrect. Will throw error if table exists.
+B) CREATE TABLE IF NOT EXISTS students (...); – ✅ Correct. Prevents error if table already exists.
+C) CREATE students IF NOT EXISTS (...); – ❌ Incorrect syntax.
+D) INIT TABLE students; – ❌ Incorrect. INIT is not an SQL command.
+
+Q21. What does the DROP TABLE command do?
+A) Deletes data only – ❌ Incorrect. That would be DELETE FROM table.
+B) Deletes table structure and data – ✅ Correct. DROP TABLE removes both the data and the schema.
+C) Backs up the table – ❌ Incorrect. DROP removes; it doesn’t back up.
+D) Resets table – ❌ Incorrect. DROP deletes, not resets.
+
+Q22. What happens to a dropped table’s data?
+A) Saved in logs – ❌ Incorrect. Data is not saved by default.
+B) Temporarily stored – ❌ Incorrect. It’s not stored unless a backup exists.
+C) Permanently deleted – ✅ Correct. DROP permanently removes the table and its data.
+D) Archived – ❌ Incorrect. Not the behavior of DROP.
+
+Q23. What is the correct syntax to drop a table only if it exists?
+A) DROP TABLE table1 IF EXISTS; – ❌ Incorrect order of keywords.
+B) DROP TABLE IF EXISTS table1; – ✅ Correct syntax in MySQL and standard SQL.
+C) IF EXISTS DROP TABLE table1; – ❌ Incorrect syntax.
+D) REMOVE TABLE table1; – ❌ Incorrect command. REMOVE is not an SQL keyword.
+
+Q24. Which SQL command deletes an entire database permanently?
+A) DELETE DATABASE – ❌ Incorrect. DELETE is for rows, not databases.
+B) REMOVE DATABASE – ❌ Incorrect. REMOVE is not valid SQL.
+C) ERASE DATABASE – ❌ Incorrect. Not an SQL command.
+D) DROP DATABASE – ✅ Correct. This removes the entire database permanently.
+
+Q25. What clause avoids error when dropping a table that doesn’t exist?
+A) IF NOT EXISTS – ❌ Incorrect. Used with CREATE, not DROP.
+B) IF EXISTS – ✅ Correct. Prevents error if the table doesn't exist.
+C) WHEN NOT EXISTS – ❌ Incorrect. Invalid SQL syntax.
+D) EXIST IF – ❌ Incorrect. Not a valid clause.
+
+Q26. DROP is part of which SQL category?
+A) DCL – ❌ Incorrect. DCL is for permissions (e.g., GRANT, REVOKE).
+B) DDL – ✅ Correct. DROP modifies schema objects like tables and databases.
+C) DML – ❌ Incorrect. DML handles data (e.g., INSERT, DELETE).
+D) TCL – ❌ Incorrect. TCL is for transaction control (e.g., COMMIT, ROLLBACK).
+
+Q27. Which objects can be dropped using the DROP command?
+A) Tables – ✅ Correct.
+B) Databases – ✅ Correct.
+C) Views – ✅ Correct.
+D) All of the above – ✅ ✅ Correct. DROP can be used for multiple schema objects.
+
+Q28. Is DROP TABLE reversible using ROLLBACK?
+A) Yes – ❌ Incorrect. Once dropped, the table and data are gone permanently.
+B) No – ✅ Correct. DROP is not reversible unless you’re in a system with backup or flashback tools.
+
+Q29. Which clause is valid for dropping a database conditionally?
+A) DROP DATABASE WHERE NOT EXISTS db1; – ❌ Incorrect syntax.
+B) DROP DATABASE IF EXISTS db1; – ✅ Correct SQL syntax to conditionally drop a database.
+C) REMOVE DATABASE IF db1 EXISTS; – ❌ Invalid SQL.
+D) DROP IF EXISTS db1 DATABASE; – ❌ Incorrect order and syntax.
+
+Q30. Which command deletes structure and data but not the definition?
+A) TRUNCATE – ✅ Correct. It deletes all rows but keeps table structure for future use.
+B) DROP – ❌ Incorrect. Removes both data and structure.
+C) DELETE – ❌ Incorrect. Deletes only data, not structure or definition.
+D) BACKUP – ❌ Incorrect. Used for copying, not deleting.
+
+Q31. What does ALTER TABLE do?
+A) Changes table data – ❌ Incorrect. That’s done using UPDATE.
+B) Alters table schema – ✅ Correct. ALTER TABLE modifies table structure like adding/removing columns.
+C) Inserts values – ❌ Incorrect. That’s INSERT INTO.
+D) Creates table – ❌ Incorrect. CREATE TABLE is used for that.
+
+Q32. How do you add a new column in an existing table?
+A) MODIFY TABLE ADD COLUMN – ❌ Incorrect SQL syntax.
+B) ALTER TABLE ADD column_name datatype; – ✅ Correct. This is the valid SQL to add a column.
+C) INSERT COLUMN TO TABLE – ❌ Incorrect. INSERT is for data, not schema.
+D) UPDATE TABLE COLUMN – ❌ Incorrect. UPDATE changes data values, not schema.
+
+Q33. How do you rename a table?
+A) UPDATE TABLE – ❌ Incorrect. UPDATE is used for changing data.
+B) RENAME TABLE old TO new; – ✅ Correct. MySQL syntax for renaming a table.
+C) ALTER TABLE old RENAME TO new; – ✅ Also correct. Supported in many SQL engines.
+D) MODIFY TABLE new; – ❌ Incorrect syntax and purpose.
+
+(Note: Both B and C are correct depending on the SQL dialect; MySQL uses B, standard SQL uses C.)
+
+Q34. Can you change a column's data type using ALTER?
+A) No – ❌ Incorrect.
+B) Yes – ✅ Correct. ALTER TABLE allows changing a column’s datatype.
+
+Q35. How do you drop a column from a table?
+A) ALTER TABLE DROP column; – ❌ Incorrect syntax; missing table name.
+B) DROP COLUMN FROM table; – ❌ Invalid SQL syntax.
+C) ALTER TABLE table_name DROP COLUMN column_name; – ✅ Correct syntax for dropping a column.
+D) DELETE COLUMN – ❌ DELETE is for rows, not schema.
+
+Q36. ALTER is a part of which SQL command group?
+A) DML – ❌ Incorrect. DML changes data, not structure.
+B) DCL – ❌ Incorrect. DCL deals with permissions.
+C) DDL – ✅ Correct. ALTER is a Data Definition Language command.
+D) TCL – ❌ Incorrect. TCL deals with transactions.
+
+Q37. What command adds multiple columns in a table?
+A) ADD (a INT, b INT) – ❌ Incorrect. Lacks table context.
+B) ALTER TABLE table ADD a INT, b INT; – ❌ Incorrect syntax; must use ADD for each column separately.
+C) ALTER TABLE table ADD (a INT, b INT); – ✅ Correct syntax in MySQL to add multiple columns at once.
+D) UPDATE TABLE ADD (a, b); – ❌ Invalid SQL syntax.
+
+Q38. What keyword is used to modify column type in MySQL?
+A) CHANGE – ✅ Correct. ALTER TABLE ... CHANGE old_col new_col new_type.
+B) MODIFY – ✅ Also correct. MODIFY column_name new_type.
+C) UPDATE – ❌ Incorrect. Used for updating data.
+D) ADJUST – ❌ Not an SQL keyword.
+
+(Note: Both A and B are correct. CHANGE allows renaming & type change, MODIFY only type.)
+
+Q39. How to change column name using ALTER?
+A) ALTER COLUMN old TO new; – ❌ Incorrect syntax.
+B) RENAME COLUMN old TO new; – ✅ Valid in some databases (e.g., PostgreSQL, SQL Server 2016+).
+C) ALTER TABLE table CHANGE old new type; – ✅ Correct in MySQL for renaming column.
+D) MODIFY COLUMN new – ❌ Incomplete and incorrect syntax.
+
+Q40. Can you drop a constraint using ALTER?
+A) Yes – ✅ Correct. ALTER TABLE can be used to drop constraints (e.g., DROP CONSTRAINT constraint_name).
+B) No – ❌ Incorrect. Constraints can be removed with ALTER.
+
+Q41. What does the TRUNCATE TABLE command do?
+A) Deletes only structure – ❌ Incorrect. Structure remains intact; only data is deleted.
+B) Deletes all rows quickly – ✅ Correct. TRUNCATE TABLE removes all rows efficiently.
+C) Renames the table – ❌ Incorrect. Use RENAME TABLE or ALTER for that.
+D) Creates a new table – ❌ Incorrect. Use CREATE TABLE for that.
+
+Q42. Which is faster: DELETE or TRUNCATE?
+A) DELETE – ❌ Incorrect. DELETE is slower, especially for large datasets.
+B) TRUNCATE – ✅ Correct. TRUNCATE is faster as it bypasses row-by-row deletion and logging.
+
+Q43. What happens to auto-increment value after TRUNCATE?
+A) Continues from last – ❌ Incorrect. That’s for DELETE.
+B) Resets to initial – ✅ Correct. TRUNCATE resets the auto-increment counter.
+C) Doubles – ❌ Nonsensical.
+D) Sets to zero – ❌ Incorrect. It resets to initial, not necessarily zero (could be 1).
+
+Q44. Can TRUNCATE be rolled back?
+A) Yes – ❌ Incorrect in most databases (unless inside a transaction in some RDBMS).
+B) No – ✅ Correct. TRUNCATE is generally DDL and cannot be rolled back once committed.
+
+Q45. Can TRUNCATE be used if a table has a foreign key constraint?
+A) Yes – ❌ Incorrect. Most RDBMS restrict TRUNCATE on tables with FK constraints.
+B) No – ✅ Correct. You usually need to disable the FK or use DELETE instead.
+
+Q46. What SQL category is TRUNCATE?
+A) DCL – ❌ Incorrect. DCL is for access control.
+B) DDL – ✅ Correct. TRUNCATE is a Data Definition Language command.
+C) DML – ❌ Incorrect. DELETE is DML, not TRUNCATE.
+D) TCL – ❌ Incorrect. TCL handles transactions.
+
+Q47. Which is true about TRUNCATE?
+A) Fires DELETE triggers – ❌ Incorrect. TRUNCATE does not fire DELETE triggers.
+B) Is logged row-by-row – ❌ Incorrect. It is minimally logged.
+C) Cannot be rolled back – ✅ Correct. It is irreversible in most systems.
+D) Slower than DELETE – ❌ Incorrect. TRUNCATE is faster.
+
+Q48. Which command resets identity columns?
+A) DELETE – ❌ Incorrect. It doesn’t reset identity/auto-increment.
+B) DROP – ❌ Incorrect. Drops the entire table.
+C) TRUNCATE – ✅ Correct. It resets identity counters in many DBMSs.
+D) ALTER – ❌ Incorrect for this purpose.
+
+Q49. What happens to table structure after TRUNCATE?
+A) Removed – ❌ Incorrect. Structure remains.
+B) Renamed – ❌ Incorrect. Table name is unaffected.
+C) Retained – ✅ Correct. Only data is deleted; schema remains.
+D) Changed – ❌ Incorrect. No structural change occurs.
+
+Q50. TRUNCATE affects how many rows?
+A) Only 1 – ❌ Incorrect.
+B) Only NULL rows – ❌ Incorrect.
+C) All rows – ✅ Correct. TRUNCATE removes all rows from the table.
+D) Conditional rows – ❌ Incorrect. Use DELETE WHERE for that.
